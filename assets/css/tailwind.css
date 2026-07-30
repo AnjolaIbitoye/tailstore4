@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme{
-  --color-primary: #ff0042;
+  --color-rose-gold: #CFA59A;
   --color-white: #ffffff;
   --color-black: #010717;
-  --color-gray-lighter: #FAF7F3;
-  --color-gray-light: #323232;
-  --color-gray-dark: #010717;
-  --color-gray-txt: #4c4d56;
-  --color-gray-line: #E5E5E5;
+  --color-gray-100: #F7DDE2;
+  --color-gray-light: #A3B59A;
+  --color-gray-dark: #5A2032;
+  --color-gray-txt: #6E243B;
+  --color-gray-line: #D8B1A8;
 
   --font-display: "Manrope", sans-serif;
 

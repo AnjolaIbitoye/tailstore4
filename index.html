@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
     <link rel="icon" type="icon" href="assets/images/favicon.png" />
-    <title>Home page</title>
+    <title>Haila | Period Underwear</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-</head>
+</head>--
 
 <body>
     <!-- Header -->
@@ -25,7 +25,7 @@
             <!-- Left section: Logo -->
             <a href="index.html" class="flex items-center">
               <div>
-                  <img src="assets/images/template-white-logo.png" alt="Logo" class="h-14 w-auto mr-4">
+                  <img src="assets/images/Haila_logo.png" alt="Haila logo" class="h-14 w-auto mr-4">
               </div>
             </a>
 
@@ -44,57 +44,10 @@
               <ul class="flex justify-center space-x-4 text-white">
                   <li><a href="index.html" class="hover:text-secondary font-semibold">Home</a></li>
 
-                  <!-- Men Dropdown -->
-                  <li class="relative group" x-data="{ open: false }">
-                      <a href="shop.html" @mouseover="open = true" @mouseleave="open = false" href="#" class="hover:text-secondary font-semibold flex items-center">
-                          Men
-                          <i :class="open ? 'fas fa-chevron-up ml-1 text-xs' : 'fas fa-chevron-down ml-1 text-xs'"></i>
-                      </a>
-                      <ul 
-                          x-show="open"
-                          @mouseover="open = true"
-                          @mouseleave="open = false"
-                          class="absolute left-0 bg-white text-black space-y-2 mt-1 p-2 rounded shadow-lg"
-                          x-transition:enter="transition ease-out duration-100"
-                          x-transition:enter-start="opacity-0 scale-90"
-                          x-transition:enter-end="opacity-100 scale-100"
-                          x-transition:leave="transition ease-in duration-100"
-                          x-transition:leave-start="opacity-100 scale-100"
-                          x-transition:leave-end="opacity-0 scale-90"
-                      >
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item 1</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item 2</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item 3</a></li>
-                      </ul>
-                  </li>
-
-                  <!-- Women Dropdown -->
-                  <li class="relative group" x-data="{ open: false }">
-                      <a href="shop.html" @mouseover="open = true" @mouseleave="open = false" href="#" class="hover:text-secondary font-semibold flex items-center">
-                          Women
-                          <i :class="open ? 'fas fa-chevron-up ml-1 text-xs' : 'fas fa-chevron-down ml-1 text-xs'"></i>
-                      </a>
-                      <ul
-                          x-show="open"
-                          @mouseover="open = true"
-                          @mouseleave="open = false"
-                          class="absolute left-0 bg-white text-black space-y-2 mt-1 p-2 rounded shadow-lg"
-                          x-transition:enter="transition ease-out duration-100"
-                          x-transition:enter-start="opacity-0 scale-90"
-                          x-transition:enter-end="opacity-100 scale-100"
-                          x-transition:leave="transition ease-in duration-100"
-                          x-transition:leave-start="opacity-100 scale-100"
-                          x-transition:leave-end="opacity-0 scale-90"
-                      >
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item 1</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item 2</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item 3</a></li>
-                      </ul>
-                  </li>
+                  
 
                   <li><a href="shop.html" class="hover:text-secondary font-semibold">Shop</a></li>
                   <li><a href="single-product-page.html" class="hover:text-secondary font-semibold">Product</a></li>
-                  <li><a href="404.html" class="hover:text-secondary font-semibold">404 page</a></li>
                   <li><a href="checkout.html" class="hover:text-secondary font-semibold">Checkout</a></li>
               </ul>
             </nav>
@@ -117,7 +70,7 @@
                               <div class="flex items-center">
                                   <img src="/assets/images/single-product/1.jpg" alt="Product" class="h-12 w-12 object-cover rounded mr-2">
                                   <div>
-                                      <p class="font-semibold">Summer black dress</p>
+                                      <p class="font-semibold">High-waist period brief</p>
                                       <p class="text-sm">Quantity: 1</p>
                                   </div>
                               </div>
@@ -128,7 +81,7 @@
                             <div class="flex items-center">
                                 <img src="/assets/images/single-product/2.jpg" alt="Product" class="h-12 w-12 object-cover rounded mr-2">
                                 <div>
-                                    <p class="font-semibold">Black suit</p>
+                                    <p class="font-semibold">Seamless period brief</p>
                                     <p class="text-sm">Quantity: 1</p>
                                 </div>
                             </div>
@@ -157,41 +110,10 @@
       <ul class="w-full">
           <li><a href="index.html" class="hover:text-secondary font-bold block py-2">Home</a></li>
 
-          <!-- Men Dropdown -->
-          <li class="relative group" x-data="{ open: false }">
-              <a @click="open = !open; $event.preventDefault()" class="hover:text-secondary font-bold  py-2 flex justify-center items-center cursor-pointer">
-                <span>Men</span>
-                <span @click.stop="open = !open">
-                    <i :class="open ? 'fas fa-chevron-up text-xs ml-2' : 'fas fa-chevron-down text-xs ml-2'"></i>
-                </span>
-              </a>
-              <ul class="mobile-dropdown-menu" x-show="open" x-transition class="space-y-2">
-                  <li><a href="shop.html" class="hover:text-secondary font-bold block pt-2 pb-3">Shop Men</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Men item 1</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Men item 2</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Men item 3</a></li>
-              </ul>
-          </li>
 
-          <!-- Women Dropdown -->
-          <li class="relative group" x-data="{ open: false }">
-              <a @click="open = !open; $event.preventDefault()" class="hover:text-secondary font-bold py-2 flex justify-center items-center cursor-pointer">
-                    <span>Women</span>
-                    <span @click.stop="open = !open">
-                        <i :class="open ? 'fas fa-chevron-up text-xs ml-2' : 'fas fa-chevron-down text-xs ml-2'"></i>
-                    </span>
-              </a>
-              <ul class="mobile-dropdown-menu" x-show="open" x-transition class="pl-4 space-y-2">
-                  <li><a href="shop.html" class="hover:text-secondary font-bold block py-2">Shop Women</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Women item 1</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Women item 2</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Women item 3</a></li>
-              </ul>
-          </li>
-
+         
           <li><a href="shop.html" class="hover:text-secondary font-bold block py-2">Shop</a></li>
           <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Product</a></li>
-          <li><a href="404.html" class="hover:text-secondary font-bold block py-2">404 page</a></li>
           <li><a href="checkout.html" class="hover:text-secondary font-bold block py-2">Checkout</a></li>
       </ul>
       <div class="flex flex-col mt-6 space-y-2 items-center">
@@ -218,8 +140,8 @@
                 <div class="swiper-slide">
                     <img src="assets/images/main-slider/5.jpg" alt="Product 1">
                     <div class="swiper-slide-content">
-                      <h2 class="text-3xl md:text-7xl font-bold text-white mb-2 md:mb-4">Women</h2>
-                      <p class="mb-4 text-white md:text-2xl">Experience the best in sportswear with <br>our latest collection.</p>
+                      <h2 class="text-3xl md:text-7xl font-bold text-white mb-2 md:mb-4">Period Underwear</h2>
+                      <p class="mb-4 text-white md:text-2xl">Reusable period underwear made for <br>all-day comfort and leak protection.</p>
                         <a href="/"
                             class="bg-primary hover:bg-transparent text-white hover:text-white border border-transparent hover:border-white font-semibold px-4 py-2 rounded-full inline-block">Shop
                             now</a>
@@ -227,10 +149,10 @@
                 </div>
                 <!-- Slide 2 -->
                 <div class="swiper-slide">
-                    <img src="assets/images/main-slider/2.png" alt="Product 2">
+                    <img src="assets/images/main-slider/4.jpg" alt="Product 2">
                     <div class="swiper-slide-content">
-                      <h2 class="text-3xl md:text-7xl font-bold text-white mb-2 md:mb-4">Men</h2>
-                      <p class="mb-4 text-white md:text-2xl">Discover the latest trends in Men`s <br>sportswear and casual fashion.</p>
+                      <h2 class="text-3xl md:text-7xl font-bold text-white mb-2 md:mb-4">Period Underwear Activewear</h2>
+                      <p class="mb-4 text-white md:text-2xl">Comfort-first underwear for light, medium, <br>and heavy flow days.</p>
                         <a href="/"
                             class="bg-white hover:bg-transparent text-black hover:text-white font-semibold px-4 py-2 rounded-full inline-block border border-transparent hover:border-white">Shop
                             now</a>
@@ -241,7 +163,7 @@
                     <img src="assets/images/main-slider/4.jpg" alt="Product 3">
                     <div class="swiper-slide-content">
                       <h2 class="text-3xl md:text-7xl font-bold text-white mb-2 md:mb-4">Accessories</h2>
-                      <p class="mb-4 text-white md:text-2xl">Elevate your style with our latest <br>sportswear collection.</p>
+                      <p class="mb-4 text-white md:text-2xl">Soft, breathable protection you can trust <br>day and night.</p>
                         <a href="/"
                             class="bg-primary hover:bg-transparent text-white hover:text-white border border-transparent hover:border-white font-semibold px-4 py-2 rounded-full inline-block">Shop
                             now</a>
@@ -261,11 +183,11 @@
                 <!-- Category 1 -->
                 <div class="w-full sm:w-1/3 px-4 mb-8">
                     <div class="category-banner relative overflow-hidden rounded-lg shadow-lg group">
-                        <img src="/assets/images/cat-image1.jpg" alt="Category 1" class="w-full h-auto">
+                        <img src="/assets/images/cat-image5.jpg" alt="Category 1" class="w-full h-auto">
                         <div class="absolute inset-0 bg-gray-light/50"></div>
                         <div
                             class="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4">
-                            <h2 class="text-2xl md:text-3xl font-bold mb-4">Men</h2>
+                            <h2 class="text-2xl md:text-3xl font-bold mb-4">Period Underwear Activewear</h2>
                             <a href="/"
                                 class="bg-primary hover:bg-transparent border border-transparent hover:border-white text-white hover:text-white font-semibold px-4 py-2 rounded-full inline-block">Shop
                                 now</a>
@@ -279,7 +201,7 @@
                         <div class="absolute inset-0 bg-gray-light/50"></div>
                         <div
                             class="category-text absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4 transition duration-300">
-                            <h2 class="text-2xl md:text-3xl font-bold mb-4">Women</h2>
+                            <h2 class="text-2xl md:text-3xl font-bold mb-4">Period Underwear</h2>
                             <a href="/"
                                 class="bg-primary hover:bg-transparent border border-transparent hover:border-white text-white hover:text-white font-semibold px-4 py-2 rounded-full inline-block">Shop
                                 now</a>
@@ -306,15 +228,15 @@
 
     <!-- Popular product section -->
     <section id="popular-products">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-8">Popular products</h2>
-            <div class="flex flex-wrap -mx-4">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-2xl font-bold mb-8">Best sellers</h2>
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 <!-- Product 1 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
+                <div class="best-seller-card w-full h-full">
                   <div class="bg-white p-3 rounded-lg shadow-lg">
-                    <img src="assets/images/products/1.jpg" alt="Product 1" class="w-full object-cover mb-4 rounded-lg">
-                    <a href="#" class="text-lg font-semibold mb-2">Summer black dress</a>
-                    <p class="my-2">Women</p>
+                    <img src="assets/images/Model-1.png" alt="Product 1" class="w-full object-cover mb-4 rounded-lg">
+                    <a href="#" class="text-lg font-semibold mb-2">High-waist period brief</a>
+                    <p class="my-2">Period Underwear</p>
                     <div class="flex items-center mb-4">
                       <span class="text-lg font-bold text-primary">$19.99</span>
                       <span class="text-sm line-through ml-2">$24.99</span>
@@ -323,11 +245,11 @@
                   </div>
                 </div>
                 <!-- Product 2 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
+                <div class="best-seller-card w-full h-full">
                   <div class="bg-white p-3 rounded-lg shadow-lg">
-                    <img src="assets/images/products/2.jpg" alt="Product 2" class="w-full object-cover mb-4 rounded-lg">
-                    <a href="#" class="text-lg font-semibold mb-2">Black suit</a>
-                    <p class=" my-2">Women</p>
+                    <img src="assets/images/Model-2.png" alt="Product 2" class="w-full object-cover mb-4 rounded-lg">
+                    <a href="#" class="text-lg font-semibold mb-2">Seamless period brief</a>
+                    <p class=" my-2">Period Underwear</p>
                     <div class="flex items-center mb-4">
                       <span class="text-lg font-bold text-gray-900">$29.99</span>
                     </div>
@@ -335,11 +257,11 @@
                   </div>
                 </div>
                 <!-- Product 3 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
+                <div class="best-seller-card w-full h-full">
                   <div class="bg-white p-3 rounded-lg shadow-lg">
-                    <img src="assets/images/products/3.jpg" alt="Product 3" class="w-full object-cover mb-4 rounded-lg">
-                    <a href="#" class="text-lg font-semibold mb-2">Black long dress</a>
-                    <p class=" my-2">Women, Accessories</p>
+                    <img src="assets/images/Model-3.png" alt="Product 3" class="w-full object-cover mb-4 rounded-lg">
+                    <a href="#" class="text-lg font-semibold mb-2">Overnight period boxer</a>
+                    <p class=" my-2">Period Underwear, Accessories</p>
                     <div class="flex items-center mb-4">
                       <span class="text-lg font-bold text-gray-900">$15.99</span>
                       <span class="text-sm line-through  ml-2">$19.99</span>
@@ -347,89 +269,18 @@
                     <button class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Add to Cart</button>
                   </div>
                 </div>
-                <!-- Product 4 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
-                  <div class="bg-white p-3 rounded-lg shadow-lg">
-                    <img src="assets/images/products/4.jpg" alt="Product 4" class="w-full object-cover mb-4 rounded-lg">
-                    <a href="#" class="text-lg font-semibold">Black leather jacket</a>
-                    <p class="my-2">Women</p>
-                    <div class="flex items-center mb-4">
-                        <span class="text-lg font-bold text-primary">$39.99</span>
-                        <span class="text-sm line-through ml-2">$49.99</span>
-                    </div>
-                    <button class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Add to Cart</button>
-                  </div>
-                </div>
+                
               </div>
         </div>
     </section>
 
-    <!-- Latest product section -->
-    <section id="latest-products" class="py-10">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-8">Latest products</h2>
-            <div class="flex flex-wrap -mx-4">
-                <!-- Product 1 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
-                  <div class="bg-white p-3 rounded-lg shadow-lg">
-                    <img src="assets/images/products/5.jpg" alt="Product 1" class="w-full object-cover mb-4 rounded-lg">
-                    <a href="#" class="text-lg font-semibold mb-2">Blue women's suit</a>
-                    <p class=" my-2">Women</p>
-                    <div class="flex items-center mb-4">
-                      <span class="text-lg font-bold text-primary">$19.99</span>
-                      <span class="text-sm line-through ml-2">$24.99</span>
-                    </div>
-                    <button class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Add to Cart</button>
-                  </div>
-                </div>
-                <!-- Product 2 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
-                  <div class="bg-white p-3 rounded-lg shadow-lg">
-                    <img src="assets/images/products/6.jpg" alt="Product 2" class="w-full object-cover mb-4 rounded-lg">
-                    <a href="#" class="text-lg font-semibold mb-2">White shirt with long sleeves</a>
-                    <p class=" my-2">Women</p>
-                    <div class="flex items-center mb-4">
-                      <span class="text-lg font-bold text-gray-900">$29.99</span>
-                    </div>
-                    <button class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Add to Cart</button>
-                  </div>
-                </div>
-                <!-- Product 3 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
-                  <div class="bg-white p-3 rounded-lg shadow-lg">
-                    <img src="assets/images/products/7.jpg" alt="Product 3" class="w-full object-cover mb-4 rounded-lg">
-                    <a href="#" class="text-lg font-semibold mb-2">Yellow men's suit</a>
-                    <p class="my-2">Men</p>
-                    <div class="flex items-center mb-4">
-                      <span class="text-lg font-bold text-gray-900">$15.99</span>
-                      <span class="text-sm line-through  ml-2">$19.99</span>
-                    </div>
-                    <button class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Add to Cart</button>
-                  </div>
-                </div>
-                <!-- Product 4 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
-                  <div class="bg-white p-3 rounded-lg shadow-lg">
-                    <img src="assets/images/products/8.jpg" alt="Product 4" class="w-full object-cover mb-4 rounded-lg">
-                    <a href="#" class="text-lg font-semibold mb-2">Red dress</a>
-                    <p class="my-2">Women</p>
-                    <div class="flex items-center mb-4">
-                        <span class="text-lg font-bold text-primary">$39.99</span>
-                        <span class="text-sm line-through ml-2">$49.99</span>
-                    </div>
-                    <button class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-        </div>
-    </section>
-
+    
     <!-- Brand section -->
     <section id="brands" class="bg-white py-16 px-4">
         <div class="container mx-auto max-w-screen-xl px-4 testimonials">
           <div class="text-center mb-12 lg:mb-20">
-            <h2 class="text-5xl font-bold mb-4">Discover <span class="text-primary">Our Brands</span></h2>
-            <p class="my-7">Explore the top brands we feature in our store</p>
+            <h2 class="text-5xl font-bold mb-4">Discover <span class="text-primary">Haila Benefits</span></h2>
+            <p class="my-7">Comfort, reusability, and leak protection for every cycle.</p>
         </div>
             <div class="swiper brands-swiper-slider">
                 <div class="swiper-wrapper">
@@ -478,7 +329,7 @@
         <div class="container mx-auto px-4 py-20 rounded-lg relative bg-cover bg-center" style="background-image: url('assets/images/banner1.jpg');">
             <div class="absolute inset-0 bg-black opacity-40 rounded-lg"></div>
             <div class="relative flex flex-col items-center justify-center h-full text-center text-white py-20">
-                <h2 class="text-4xl font-bold mb-4">Welcome to Our Shop</h2>
+                <h2 class="text-4xl font-bold mb-4">Welcome to Haila</h2>
                 <div class="flex space-x-4">
                     <a href="#" class="bg-primary hover:bg-transparent text-white hover:text-primary border border-transparent hover:border-primary font-semibold px-4 py-2 rounded-full inline-block">Shop Now</a>
                     <a href="#" class="bg-primary hover:bg-transparent text-white hover:text-primary border border-transparent hover:border-primary font-semibold px-4 py-2 rounded-full inline-block">New Arrivals</a>
@@ -491,34 +342,34 @@
     <!-- Blog section -->
     <section class="py-16">
       <div class="text-center mb-12 lg:mb-20">
-          <h2 class="text-5xl font-bold mb-4">Discover <span class="text-primary">Our</span> Blog</h2>
-          <p class="my-7">Stay updated with the latest trends, tips, and stories in the world of fashion</p>
+          <h2 class="text-5xl font-bold mb-4">Discover <span class="text-primary">Haila</span> Care Guide</h2>
+          <p class="my-7">Learn how to choose the right absorbency, fit, and care routine for period underwear.</p>
       </div>
       <div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
           <div class="grid w-full grid-cols-1 gap-6 mx-auto lg:grid-cols-3">
               <div class="flex flex-col p-6 bg-white rounded-xl shadow-lg">
                   <img class="object-cover object-center w-full mb-8 rounded-xl" src="/assets/images/fashion-trends.jpg" alt="blog">
-                  <h2 class="mb-2 text-xs font-semibold tracking-widest text-primary uppercase">Fashion Trends</h2>
-                  <h1 class="mb-4 text-2xl font-semibold leading-none tracking-tighter text-gray-dark lg:text-3xl">Latest Shirt Trends for 2024</h1>
-                  <p class="flex-grow text-base font-medium leading-relaxed text-gray-txt">Explore the hottest shirt trends of 2024. From bold prints to classic styles, stay ahead of the fashion curve with our expert insights.</p>
+                  <h2 class="mb-2 text-xs font-semibold tracking-widest text-primary uppercase">Fit Guide</h2>
+                  <h1 class="mb-4 text-2xl font-semibold leading-none tracking-tighter text-gray-dark lg:text-3xl">Choosing the Right Absorbency</h1>
+                  <p class="flex-grow text-base font-medium leading-relaxed text-gray-txt">Learn how to match absorbency, rise, and fabric to your cycle so you stay dry and comfortable.</p>
                   <div class="mt-8">
                       <a href="#" class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Read more</a>
                   </div>
               </div>
               <div class="flex flex-col p-6 bg-white rounded-xl shadow-lg">
                   <img class="object-cover object-center w-full mb-8 rounded-xl" src="/assets/images/stylisng-tips.jpg" alt="blog">
-                  <h2 class="mb-2 text-xs font-semibold tracking-widest text-primary uppercase">Styling Tips</h2>
-                  <h1 class="mb-4 text-2xl font-semibold leading-none tracking-tighter text-gray-dark lg:text-3xl">How to Style Your Shirt for Any Occasion</h1>
-                  <p class="flex-grow text-base font-medium leading-relaxed text-gray-txt">Learn how to style your shirt for different occasions, whether it's a casual day out or a formal event. Get tips from fashion experts.</p>
+                  <h2 class="mb-2 text-xs font-semibold tracking-widest text-primary uppercase">Care Tips</h2>
+                  <h1 class="mb-4 text-2xl font-semibold leading-none tracking-tighter text-gray-dark lg:text-3xl">How to Wash Period Underwear</h1>
+                  <p class="flex-grow text-base font-medium leading-relaxed text-gray-txt">Rinse cold, wash gently, and air dry to keep your Haila pieces performing well longer.</p>
                   <div class="mt-8">
                       <a href="#" class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Read more</a>
                   </div>
               </div>
               <div class="flex flex-col p-6 bg-white rounded-xl shadow-lg">
                   <img class="object-cover object-center w-full mb-8 rounded-xl" src="/assets/images/customer-stories.jpg" alt="blog">
-                  <h2 class="mb-2 text-xs font-semibold tracking-widest text-primary uppercase">Customer Stories</h2>
-                  <h1 class="mb-4 text-2xl font-semibold leading-none tracking-tighter text-gray-dark lg:text-3xl">Real Stories from Our Happy Customers</h1>
-                  <p class="flex-grow text-base font-medium leading-relaxed text-gray-txt">Read about the experiences of our customers. Discover how our shirts have made a difference in their lives and their personal style.</p>
+                  <h2 class="mb-2 text-xs font-semibold tracking-widest text-primary uppercase">Cycle Confidence</h2>
+                  <h1 class="mb-4 text-2xl font-semibold leading-none tracking-tighter text-gray-dark lg:text-3xl">Real Stories from Haila Wearers</h1>
+                  <p class="flex-grow text-base font-medium leading-relaxed text-gray-txt">Read how Haila helps customers feel secure, comfortable, and confident throughout the day.</p>
                   <div class="mt-8">
                       <a href="#" class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Read more</a>
                   </div>
@@ -532,7 +383,7 @@
       <div class="container mx-auto">
           <div class="flex flex-col items-center rounded-lg p-4 sm:p-0 ">
               <div class="mb-8">
-                  <h2 class="text-center text-xl font-bold sm:text-2xl lg:text-left lg:text-3xl">Join our newsletter and <span class="text-primary">get $50 discount</span> for your first order
+                  <h2 class="text-center text-xl font-bold sm:text-2xl lg:text-left lg:text-3xl">Join our newsletter and <span class="text-primary">get 10% off</span> your first order
                   </h2>
               </div>
               <div class="flex flex-col items-center w-96 ">
@@ -548,7 +399,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-gray-line">
+    <footer class="footer-sage border-t border-gray-line">
         <!-- Top part -->
         <div class="container mx-auto px-4 py-10">
           <div class="flex flex-wrap -mx-4">
@@ -557,8 +408,7 @@
               <h3 class="text-lg font-semibold mb-4">Shop</h3>
               <ul>
                 <li><a href="/shop.html" class="hover:text-primary">Shop</a></li>
-                <li><a href="/single-product-page.html" class="hover:text-primary">Women</a></li>
-                <li><a href="/shop.html" class="hover:text-primary">Men</a></li>
+                <li><a href="/single-product-page.html" class="hover:text-primary">Period Underwear</a></li>
                 <li><a href="/single-product-page.html" class="hover:text-primary">Shoes</a></li>
                 <li><a href="/single-product-page.html" class="hover:text-primary">Accessories</a></li>
               </ul>
@@ -611,10 +461,10 @@
             <!-- Contact Information -->
             <div class="w-full sm:w-2/6 px-4 mb-8">
               <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-              <p><img src="assets/images/template-logo.png" alt="Logo" class="h-[60px] mb-4"></p>
+              <p><img src="assets/images/Haila_logo.png" alt="Haila logo" class="h-[60px] mb-4"></p>
               <p>123 Street Name, Paris, France</p>
               <p class="text-xl font-bold my-4">Phone: (123) 456-7890</p>
-              <a href="mailto:info@company.com" class="underline">Email: info@company.com</a>
+              <a href="mailto:info@haila.com" class="underline">Email: info@haila.com</a>
             </div>
           </div>
         </div>
@@ -624,13 +474,13 @@
           <div class="container mx-auto px-4 flex flex-wrap justify-between items-center">
             <!-- Copyright and Links -->
             <div class="w-full lg:w-3/4 text-center lg:text-left mb-4 lg:mb-0">
-              <p class="mb-2 font-bold">&copy; 2024 Your Company. All rights reserved.</p>
+              <p class="mb-2 font-bold">&copy; 2024 Haila. All rights reserved.</p>
               <ul class="flex justify-center lg:justify-start space-x-4 mb-4 lg:mb-0">
                 <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
                 <li><a href="#" class="hover:text-primary">Terms of Service</a></li>
                 <li><a href="#" class="hover:text-primary">FAQ</a></li>
               </ul>
-              <p class="text-sm mt-4">Your shop's description goes here. This is a brief introduction to your shop and what you offer.</p>
+              <p class="text-sm mt-4">Haila makes reusable period underwear with breathable comfort, leak protection, and a fit designed for everyday confidence.</p>
             </div>
             <!-- Payment Icons -->
             <div class="w-full lg:w-1/4 text-center lg:text-right">

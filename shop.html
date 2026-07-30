@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 
 <head>
@@ -26,7 +26,7 @@
             <!-- Left section: Logo -->
             <a href="index.html" class="flex items-center">
               <div>
-                  <img src="assets/images/template-white-logo.png" alt="Logo" class="h-14 w-auto mr-4">
+                  <img src="assets/images/Haila_logo.png" alt="Haila logo" class="h-14 w-auto mr-4">
               </div>
             </a>
 
@@ -44,58 +44,10 @@
             <nav class="hidden lg:flex md:flex-grow justify-center">
               <ul class="flex justify-center space-x-4 text-white">
                   <li><a href="index.html" class="hover:text-secondary font-semibold">Home</a></li>
-
-                  <!-- Men Dropdown -->
-                  <li class="relative group" x-data="{ open: false }">
-                      <a href="shop.html" @mouseover="open = true" @mouseleave="open = false" href="#" class="hover:text-secondary font-semibold flex items-center">
-                          Men
-                          <i :class="open ? 'fas fa-chevron-up ml-1 text-xs' : 'fas fa-chevron-down ml-1 text-xs'"></i>
-                      </a>
-                      <ul 
-                          x-show="open"
-                          @mouseover="open = true"
-                          @mouseleave="open = false"
-                          class="absolute left-0 bg-white text-black space-y-2 mt-1 p-2 rounded shadow-lg"
-                          x-transition:enter="transition ease-out duration-100"
-                          x-transition:enter-start="opacity-0 scale-90"
-                          x-transition:enter-end="opacity-100 scale-100"
-                          x-transition:leave="transition ease-in duration-100"
-                          x-transition:leave-start="opacity-100 scale-100"
-                          x-transition:leave-end="opacity-0 scale-90"
-                      >
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item 1</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item 2</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item 3</a></li>
-                      </ul>
-                  </li>
-
-                  <!-- Women Dropdown -->
-                  <li class="relative group" x-data="{ open: false }">
-                      <a href="shop.html" @mouseover="open = true" @mouseleave="open = false" href="#" class="hover:text-secondary font-semibold flex items-center">
-                          Women
-                          <i :class="open ? 'fas fa-chevron-up ml-1 text-xs' : 'fas fa-chevron-down ml-1 text-xs'"></i>
-                      </a>
-                      <ul
-                          x-show="open"
-                          @mouseover="open = true"
-                          @mouseleave="open = false"
-                          class="absolute left-0 bg-white text-black space-y-2 mt-1 p-2 rounded shadow-lg"
-                          x-transition:enter="transition ease-out duration-100"
-                          x-transition:enter-start="opacity-0 scale-90"
-                          x-transition:enter-end="opacity-100 scale-100"
-                          x-transition:leave="transition ease-in duration-100"
-                          x-transition:leave-start="opacity-100 scale-100"
-                          x-transition:leave-end="opacity-0 scale-90"
-                      >
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item 1</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item 2</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item 3</a></li>
-                      </ul>
-                  </li>
+                  
 
                   <li><a href="shop.html" class="hover:text-secondary font-semibold">Shop</a></li>
                   <li><a href="single-product-page.html" class="hover:text-secondary font-semibold">Product</a></li>
-                  <li><a href="404.html" class="hover:text-secondary font-semibold">404 page</a></li>
                   <li><a href="checkout.html" class="hover:text-secondary font-semibold">Checkout</a></li>
               </ul>
             </nav>
@@ -118,7 +70,7 @@
                               <div class="flex items-center">
                                   <img src="/assets/images/single-product/1.jpg" alt="Product" class="h-12 w-12 object-cover rounded mr-2">
                                   <div>
-                                      <p class="font-semibold">Summer black dress</p>
+                                      <p class="font-semibold">Haila Everyday Brief</p>
                                       <p class="text-sm">Quantity: 1</p>
                                   </div>
                               </div>
@@ -129,7 +81,7 @@
                             <div class="flex items-center">
                                 <img src="/assets/images/single-product/2.jpg" alt="Product" class="h-12 w-12 object-cover rounded mr-2">
                                 <div>
-                                    <p class="font-semibold">Black suit</p>
+                                    <p class="font-semibold">Haila Overnight Boxer</p>
                                     <p class="text-sm">Quantity: 1</p>
                                 </div>
                             </div>
@@ -157,42 +109,10 @@
     <nav id="mobile-menu-placeholder" class="mobile-menu hidden flex-col items-center space-y-8 lg:hidden">
       <ul class="w-full">
           <li><a href="index.html" class="hover:text-secondary font-bold block py-2">Home</a></li>
-
-          <!-- Men Dropdown -->
-          <li class="relative group" x-data="{ open: false }">
-              <a @click="open = !open; $event.preventDefault()" class="hover:text-secondary font-bold py-2 flex justify-center items-center cursor-pointer">
-                <span>Men</span>
-                <span @click.stop="open = !open">
-                    <i :class="open ? 'fas fa-chevron-up text-xs ml-2' : 'fas fa-chevron-down text-xs ml-2'"></i>
-                </span>
-              </a>
-              <ul class="mobile-dropdown-menu" x-show="open" x-transition class="space-y-2">
-                  <li><a href="shop.html" class="hover:text-secondary font-bold block pt-2 pb-3">Shop Men</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Men item 1</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Men item 2</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Men item 3</a></li>
-              </ul>
-          </li>
-
-          <!-- Women Dropdown -->
-          <li class="relative group" x-data="{ open: false }">
-              <a @click="open = !open; $event.preventDefault()" class="hover:text-secondary font-bold py-2 flex justify-center items-center cursor-pointer">
-                    <span>Women</span>
-                    <span @click.stop="open = !open">
-                        <i :class="open ? 'fas fa-chevron-up text-xs ml-2' : 'fas fa-chevron-down text-xs ml-2'"></i>
-                    </span>
-              </a>
-              <ul class="mobile-dropdown-menu" x-show="open" x-transition class="pl-4 space-y-2">
-                  <li><a href="shop.html" class="hover:text-secondary font-bold block py-2">Shop Women</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Women item 1</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Women item 2</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Women item 3</a></li>
-              </ul>
-          </li>
+                 
 
           <li><a href="shop.html" class="hover:text-secondary font-bold block py-2">Shop</a></li>
           <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Product</a></li>
-          <li><a href="404.html" class="hover:text-secondary font-bold block py-2">404 page</a></li>
           <li><a href="checkout.html" class="hover:text-secondary font-bold block py-2">Checkout</a></li>
       </ul>
       <div class="flex flex-col mt-6 space-y-2 items-center">
@@ -254,17 +174,17 @@
             <div class="flex flex-col md:flex-row">
                 <!-- Filters -->
                 <div id="filters" class="w-full md:w-1/4 p-4 hidden md:block">
-                    <!-- Category Filter -->
+                    <!-- Collection Filter -->
                     <div class="mb-6 pb-8 border-b border-gray-line">
-                        <h3 class="text-lg font-semibold mb-6">Category</h3>
+                        <h3 class="text-lg font-semibold mb-6">Collection</h3>
                         <div class="space-y-2">
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">T-Shirts</span>
+                                <span class="ml-2">Boxer briefs</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Hoodies</span>
+                                <span class="ml-2">Pants</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
@@ -272,75 +192,75 @@
                             </label>
                         </div>
                     </div>
-                    <!-- Size Filter -->
+                    <!-- Absorbency Filter -->
                     <div class="mb-6 pb-8 border-b border-gray-line">
-                        <h3 class="text-lg font-semibold mb-6">Size</h3>
+                        <h3 class="text-lg font-semibold mb-6">Absorbency</h3>
                         <div class="space-y-2">
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">S (30)</span>
+                                <span class="ml-2">Regular</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">M (44)</span>
+                                <span class="ml-2">Heavy</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">L (22)</span>
+                                <span class="ml-2">Super Heavy</span>
                             </label>
                         </div>
                     </div>
-                    <!-- Color Filter -->
+                    <!-- Coverage Filter -->
                     <div class="mb-6 pb-8 border-b border-gray-line">
-                        <h3 class="text-lg font-semibold mb-6">Color</h3>
+                        <h3 class="text-lg font-semibold mb-6">Coverage</h3>
                         <div class="space-y-2">
                             <label class="flex items-center custom-color-checkbox" data-color="#ff0000">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Red</span>
+                                <span class="ml-2">Day</span>
                             </label>
                             <label class="flex items-center custom-color-checkbox" data-color="#0000ff">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Blue</span>
+                                <span class="ml-2">Active</span>
                             </label>
                             <label class="flex items-center custom-color-checkbox" data-color="#00ff00">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Green</span>
+                                <span class="ml-2">Overnight</span>
                             </label>
                         </div>
                     </div>
-                    <!-- Brand Filter -->
+                    <!-- Fit Filter -->
                     <div class="mb-6 pb-8 border-b border-gray-line">
-                        <h3 class="text-lg font-semibold mb-6">Brand</h3>
+                        <h3 class="text-lg font-semibold mb-6">Fit</h3>
                         <div class="space-y-2">
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Nike</span>
+                                <span class="ml-2">Brief</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Adidas</span>
+                                <span class="ml-2">High-waist</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Puma</span>
+                                <span class="ml-2">Full coverage</span>
                             </label>
                         </div>
                     </div>
-                    <!-- Rating Filter -->
+                    <!-- Protection Filter -->
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold mb-6">Rating</h3>
+                        <h3 class="text-lg font-semibold mb-6">Protection level</h3>
                         <div class="space-y-2">
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">★★★★★</span>
+                                <span class="ml-2">Light</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">★★★★☆</span>
+                                <span class="ml-2">Moderate</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">★★★☆☆</span>
+                                <span class="ml-2">Max</span>
                             </label>
                         </div>
                     </div>
@@ -353,8 +273,9 @@
                         <div class="bg-white p-4 rounded-lg shadow">
                             <img src="assets/images/products/5.jpg" alt="Product 1"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <a href="#" class="text-lg font-semibold mb-2">Blue women's suit</a>
-                            <p class=" my-2">Women</p>
+                            <div class="inline-flex rounded-full bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Regular</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Boxer briefs</a>
+                            <p class="my-2 text-gray-txt">Everyday backup with breathable support.</p>
                             <div class="flex items-center mb-4">
                                 <span class="text-lg font-bold text-primary">$19.99</span>
                                 <span class="text-sm line-through ml-2">$24.99</span>
@@ -367,8 +288,9 @@
                         <div class="bg-white p-4 rounded-lg shadow">
                             <img src="assets/images/products/6.jpg" alt="Product 2"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <a href="#" class="text-lg font-semibold mb-2">White shirt with long sleeves</a>
-                            <p class=" my-2">Women</p>
+                            <div class="inline-flex rounded-full bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Heavy</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Boxer briefs</a>
+                            <p class="my-2 text-gray-txt">Higher protection for busier days.</p>
                             <div class="flex items-center mb-4">
                                 <span class="text-lg font-bold text-gray-900">$29.99</span>
                             </div>
@@ -378,10 +300,11 @@
                         </div>
                         <!-- Product 3 -->
                         <div class="bg-white p-4 rounded-lg shadow">
-                            <img src="assets/images/products/7.jpg" alt="Product 3"
+                            <img src="assets/images/products/5.jpg" alt="Product 3"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <a href="#" class="text-lg font-semibold mb-2">Yellow men's suit</a>
-                            <p class="my-2">Men</p>
+                            <div class="inline-flex rounded-full bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Super Heavy</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Boxer briefs</a>
+                            <p class="my-2 text-gray-txt">Maximum coverage for overnight wear.</p>
                             <div class="flex items-center mb-4">
                                 <span class="text-lg font-bold text-gray-900">$15.99</span>
                                 <span class="text-sm line-through  ml-2">$19.99</span>
@@ -394,8 +317,9 @@
                         <div class="bg-white p-4 rounded-lg shadow">
                             <img src="assets/images/products/8.jpg" alt="Product 4"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <a href="#" class="text-lg font-semibold mb-2">Red dress</a>
-                            <p class="my-2">Women</p>
+                            <div class="inline-flex rounded-full bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Regular</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Pants</a>
+                            <p class="my-2 text-gray-txt">Smooth fit with daily absorbency.</p>
                             <div class="flex items-center mb-4">
                                 <span class="text-lg font-bold text-primary">$39.99</span>
                                 <span class="text-sm line-through ml-2">$49.99</span>
@@ -406,10 +330,11 @@
                         </div>
                         <!-- Product 5 -->
                         <div class="bg-white p-4 rounded-lg shadow">
-                            <img src="assets/images/products/4.jpg" alt="Product 4"
+                            <img src="assets/images/products/4.jpg" alt="Product 5"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <a href="#" class="text-lg font-semibold">Black leather jacket</a>
-                            <p class="my-2">Women</p>
+                            <div class="inline-flex rounded-full bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Heavy</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Pants</a>
+                            <p class="my-2 text-gray-txt">Extra coverage for longer days out.</p>
                             <div class="flex items-center mb-4">
                                 <span class="text-lg font-bold text-primary">$39.99</span>
                                 <span class="text-sm line-through ml-2">$49.99</span>
@@ -420,10 +345,11 @@
                         </div>
                         <!-- Product 6 -->
                         <div class="bg-white p-4 rounded-lg shadow">
-                            <img src="assets/images/products/3.jpg" alt="Product 3"
+                            <img src="assets/images/products/3.jpg" alt="Product 6"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <a href="#" class="text-lg font-semibold mb-2">Black long dress</a>
-                            <p class=" my-2">Women, Accessories</p>
+                            <div class="inline-flex rounded-full bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Super Heavy</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Pants</a>
+                            <p class="my-2 text-gray-txt">Night protection with a soft, secure feel.</p>
                             <div class="flex items-center mb-4">
                                 <span class="text-lg font-bold text-gray-900">$15.99</span>
                                 <span class="text-sm line-through  ml-2">$19.99</span>
@@ -456,6 +382,28 @@
                         </nav>
                     </div>
                 </div>
+                    <div class="flex justify-center mt-8">
+                        <nav aria-label="Page navigation">
+                            <ul class="inline-flex space-x-2">
+                                <li>
+                                    <a href="#"
+                                        class="bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full">1</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary hover:text-white">2</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary hover:text-white">3</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -464,25 +412,18 @@
     <section id="shop-category-description" class="py-8">
         <div class="container mx-auto">
             <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h2 class="text-2xl font-bold mb-4">Shirts Category</h2>
+                <h2 class="text-2xl font-bold mb-4">Boxer briefs and pants for every flow</h2>
                 <p class="mb-4">
-                    Discover our wide range of shirts, perfect for any occasion. Whether you're looking for something
-                    casual
-                    or formal, we have the perfect shirt for you. Our collection includes a variety of styles, colors,
-                    and
-                    sizes to suit everyone's taste.
+                    Haila period underwear now centers on two product families: boxer briefs and pants. Each style is offered in Regular, Heavy, and Super Heavy so shoppers can move from everyday backup to overnight coverage without leaving the collection.
                 </p>
                 <p>
-                    Browse through our selection and find your new favorite shirt today. All our shirts are made from
-                    high-quality materials and are designed to provide both comfort and style. Shop now and elevate your
-                    wardrobe with our premium shirts.
+                    Browse the collection, compare the absorbency tiers, and pick the silhouette that matches the level of support you need.
                 </p>
             </div>
         </div>
     </section>
-
     <!-- Footer -->
-    <footer class="border-t border-gray-line">
+    <footer class="footer-sage border-t border-gray-line">
         <!-- Top part -->
         <div class="container mx-auto px-4 py-10">
             <div class="flex flex-wrap -mx-4">
@@ -492,7 +433,6 @@
                     <ul>
                         <li><a href="/shop.html" class="hover:text-primary">Shop</a></li>
                         <li><a href="/single-product-page.html" class="hover:text-primary">Women</a></li>
-                        <li><a href="/shop.html" class="hover:text-primary">Men</a></li>
                         <li><a href="/single-product-page.html" class="hover:text-primary">Shoes</a></li>
                         <li><a href="/single-product-page.html" class="hover:text-primary">Accessories</a></li>
                     </ul>
@@ -550,10 +490,10 @@
                 <!-- Contact Information -->
                 <div class="w-full sm:w-2/6 px-4 mb-8">
                     <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-                    <p><img src="assets/images/template-logo.png" alt="Logo" class="h-[60px] mb-4"></p>
+                    <p><img src="assets/images/Haila_logo.png" alt="Haila logo" class="h-[60px] mb-4"></p>
                     <p>123 Street Name, Paris, France</p>
                     <p class="text-xl font-bold my-4">Phone: (123) 456-7890</p>
-                    <a href="mailto:info@company.com" class="underline">Email: info@company.com</a>
+                    <a href="mailto:info@haila.com" class="underline">Email: info@haila.com</a>
                 </div>
             </div>
         </div>
@@ -563,14 +503,13 @@
             <div class="container mx-auto px-4 flex flex-wrap justify-between items-center">
                 <!-- Copyright and Links -->
                 <div class="w-full lg:w-3/4 text-center lg:text-left mb-4 lg:mb-0">
-                    <p class="mb-2 font-bold">&copy; 2024 Your Company. All rights reserved.</p>
+                    <p class="mb-2 font-bold">&copy; 2024 Haila. All rights reserved.</p>
                     <ul class="flex justify-center lg:justify-start space-x-4 mb-4 lg:mb-0">
                         <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
                         <li><a href="#" class="hover:text-primary">Terms of Service</a></li>
                         <li><a href="#" class="hover:text-primary">FAQ</a></li>
                     </ul>
-                    <p class="text-sm mt-4">Your shop's description goes here. This is a brief introduction to your shop
-                        and what you offer.</p>
+                    <p class="text-sm mt-4">Haila makes reusable period underwear with breathable comfort, leak protection, and a fit designed for everyday confidence.</p>
                 </div>
                 <!-- Payment Icons -->
                 <div class="w-full lg:w-1/4 text-center lg:text-right">

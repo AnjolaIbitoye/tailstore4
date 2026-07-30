@@ -9,6 +9,11 @@ a {
     font-family: 'Manrope', sans-serif;
 }
 
+html,
+body {
+    background-color: #F7DDE2;
+}
+
 button:hover {
   cursor: pointer;
 }
@@ -141,7 +146,7 @@ button:hover {
 }
 
 .brands-swiper-slider .swiper-button-prev, .brands-swiper-slider .swiper-button-next{
-    color: #ff0042;
+    color: var(--color-rose-gold);
 }
 
 .brands-swiper-slider .swiper-button-next{
@@ -203,12 +208,12 @@ img.cursor-pointer:hover {
     transition: all 0.3s ease;
 }
 .tab:hover {
-    color: #323232; 
-    border-color: #ff0042; 
+    color: var(--color-gray-dark); 
+    border-color: var(--color-primary); 
 }
 .tab.active {
-    color: #ff0042; 
-    border-color: #ff0042;
+    color: var(--color-gray-dark); 
+    border-color: var(--color-primary);
 }
 .tab-content {
     display: none;
@@ -233,7 +238,36 @@ img.cursor-pointer:hover {
 }
 
 .custom-checkbox:checked {
-    background-color: #ff0042;
-    border-color: #ff0042;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
+
+/* footer */
+.footer-sage {
+    background: linear-gradient(180deg, #A3B59A 0%, #8FA584 100%);
+    color: #ffffff;
+}
+
+.footer-sage a,
+.footer-sage p,
+.footer-sage li,
+.footer-sage h1,
+.footer-sage h2,
+.footer-sage h3,
+.footer-sage h4,
+.footer-sage h5,
+.footer-sage h6,
+.footer-sage span {
+    color: #ffffff;
+}
+
+.footer-sage a:hover {
+    color: #F7DDE2;
+}
+
+.footer-sage .border-gray-line,
+.footer-sage .border-t,
+.footer-sage .border-b {
+    border-color: rgba(255, 255, 255, 0.22);
+}

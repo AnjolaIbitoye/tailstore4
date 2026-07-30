@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
     <link rel="icon" type="icon" href="assets/images/favicon.png" />
-    <title>Cart page</title>
+    <title>Haila | Cart</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,14 +18,14 @@
     <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 
-<body>
+<body class="cart-page">
     <!-- Header -->
     <header class="bg-gray-dark sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center py-4">
             <!-- Left section: Logo -->
             <a href="index.html" class="flex items-center">
               <div>
-                  <img src="assets/images/template-white-logo.png" alt="Logo" class="h-14 w-auto mr-4">
+                  <img src="assets/images/Haila_logo.png" alt="Haila logo" class="h-14 w-auto mr-4">
               </div>
             </a>
 
@@ -43,58 +43,9 @@
             <nav class="hidden lg:flex md:flex-grow justify-center">
               <ul class="flex justify-center space-x-4 text-white">
                   <li><a href="index.html" class="hover:text-secondary font-semibold">Home</a></li>
-
-                  <!-- Men Dropdown -->
-                  <li class="relative group" x-data="{ open: false }">
-                      <a href="shop.html" @mouseover="open = true" @mouseleave="open = false" href="#" class="hover:text-secondary font-semibold flex items-center">
-                          Men
-                          <i :class="open ? 'fas fa-chevron-up ml-1 text-xs' : 'fas fa-chevron-down ml-1 text-xs'"></i>
-                      </a>
-                      <ul 
-                          x-show="open"
-                          @mouseover="open = true"
-                          @mouseleave="open = false"
-                          class="absolute left-0 bg-white text-black space-y-2 mt-1 p-2 rounded shadow-lg"
-                          x-transition:enter="transition ease-out duration-100"
-                          x-transition:enter-start="opacity-0 scale-90"
-                          x-transition:enter-end="opacity-100 scale-100"
-                          x-transition:leave="transition ease-in duration-100"
-                          x-transition:leave-start="opacity-100 scale-100"
-                          x-transition:leave-end="opacity-0 scale-90"
-                      >
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item 1</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item 2</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item 3</a></li>
-                      </ul>
-                  </li>
-
-                  <!-- Women Dropdown -->
-                  <li class="relative group" x-data="{ open: false }">
-                      <a href="shop.html" @mouseover="open = true" @mouseleave="open = false" href="#" class="hover:text-secondary font-semibold flex items-center">
-                          Women
-                          <i :class="open ? 'fas fa-chevron-up ml-1 text-xs' : 'fas fa-chevron-down ml-1 text-xs'"></i>
-                      </a>
-                      <ul
-                          x-show="open"
-                          @mouseover="open = true"
-                          @mouseleave="open = false"
-                          class="absolute left-0 bg-white text-black space-y-2 mt-1 p-2 rounded shadow-lg"
-                          x-transition:enter="transition ease-out duration-100"
-                          x-transition:enter-start="opacity-0 scale-90"
-                          x-transition:enter-end="opacity-100 scale-100"
-                          x-transition:leave="transition ease-in duration-100"
-                          x-transition:leave-start="opacity-100 scale-100"
-                          x-transition:leave-end="opacity-0 scale-90"
-                      >
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item 1</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item 2</a></li>
-                          <li><a href="shop.html" class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item 3</a></li>
-                      </ul>
-                  </li>
-
+                 
                   <li><a href="shop.html" class="hover:text-secondary font-semibold">Shop</a></li>
                   <li><a href="single-product-page.html" class="hover:text-secondary font-semibold">Product</a></li>
-                  <li><a href="404.html" class="hover:text-secondary font-semibold">404 page</a></li>
                   <li><a href="checkout.html" class="hover:text-secondary font-semibold">Checkout</a></li>
               </ul>
             </nav>
@@ -117,7 +68,7 @@
                               <div class="flex items-center">
                                   <img src="/assets/images/single-product/1.jpg" alt="Product" class="h-12 w-12 object-cover rounded mr-2">
                                   <div>
-                                      <p class="font-semibold">Summer black dress</p>
+                                      <p class="font-semibold">Haila Everyday Brief</p>
                                       <p class="text-sm">Quantity: 1</p>
                                   </div>
                               </div>
@@ -128,7 +79,7 @@
                             <div class="flex items-center">
                                 <img src="/assets/images/single-product/2.jpg" alt="Product" class="h-12 w-12 object-cover rounded mr-2">
                                 <div>
-                                    <p class="font-semibold">Black suit</p>
+                                    <p class="font-semibold">Haila Overnight Boxer</p>
                                     <p class="text-sm">Quantity: 1</p>
                                 </div>
                             </div>
@@ -156,42 +107,10 @@
     <nav id="mobile-menu-placeholder" class="mobile-menu hidden flex flex-col items-center space-y-8 lg:hidden">
       <ul class="w-full">
           <li><a href="index.html" class="hover:text-secondary font-bold block py-2">Home</a></li>
-
-          <!-- Men Dropdown -->
-          <li class="relative group" x-data="{ open: false }">
-              <a @click="open = !open; $event.preventDefault()" class="hover:text-secondary font-bold block py-2 flex justify-center items-center cursor-pointer">
-                <span>Men</span>
-                <span @click.stop="open = !open">
-                    <i :class="open ? 'fas fa-chevron-up text-xs ml-2' : 'fas fa-chevron-down text-xs ml-2'"></i>
-                </span>
-              </a>
-              <ul class="mobile-dropdown-menu" x-show="open" x-transition class="space-y-2">
-                  <li><a href="shop.html" class="hover:text-secondary font-bold block pt-2 pb-3">Shop Men</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Men item 1</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Men item 2</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Men item 3</a></li>
-              </ul>
-          </li>
-
-          <!-- Women Dropdown -->
-          <li class="relative group" x-data="{ open: false }">
-              <a @click="open = !open; $event.preventDefault()" class="hover:text-secondary font-bold block py-2 flex justify-center items-center cursor-pointer">
-                    <span>Women</span>
-                    <span @click.stop="open = !open">
-                        <i :class="open ? 'fas fa-chevron-up text-xs ml-2' : 'fas fa-chevron-down text-xs ml-2'"></i>
-                    </span>
-              </a>
-              <ul class="mobile-dropdown-menu" x-show="open" x-transition class="pl-4 space-y-2">
-                  <li><a href="shop.html" class="hover:text-secondary font-bold block py-2">Shop Women</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Women item 1</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Women item 2</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Women item 3</a></li>
-              </ul>
-          </li>
+                 
 
           <li><a href="shop.html" class="hover:text-secondary font-bold block py-2">Shop</a></li>
           <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Product</a></li>
-          <li><a href="404.html" class="hover:text-secondary font-bold block py-2">404 page</a></li>
           <li><a href="checkout.html" class="hover:text-secondary font-bold block py-2">Checkout</a></li>
       </ul>
       <div class="flex flex-col mt-6 space-y-2 items-center">
@@ -211,12 +130,11 @@
     </nav>
 
     <!-- Cart -->
-    <section id="cart-page" class="bg-white py-16">
+    <section id="cart-page" class="cart-page-section py-16" style="background: radial-gradient(circle at top left, rgba(163, 181, 154, 0.18), transparent 32%), radial-gradient(circle at bottom right, rgba(207, 165, 154, 0.22), transparent 28%), linear-gradient(180deg, #F7DDE2 0%, #FBF4F2 56%, #F4E9DE 100%); position: relative; overflow: hidden;">
         <div class="container mx-auto px-4">
-            <h1 class="text-2xl font-semibold mb-4">Shopping Cart</h1>
-            <div class="flex flex-col md:flex-row gap-4">
+            <h1 class="text-2xl font-semibold mb-4" style="color: #5A2032;">Shopping Cart</h1>
                 <div class="md:w-3/4">
-                    <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+                    <div class="cart-main-card bg-white rounded-3xl shadow-md p-6 mb-4" style="background: rgba(255, 255, 255, 0.92); border: 1px solid rgba(207, 165, 154, 0.7); box-shadow: 0 18px 40px rgba(90, 32, 50, 0.08); backdrop-filter: blur(8px);">
                         <div class="overflow-x-auto">
                             <table class="w-full">
                                 <thead>
@@ -232,7 +150,7 @@
                                         <td class="px-1 py-4">
                                             <div class="flex items-center flex-col sm:flex-row text-center sm:text-left">
                                                 <img class="h-16 w-16 md:h-24 md:w-24 sm:mr-8 mb-4 sm:mb-0" src="/assets/images/single-product/1.jpg" alt="Product image">
-                                                <p class="text-sm md:text-base md:font-semibold">Summer black dress</p>
+                                                <p class="text-sm md:text-base md:font-semibold">Haila Everyday Brief</p>
                                             </div>
                                         </td>
                                         <td class="px-1 py-4 text-center">$19.99</td>
@@ -249,7 +167,7 @@
                                         <td class="px-1 py-4">
                                             <div class="flex items-center flex-col sm:flex-row text-center sm:text-left">
                                                 <img class="h-16 w-16 md:h-24 md:w-24 sm:mr-8 mb-4 sm:mb-0" src="/assets/images/single-product/2.jpg" alt="Product image">
-                                                <p class="text-sm md:text-base md:font-semibold">Black suit</p>
+                                                <p class="text-sm md:text-base md:font-semibold">Haila Overnight Boxer</p>
                                             </div>
                                         </td>
                                         <td class="px-1 py-4 text-center">$19.99</td>
@@ -278,7 +196,7 @@
                     </div>
                 </div>
                 <div class="md:w-1/4">
-                    <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="cart-summary-card rounded-3xl shadow-md p-6" style="background: linear-gradient(180deg, rgba(163, 181, 154, 0.28), rgba(255, 255, 255, 0.9)); border: 1px solid rgba(90, 32, 50, 0.12); box-shadow: 0 18px 40px rgba(90, 32, 50, 0.08);">
                         <h2 class="text-lg font-semibold mb-4">Summary</h2>
                         <div class="flex justify-between mb-4">
                             <p>Subtotal</p>
@@ -304,7 +222,7 @@
     </section>
     
     <!-- Footer -->
-    <footer class="border-t border-gray-line">
+    <footer class="footer-sage border-t border-gray-line">
         <!-- Top part -->
         <div class="container mx-auto px-4 py-10">
         <div class="flex flex-wrap -mx-4">
@@ -314,7 +232,6 @@
             <ul>
                 <li><a href="/shop.html" class="hover:text-primary">Shop</a></li>
                 <li><a href="/single-product-page.html" class="hover:text-primary">Women</a></li>
-                <li><a href="/shop.html" class="hover:text-primary">Men</a></li>
                 <li><a href="/single-product-page.html" class="hover:text-primary">Shoes</a></li>
                 <li><a href="/single-product-page.html" class="hover:text-primary">Accessories</a></li>
             </ul>
@@ -367,10 +284,10 @@
             <!-- Contact Information -->
             <div class="w-full sm:w-2/6 px-4 mb-8">
             <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-            <p><img src="assets/images/template-logo.png" alt="Logo" class="h-[60px] mb-4"></p>
+            <p><img src="assets/images/Haila_logo.png" alt="Haila logo" class="h-[60px] mb-4"></p>
             <p>123 Street Name, Paris, France</p>
             <p class="text-xl font-bold my-4">Phone: (123) 456-7890</p>
-            <a href="mailto:info@company.com" class="underline">Email: info@company.com</a>
+            <a href="mailto:info@haila.com" class="underline">Email: info@haila.com</a>
             </div>
         </div>
         </div>
@@ -380,13 +297,13 @@
         <div class="container mx-auto px-4 flex flex-wrap justify-between items-center">
             <!-- Copyright and Links -->
             <div class="w-full lg:w-3/4 text-center lg:text-left mb-4 lg:mb-0">
-            <p class="mb-2 font-bold">&copy; 2024 Your Company. All rights reserved.</p>
+            <p class="mb-2 font-bold">&copy; 2024 Haila. All rights reserved.</p>
             <ul class="flex justify-center lg:justify-start space-x-4 mb-4 lg:mb-0">
                 <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
                 <li><a href="#" class="hover:text-primary">Terms of Service</a></li>
                 <li><a href="#" class="hover:text-primary">FAQ</a></li>
             </ul>
-            <p class="text-sm mt-4">Your shop's description goes here. This is a brief introduction to your shop and what you offer.</p>
+            <p class="text-sm mt-4">Haila makes reusable period underwear with breathable comfort, leak protection, and a fit designed for everyday confidence.</p>
             </div>
             <!-- Payment Icons -->
             <div class="w-full lg:w-1/4 text-center lg:text-right">
