@@ -14,6 +14,39 @@ body {
     background-color: #F7DDE2;
 }
 
+/* Announcement marquee */
+.marquee-bar {
+    width: 100%;
+}
+
+.marquee-content {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-item {
+    display: inline-block;
+    padding: 0 2rem;
+    white-space: nowrap;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-content {
+        animation: none;
+    }
+}
+
+
 button:hover {
   cursor: pointer;
 }
