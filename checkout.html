@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">    
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -20,18 +22,19 @@
 
 <body>
     <!-- Header -->
-    <header class="bg-gray-dark sticky top-0 z-50">
+    <header class="bg-gray-100 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center py-4">
             <!-- Left section: Logo -->
             <a href="index.html" class="flex items-center">
               <div>
                   <img src="assets/images/Haila_logo.png" alt="Haila logo" class="h-14 w-auto mr-4">
+              <span class="brand-name">HA<span class="brand-i"><img src="assets/images/Haila_logo.png" alt="" class="brand-i-dot">I</span>LA</span>
               </div>
             </a>
 
             <!-- Hamburger menu (for mobile) -->
             <div class="flex lg:hidden">
-                <button id="hamburger" class="text-white focus:outline-none">
+                <button id="hamburger" class="text-gray-dark focus:outline-none">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -41,22 +44,22 @@
 
             <!-- Center section: Menu -->
             <nav class="hidden lg:flex md:flex-grow justify-center">
-              <ul class="flex justify-center space-x-4 text-white">
-                  <li><a href="index.html" class="hover:text-secondary font-semibold">Home</a></li>
+              <ul class="flex justify-center space-x-4 text-gray-dark">
+                  <li><a href="index.html" class="hover:text-clay font-semibold">Home</a></li>
                  
 
-                  <li><a href="shop.html" class="hover:text-secondary font-semibold">Shop</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-secondary font-semibold">Product</a></li>
-                  <li><a href="checkout.html" class="hover:text-secondary font-semibold">Checkout</a></li>
+                  <li><a href="shop.html" class="hover:text-clay font-semibold">Shop</a></li>
+                  <li><a href="single-product-page.html" class="hover:text-clay font-semibold">Product</a></li>
+                  <li><a href="checkout.html" class="hover:text-clay font-semibold">Checkout</a></li>
               </ul>
             </nav>
 
             <!-- Right section: Buttons (for desktop) -->
             <div class="hidden lg:flex items-center space-x-4 relative">
               <a href="register.html"
-                  class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-full inline-block">Register</a>
+                  class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-none inline-block">Register</a>
               <a href="register.html"
-                  class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-full inline-block">Login</a>
+                  class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-none inline-block">Login</a>
               <div class="relative group cart-wrapper">
                   <a href="/cart.html" >
                       <img src="assets/images/cart-shopping.svg" alt="Cart" class="h-6 w-6 group-hover:scale-120">
@@ -87,10 +90,10 @@
                             <p class="font-semibold">$125.00</p>
                         </div>
                       </div>
-                      <a href="/cart.html" class="block text-center mt-4 border border-primary bg-primary hover:bg-transparent text-white hover:text-primary py-2 rounded-full font-semibold">Go to Cart</a>
+                      <a href="/cart.html" class="block text-center mt-4 border border-primary bg-primary hover:bg-transparent text-white hover:text-primary py-2 rounded-none font-semibold">Go to Cart</a>
                   </div>
               </div>
-              <a id="search-icon" href="javascript:void(0);" class="text-white hover:text-secondary group">
+              <a id="search-icon" href="javascript:void(0);" class="text-gray-dark hover:text-clay group">
                   <img src="assets/images/search-icon.svg" alt="Search"
                       class="h-6 w-6 transition-transform transform group-hover:scale-120">
               </a>
@@ -107,19 +110,19 @@
     <!-- Mobile menu -->
     <nav id="mobile-menu-placeholder" class="mobile-menu hidden flex flex-col items-center space-y-8 lg:hidden">
       <ul class="w-full">
-          <li><a href="index.html" class="hover:text-secondary font-bold block py-2">Home</a></li>
+          <li><a href="index.html" class="hover:text-clay font-bold block py-2">Home</a></li>
                  
-          <li><a href="shop.html" class="hover:text-secondary font-bold block py-2">Shop</a></li>
-          <li><a href="single-product-page.html" class="hover:text-secondary font-bold block py-2">Product</a></li>
-          <li><a href="checkout.html" class="hover:text-secondary font-bold block py-2">Checkout</a></li>
+          <li><a href="shop.html" class="hover:text-clay font-bold block py-2">Shop</a></li>
+          <li><a href="single-product-page.html" class="hover:text-clay font-bold block py-2">Product</a></li>
+          <li><a href="checkout.html" class="hover:text-clay font-bold block py-2">Checkout</a></li>
       </ul>
       <div class="flex flex-col mt-6 space-y-2 items-center">
           <a href="register.html"
-              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-full inline-block flex items-center justify-center min-w-[110px]">Register</a>
+              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none inline-block flex items-center justify-center min-w-[110px]">Register</a>
           <a href="register.html"
-              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-full inline-block flex items-center justify-center min-w-[110px]">Login</a>
+              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none inline-block flex items-center justify-center min-w-[110px]">Login</a>
           <a href="register.html"
-              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-full inline-block flex items-center justify-center min-w-[110px]">Cart -&nbsp;<span>5</span>&nbsp;items</a>
+              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none inline-block flex items-center justify-center min-w-[110px]">Cart -&nbsp;<span>5</span>&nbsp;items</a>
       </div>
       <!-- Search field -->
       <div 
@@ -190,7 +193,7 @@
                         <p class="font-semibold">Total</p>
                         <p class="font-semibold">$69.00</p>
                     </div>
-                    <button class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary py-2 px-4 rounded-full w-full">Proceed to Payment</button>
+                    <button class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary py-2 px-4 rounded-none w-full">Proceed to Payment</button>
                 </div>
             </div>
         </div>
@@ -233,28 +236,23 @@
             <!-- Social Media -->
             <div class="w-full sm:w-1/6 px-4 mb-8">
             <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-            <ul>
-                <li class="flex items-center mb-2">
-                <img src="/assets/images/social_icons/facebook.svg" alt="Facebook" class="w-4 h-4 transition-transform transform hover:scale-110 mr-2">
-                <a href="#" class="hover:text-primary">Facebook</a>
-                </li>
-                <li class="flex items-center mb-2">
-                <img src="/assets/images/social_icons/twitter.svg" alt="Twitter" class="w-4 h-4 transition-transform transform hover:scale-110 mr-2">
-                <a href="#" class="hover:text-primary">Twitter</a>
-                </li>
-                <li class="flex items-center mb-2">
-                <img src="/assets/images/social_icons/instagram.svg" alt="Instagram" class="w-4 h-4 transition-transform transform hover:scale-110 mr-2">
-                <a href="#" class="hover:text-primary">Instagram</a>
-                </li>
-                <li class="flex items-center mb-2">
-                <img src="/assets/images/social_icons/pinterest.svg" alt="Instagram" class="w-4 h-4 transition-transform transform hover:scale-110 mr-2">
-                <a href="#" class="hover:text-primary">Pinterest</a>
-                </li>
-                <li class="flex items-center mb-2">
-                <img src="/assets/images/social_icons/youtube.svg" alt="Instagram" class="w-4 h-4 transition-transform transform hover:scale-110 mr-2">
-                <a href="#" class="hover:text-primary">YouTube</a>
-                </li>
-            </ul>
+                    <div class="flex items-center space-x-4">
+                        <a href="#">
+                            <img src="assets/images/social_icons/facebook.svg" alt="Facebook" class="social-icon w-6 h-6 transition-transform transform hover:scale-110">
+                        </a>
+                        <a href="#">
+                            <img src="assets/images/social_icons/twitter.svg" alt="Twitter" class="social-icon w-6 h-6 transition-transform transform hover:scale-110">
+                        </a>
+                        <a href="#">
+                            <img src="assets/images/social_icons/instagram.svg" alt="Instagram" class="social-icon w-6 h-6 transition-transform transform hover:scale-110">
+                        </a>
+                        <a href="#">
+                            <img src="assets/images/social_icons/pinterest.svg" alt="Pinterest" class="social-icon w-6 h-6 transition-transform transform hover:scale-110">
+                        </a>
+                        <a href="#">
+                            <img src="assets/images/social_icons/youtube.svg" alt="YouTube" class="social-icon w-6 h-6 transition-transform transform hover:scale-110">
+                        </a>
+                    </div>
             </div>
             <!-- Contact Information -->
             <div class="w-full sm:w-2/6 px-4 mb-8">

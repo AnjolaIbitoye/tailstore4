@@ -1,22 +1,52 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 p,
 a {
     font-family: Manrope, sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: 0.02em;
+}
+
+.brand-name {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    color: var(--color-gray-dark);
+}
+
+.brand-i {
+    position: relative;
+    display: inline-block;
+}
+
+.brand-i-dot {
+    position: absolute;
+    top: -0.85em;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0.45em;
+    width: auto;
+}
+
 html,
 body {
-    background-color: #F7DDE2;
+    background-color: #ffffff;
 }
 
 /* Announcement marquee */
 .marquee-bar {
     width: 100%;
+}
+
+.social-icon {
+    filter: brightness(0) invert(1);
 }
 
 .marquee-content {
@@ -195,7 +225,11 @@ button:hover {
 }
 
 .brands-swiper-slider .swiper-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
+    gap: 2rem;
 }
 .brands-swiper-slider .swiper-slide img {
     width: auto;
