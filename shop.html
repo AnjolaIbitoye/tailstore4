@@ -106,10 +106,13 @@
               </div>
           </div>
         </div>
-    </header>
-
     <!-- Mobile menu -->
-    <nav id="mobile-menu-placeholder" class="mobile-menu hidden flex-col items-center space-y-8 lg:hidden">
+    <nav id="mobile-menu-placeholder" class="mobile-menu flex-col items-center space-y-8 lg:hidden">
+      <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
       <ul class="w-full">
           <li><a href="index.html" class="hover:text-clay font-bold block py-2">Home</a></li>
                  
@@ -133,6 +136,7 @@
               placeholder="Search for products...">
       </div>
     </nav>
+    </header>
 
     <!-- Shop -->
     <section id="shop">
@@ -183,15 +187,15 @@
                         <div class="space-y-2">
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Boxer briefs</span>
+                                <span class="ml-2">Period Underwear</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Pants</span>
+                                <span class="ml-2">Haila Active</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Accessories</span>
+                                <span class="ml-2">Other</span>
                             </label>
                         </div>
                     </div>
@@ -274,11 +278,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <!-- Product 1 -->
                         <div class="bg-white p-4 rounded-lg shadow">
-                            <img src="assets/images/products/5.jpg" alt="Product 1"
+                            <img src="assets/images/products/1.jpg" alt="Stretchy Briefs"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Regular</div>
-                            <a href="#" class="text-lg font-semibold mb-2 block">Boxer briefs</a>
-                            <p class="my-2 text-gray-txt">Everyday backup with breathable support.</p>
+                            <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Stretchy Briefs</a>
+                            <p class="my-2 text-gray-txt">Soft, stretchy comfort for everyday wear.</p>
                             <div class="flex items-center mb-4">
                                 <span class="text-lg font-bold text-primary">$19.99</span>
                                 <span class="text-sm line-through ml-2">$24.99</span>
@@ -289,13 +293,13 @@
                         </div>
                         <!-- Product 2 -->
                         <div class="bg-white p-4 rounded-lg shadow">
-                            <img src="assets/images/products/6.jpg" alt="Product 2"
+                            <img src="assets/images/products/2.jpg" alt="Boxer Shorts"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Heavy</div>
-                            <a href="#" class="text-lg font-semibold mb-2 block">Boxer briefs</a>
-                            <p class="my-2 text-gray-txt">Higher protection for busier days.</p>
+                            <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Boxer Shorts</a>
+                            <p class="my-2 text-gray-txt">Relaxed fit with reliable leak protection.</p>
                             <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-gray-900">$29.99</span>
+                                <span class="text-lg font-bold text-gray-900">$27.99</span>
                             </div>
                             <button
                                 class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full">Add
@@ -303,14 +307,14 @@
                         </div>
                         <!-- Product 3 -->
                         <div class="bg-white p-4 rounded-lg shadow">
-                            <img src="assets/images/products/5.jpg" alt="Product 3"
+                            <img src="assets/images/products/3.jpg" alt="Lace Briefs"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Super Heavy</div>
-                            <a href="#" class="text-lg font-semibold mb-2 block">Boxer briefs</a>
-                            <p class="my-2 text-gray-txt">Maximum coverage for overnight wear.</p>
+                            <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Lace Briefs</a>
+                            <p class="my-2 text-gray-txt">Delicate lace design with hidden absorbency.</p>
                             <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-gray-900">$15.99</span>
-                                <span class="text-sm line-through  ml-2">$19.99</span>
+                                <span class="text-lg font-bold text-primary">$22.99</span>
+                                <span class="text-sm line-through ml-2">$27.99</span>
                             </div>
                             <button
                                 class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full">Add
@@ -318,14 +322,13 @@
                         </div>
                         <!-- Product 4 -->
                         <div class="bg-white p-4 rounded-lg shadow">
-                            <img src="assets/images/products/8.jpg" alt="Product 4"
+                            <img src="assets/images/products/4.jpg" alt="Gym Leggings"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Regular</div>
-                            <a href="#" class="text-lg font-semibold mb-2 block">Pants</a>
-                            <p class="my-2 text-gray-txt">Smooth fit with daily absorbency.</p>
+                            <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Gym Leggings</a>
+                            <p class="my-2 text-gray-txt">High-performance leggings built for movement.</p>
                             <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-primary">$39.99</span>
-                                <span class="text-sm line-through ml-2">$49.99</span>
+                                <span class="text-lg font-bold text-gray-900">$34.99</span>
                             </div>
                             <button
                                 class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full">Add
@@ -333,14 +336,14 @@
                         </div>
                         <!-- Product 5 -->
                         <div class="bg-white p-4 rounded-lg shadow">
-                            <img src="assets/images/products/4.jpg" alt="Product 5"
+                            <img src="assets/images/products/5.jpg" alt="Gym Shorts"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Heavy</div>
-                            <a href="#" class="text-lg font-semibold mb-2 block">Pants</a>
-                            <p class="my-2 text-gray-txt">Extra coverage for longer days out.</p>
+                            <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Gym Shorts</a>
+                            <p class="my-2 text-gray-txt">Breathable shorts made for high-intensity workouts.</p>
                             <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-primary">$39.99</span>
-                                <span class="text-sm line-through ml-2">$49.99</span>
+                                <span class="text-lg font-bold text-primary">$24.99</span>
+                                <span class="text-sm line-through ml-2">$29.99</span>
                             </div>
                             <button
                                 class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full">Add
@@ -348,14 +351,28 @@
                         </div>
                         <!-- Product 6 -->
                         <div class="bg-white p-4 rounded-lg shadow">
-                            <img src="assets/images/products/3.jpg" alt="Product 6"
+                            <img src="assets/images/products/6.jpg" alt="Swimwear"
                                 class="w-full object-cover mb-4 rounded-lg">
-                            <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Super Heavy</div>
-                            <a href="#" class="text-lg font-semibold mb-2 block">Pants</a>
-                            <p class="my-2 text-gray-txt">Night protection with a soft, secure feel.</p>
+                            <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Swimwear</a>
+                            <p class="my-2 text-gray-txt">Leak-proof swimwear for worry-free days at the pool.</p>
                             <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-gray-900">$15.99</span>
-                                <span class="text-sm line-through  ml-2">$19.99</span>
+                                <span class="text-lg font-bold text-gray-900">$44.99</span>
+                            </div>
+                            <button
+                                class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full">Add
+                                to Cart</button>
+                        </div>
+                        <!-- Product 7 -->
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <img src="assets/images/products/7.jpg" alt="Period Activewear"
+                                class="w-full object-cover mb-4 rounded-lg">
+                            <div class="inline-flex rounded-none bg-gray-light text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Other</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Period Activewear</a>
+                            <p class="my-2 text-gray-txt">Versatile activewear designed for period days.</p>
+                            <div class="flex items-center mb-4">
+                                <span class="text-lg font-bold text-primary">$32.99</span>
+                                <span class="text-sm line-through ml-2">$39.99</span>
                             </div>
                             <button
                                 class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full">Add
@@ -415,12 +432,12 @@
     <section id="shop-category-description" class="py-8">
         <div class="container mx-auto">
             <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h2 class="text-2xl font-bold mb-4">Boxer briefs and pants for every flow</h2>
+                <h2 class="text-2xl font-bold mb-4">Period underwear, activewear, and more</h2>
                 <p class="mb-4">
-                    Haila period underwear now centers on two product families: boxer briefs and pants. Each style is offered in Regular, Heavy, and Super Heavy so shoppers can move from everyday backup to overnight coverage without leaving the collection.
+                    Haila's collection spans three families: Period Underwear (stretchy briefs, boxer shorts, and lace briefs), Haila Active (gym leggings, gym shorts, and swimwear), and Other (period activewear).
                 </p>
                 <p>
-                    Browse the collection, compare the absorbency tiers, and pick the silhouette that matches the level of support you need.
+                    Browse the collection and pick the style that matches your day, whether that's everyday comfort, a workout, or a swim.
                 </p>
             </div>
         </div>

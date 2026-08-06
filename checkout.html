@@ -105,10 +105,13 @@
               </div>
           </div>
         </div>
-    </header>
-
     <!-- Mobile menu -->
-    <nav id="mobile-menu-placeholder" class="mobile-menu hidden flex flex-col items-center space-y-8 lg:hidden">
+    <nav id="mobile-menu-placeholder" class="mobile-menu flex flex-col items-center space-y-8 lg:hidden">
+      <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
       <ul class="w-full">
           <li><a href="index.html" class="hover:text-clay font-bold block py-2">Home</a></li>
                  
@@ -131,6 +134,7 @@
               placeholder="Search for products...">
       </div>
     </nav>
+    </header>
 
     <!-- Checkout -->
     <section id="checkout-page" class="py-16" style="background: transparent;">

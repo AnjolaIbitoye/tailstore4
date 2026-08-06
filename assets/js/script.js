@@ -29,9 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener("DOMContentLoaded", function () {
   const hamburgerBtn = document.getElementById('hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
+  const closeBtn = document.getElementById('mobile-menu-close');
 
   hamburgerBtn.addEventListener('click', function () {
-    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('is-open');
+  });
+
+  closeBtn.addEventListener('click', function () {
+    mobileMenu.classList.remove('is-open');
   });
 });
 
