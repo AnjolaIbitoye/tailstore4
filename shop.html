@@ -178,6 +178,8 @@
                 <button id="products-toggle-filters"
                     class="bg-primary text-white py-2 px-4 rounded-none focus:outline-none">Show Filters</button>
             </div>
+            <!-- Active Filter Tags -->
+            <div id="active-filters" class="flex flex-wrap gap-2 mb-4"></div>
             <div class="flex flex-col md:flex-row">
                 <!-- Filters -->
                 <div id="filters" class="w-full md:w-1/4 p-4 hidden md:block">
@@ -186,15 +188,15 @@
                         <h3 class="text-lg font-semibold mb-6">Collection</h3>
                         <div class="space-y-2">
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
+                                <input type="checkbox" class="form-checkbox custom-checkbox collection-filter" value="Period Underwear">
                                 <span class="ml-2">Period Underwear</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
+                                <input type="checkbox" class="form-checkbox custom-checkbox collection-filter" value="Haila Active">
                                 <span class="ml-2">Haila Active</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
+                                <input type="checkbox" class="form-checkbox custom-checkbox collection-filter" value="Other">
                                 <span class="ml-2">Other</span>
                             </label>
                         </div>
@@ -204,15 +206,15 @@
                         <h3 class="text-lg font-semibold mb-6">Absorbency</h3>
                         <div class="space-y-2">
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
+                                <input type="checkbox" class="form-checkbox custom-checkbox absorbency-filter" value="Regular">
                                 <span class="ml-2">Regular</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
+                                <input type="checkbox" class="form-checkbox custom-checkbox absorbency-filter" value="Heavy">
                                 <span class="ml-2">Heavy</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
+                                <input type="checkbox" class="form-checkbox custom-checkbox absorbency-filter" value="Super Heavy">
                                 <span class="ml-2">Super Heavy</span>
                             </label>
                         </div>
@@ -275,9 +277,9 @@
                 <!-- Products List -->
                 <div class="w-full md:w-3/4 p-4">
                     <!-- Products grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <!-- Product 1 -->
-                        <div class="bg-white p-4 rounded-lg shadow">
+                        <div class="bg-white p-4 rounded-lg shadow" data-category="Period Underwear" data-absorbency="Regular">
                             <img src="assets/images/products/1.jpg" alt="Stretchy Briefs"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
@@ -292,7 +294,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 2 -->
-                        <div class="bg-white p-4 rounded-lg shadow">
+                        <div class="bg-white p-4 rounded-lg shadow" data-category="Period Underwear" data-absorbency="Heavy">
                             <img src="assets/images/products/2.jpg" alt="Boxer Shorts"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
@@ -306,7 +308,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 3 -->
-                        <div class="bg-white p-4 rounded-lg shadow">
+                        <div class="bg-white p-4 rounded-lg shadow" data-category="Period Underwear" data-absorbency="Regular">
                             <img src="assets/images/products/3.jpg" alt="Lace Briefs"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
@@ -321,7 +323,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 4 -->
-                        <div class="bg-white p-4 rounded-lg shadow">
+                        <div class="bg-white p-4 rounded-lg shadow" data-category="Haila Active" data-absorbency="Heavy">
                             <img src="assets/images/products/4.jpg" alt="Gym Leggings"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
@@ -335,7 +337,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 5 -->
-                        <div class="bg-white p-4 rounded-lg shadow">
+                        <div class="bg-white p-4 rounded-lg shadow" data-category="Haila Active" data-absorbency="Regular">
                             <img src="assets/images/products/5.jpg" alt="Gym Shorts"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
@@ -350,7 +352,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 6 -->
-                        <div class="bg-white p-4 rounded-lg shadow">
+                        <div class="bg-white p-4 rounded-lg shadow" data-category="Haila Active" data-absorbency="Super Heavy">
                             <img src="assets/images/products/6.jpg" alt="Swimwear"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
@@ -364,7 +366,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 7 -->
-                        <div class="bg-white p-4 rounded-lg shadow">
+                        <div class="bg-white p-4 rounded-lg shadow" data-category="Other" data-absorbency="Super Heavy">
                             <img src="assets/images/products/7.jpg" alt="Period Activewear"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-gray-light text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Other</div>

@@ -40,6 +40,86 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+/* shop collection + absorbency filter */
+document.addEventListener('DOMContentLoaded', function () {
+  const categoryCheckboxes = document.querySelectorAll('.collection-filter');
+  const absorbencyCheckboxes = document.querySelectorAll('.absorbency-filter');
+  const productCards = document.querySelectorAll('#products-grid > [data-category]');
+  const activeFiltersContainer = document.getElementById('active-filters');
+
+  if ((!categoryCheckboxes.length && !absorbencyCheckboxes.length) || !productCards.length) return;
+
+  function getChecked(checkboxes) {
+    return Array.from(checkboxes).filter(cb => cb.checked);
+  }
+
+  function applyFilter() {
+    const checkedCategories = getChecked(categoryCheckboxes).map(cb => cb.value);
+    const checkedAbsorbencies = getChecked(absorbencyCheckboxes).map(cb => cb.value);
+
+    productCards.forEach(function (card) {
+      const matchesCategory = checkedCategories.length === 0 || checkedCategories.includes(card.dataset.category);
+      const matchesAbsorbency = checkedAbsorbencies.length === 0 || checkedAbsorbencies.includes(card.dataset.absorbency);
+      card.classList.toggle('hidden', !(matchesCategory && matchesAbsorbency));
+    });
+  }
+
+  function renderActiveFilters() {
+    if (!activeFiltersContainer) return;
+    activeFiltersContainer.innerHTML = '';
+
+    const activeFilters = [
+      ...getChecked(categoryCheckboxes).map(cb => ({ type: 'category', value: cb.value })),
+      ...getChecked(absorbencyCheckboxes).map(cb => ({ type: 'absorbency', value: cb.value }))
+    ];
+
+    activeFilters.forEach(function (filter) {
+      const tag = document.createElement('span');
+      tag.className = 'active-filter-tag inline-flex items-center gap-2 bg-primary text-white text-sm px-3 py-1 rounded-full';
+      tag.textContent = filter.value + ' ';
+
+      const removeBtn = document.createElement('button');
+      removeBtn.type = 'button';
+      removeBtn.className = 'active-filter-remove';
+      removeBtn.setAttribute('aria-label', 'Remove ' + filter.value + ' filter');
+      removeBtn.dataset.type = filter.type;
+      removeBtn.dataset.value = filter.value;
+      removeBtn.textContent = '\u00D7';
+
+      tag.appendChild(removeBtn);
+      activeFiltersContainer.appendChild(tag);
+    });
+  }
+
+  function handleFilterChange() {
+    applyFilter();
+    renderActiveFilters();
+  }
+
+  categoryCheckboxes.forEach(function (cb) {
+    cb.addEventListener('change', handleFilterChange);
+  });
+
+  absorbencyCheckboxes.forEach(function (cb) {
+    cb.addEventListener('change', handleFilterChange);
+  });
+
+  if (activeFiltersContainer) {
+    activeFiltersContainer.addEventListener('click', function (e) {
+      const removeBtn = e.target.closest('.active-filter-remove');
+      if (!removeBtn) return;
+
+      const checkboxes = removeBtn.dataset.type === 'category' ? categoryCheckboxes : absorbencyCheckboxes;
+      const matchingCheckbox = Array.from(checkboxes).find(cb => cb.value === removeBtn.dataset.value);
+
+      if (matchingCheckbox) {
+        matchingCheckbox.checked = false;
+        handleFilterChange();
+      }
+    });
+  }
+});
+
 /* swiper slider */
 if (typeof Swiper !== 'undefined') {
   var swiper = new Swiper('.swiper', {
