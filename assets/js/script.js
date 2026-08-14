@@ -42,24 +42,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* shop collection + absorbency filter */
 document.addEventListener('DOMContentLoaded', function () {
-  const categoryCheckboxes = document.querySelectorAll('.collection-filter');
-  const absorbencyCheckboxes = document.querySelectorAll('.absorbency-filter');
+  const categoryPills = document.querySelectorAll('.collection-filter');
+  const absorbencyPills = document.querySelectorAll('.absorbency-filter');
+  const allPills = document.querySelectorAll('.filter-pill');
   const productCards = document.querySelectorAll('#products-grid > [data-category]');
   const activeFiltersContainer = document.getElementById('active-filters');
 
-  if ((!categoryCheckboxes.length && !absorbencyCheckboxes.length) || !productCards.length) return;
+  if ((!categoryPills.length && !absorbencyPills.length) || !productCards.length) return;
 
-  function getChecked(checkboxes) {
-    return Array.from(checkboxes).filter(cb => cb.checked);
+  function getActive(pills) {
+    return Array.from(pills).filter(pill => pill.classList.contains('is-active'));
   }
 
   function applyFilter() {
-    const checkedCategories = getChecked(categoryCheckboxes).map(cb => cb.value);
-    const checkedAbsorbencies = getChecked(absorbencyCheckboxes).map(cb => cb.value);
+    const activeCategories = getActive(categoryPills).map(pill => pill.dataset.value);
+    const activeAbsorbencies = getActive(absorbencyPills).map(pill => pill.dataset.value);
 
     productCards.forEach(function (card) {
-      const matchesCategory = checkedCategories.length === 0 || checkedCategories.includes(card.dataset.category);
-      const matchesAbsorbency = checkedAbsorbencies.length === 0 || checkedAbsorbencies.includes(card.dataset.absorbency);
+      const matchesCategory = activeCategories.length === 0 || activeCategories.includes(card.dataset.category);
+      const matchesAbsorbency = activeAbsorbencies.length === 0 || activeAbsorbencies.includes(card.dataset.absorbency);
       card.classList.toggle('hidden', !(matchesCategory && matchesAbsorbency));
     });
   }
@@ -69,8 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
     activeFiltersContainer.innerHTML = '';
 
     const activeFilters = [
-      ...getChecked(categoryCheckboxes).map(cb => ({ type: 'category', value: cb.value })),
-      ...getChecked(absorbencyCheckboxes).map(cb => ({ type: 'absorbency', value: cb.value }))
+      ...getActive(categoryPills).map(pill => ({ type: 'category', value: pill.dataset.value })),
+      ...getActive(absorbencyPills).map(pill => ({ type: 'absorbency', value: pill.dataset.value }))
     ];
 
     activeFilters.forEach(function (filter) {
@@ -96,12 +97,13 @@ document.addEventListener('DOMContentLoaded', function () {
     renderActiveFilters();
   }
 
-  categoryCheckboxes.forEach(function (cb) {
-    cb.addEventListener('change', handleFilterChange);
-  });
-
-  absorbencyCheckboxes.forEach(function (cb) {
-    cb.addEventListener('change', handleFilterChange);
+  allPills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      pill.classList.toggle('is-active');
+      if (pill.classList.contains('collection-filter') || pill.classList.contains('absorbency-filter')) {
+        handleFilterChange();
+      }
+    });
   });
 
   if (activeFiltersContainer) {
@@ -109,15 +111,54 @@ document.addEventListener('DOMContentLoaded', function () {
       const removeBtn = e.target.closest('.active-filter-remove');
       if (!removeBtn) return;
 
-      const checkboxes = removeBtn.dataset.type === 'category' ? categoryCheckboxes : absorbencyCheckboxes;
-      const matchingCheckbox = Array.from(checkboxes).find(cb => cb.value === removeBtn.dataset.value);
+      const pills = removeBtn.dataset.type === 'category' ? categoryPills : absorbencyPills;
+      const matchingPill = Array.from(pills).find(pill => pill.dataset.value === removeBtn.dataset.value);
 
-      if (matchingCheckbox) {
-        matchingCheckbox.checked = false;
+      if (matchingPill) {
+        matchingPill.classList.remove('is-active');
         handleFilterChange();
       }
     });
   }
+
+  // Pre-select a category filter when arriving via a nav link like shop.html?category=Postpartum
+  const requestedCategory = new URLSearchParams(window.location.search).get('category');
+  if (requestedCategory) {
+    const matchingCategoryPill = Array.from(categoryPills).find(pill => pill.dataset.value === requestedCategory);
+    if (matchingCategoryPill) {
+      matchingCategoryPill.classList.add('is-active');
+      handleFilterChange();
+    }
+  }
+});
+
+/* premium scroll-reveal for product cards */
+document.addEventListener('DOMContentLoaded', function () {
+  const revealCards = document.querySelectorAll('.scroll-reveal');
+  if (!revealCards.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    revealCards.forEach(function (card) {
+      card.classList.add('is-visible');
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        const indexInRow = Array.prototype.indexOf.call(revealCards, card) % 3;
+        card.style.transitionDelay = (indexInRow * 0.12) + 's';
+        card.classList.add('is-visible');
+        observer.unobserve(card);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  revealCards.forEach(function (card) {
+    observer.observe(card);
+  });
 });
 
 /* swiper slider */

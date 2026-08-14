@@ -703,6 +703,9 @@
       background-color: color-mix(in oklab, var(--color-clay) 15%, transparent);
     }
   }
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
   .bg-white {
     background-color: var(--color-white);
   }

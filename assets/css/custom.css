@@ -49,6 +49,10 @@ body {
     filter: brightness(0) invert(1);
 }
 
+.footer-logo {
+    filter: brightness(0) invert(1);
+}
+
 .marquee-content {
     display: flex;
     width: max-content;
@@ -360,6 +364,53 @@ img.cursor-pointer:hover {
     font-weight: 700;
     line-height: 1;
     padding: 0;
+}
+
+/* filter pills (sidebar filter options) */
+.filter-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-gray-line);
+    border-radius: 9999px;
+    background-color: #fff;
+    color: var(--color-gray-txt);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-pill:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.filter-pill.is-active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+}
+
+/* premium scroll-reveal for product cards */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 

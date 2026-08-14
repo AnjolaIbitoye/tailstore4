@@ -28,8 +28,8 @@
             <!-- Left section: Logo -->
             <a href="index.html" class="flex items-center">
               <div>
-                  <img src="assets/images/Haila_logo.png" alt="Haila logo" class="h-14 w-auto mr-4">
-              <span class="brand-name">HA<span class="brand-i"><img src="assets/images/Haila_logo.png" alt="" class="brand-i-dot">I</span>LA</span>
+                  <img src="assets/images/Haila_logo2.png" alt="Haila logo" class="h-14 w-auto mr-4">
+              <span class="brand-name">HA<span class="brand-i"><img src="assets/images/Haila_logo2.png" alt="" class="brand-i-dot">I</span>LA</span>
               </div>
             </a>
 
@@ -46,12 +46,14 @@
             <!-- Center section: Menu -->
             <nav class="hidden lg:flex md:flex-grow justify-center">
               <ul class="flex justify-center space-x-4 text-gray-dark">
-                  <li><a href="index.html" class="hover:text-clay font-semibold">Home</a></li>
+                  
                   
 
                   <li><a href="shop.html" class="hover:text-clay font-semibold">Shop</a></li>
-                  <li><a href="single-product-page.html" class="hover:text-clay font-semibold">Product</a></li>
-                  <li><a href="checkout.html" class="hover:text-clay font-semibold">Checkout</a></li>
+                  <li><a href="shop.html?category=Period%20Underwear" class="hover:text-clay font-semibold">Period Underwear</a></li>
+                  <li><a href="shop.html?category=Haila%20Active" class="hover:text-clay font-semibold">Haila Active</a></li>
+                  <li><a href="shop.html?category=Postpartum" class="hover:text-clay font-semibold">Postpartum</a></li>
+                  <li><a href="shop.html?category=Other" class="hover:text-clay font-semibold">Other</a></li>
               </ul>
             </nav>
 
@@ -114,12 +116,14 @@
         </svg>
       </button>
       <ul class="w-full">
-          <li><a href="index.html" class="hover:text-clay font-bold block py-2">Home</a></li>
+          
                  
 
           <li><a href="shop.html" class="hover:text-clay font-bold block py-2">Shop</a></li>
-          <li><a href="single-product-page.html" class="hover:text-clay font-bold block py-2">Product</a></li>
-          <li><a href="checkout.html" class="hover:text-clay font-bold block py-2">Checkout</a></li>
+          <li><a href="shop.html?category=Period%20Underwear" class="hover:text-clay font-bold block py-2">Period Underwear</a></li>
+          <li><a href="shop.html?category=Haila%20Active" class="hover:text-clay font-bold block py-2">Haila Active</a></li>
+          <li><a href="shop.html?category=Postpartum" class="hover:text-clay font-bold block py-2">Postpartum</a></li>
+          <li><a href="shop.html?category=Other" class="hover:text-clay font-bold block py-2">Other</a></li>
       </ul>
       <div class="flex flex-col mt-6 space-y-2 items-center">
           <a href="register.html"
@@ -186,91 +190,47 @@
                     <!-- Collection Filter -->
                     <div class="mb-6 pb-8 border-b border-gray-line">
                         <h3 class="text-lg font-semibold mb-6">Collection</h3>
-                        <div class="space-y-2">
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox collection-filter" value="Period Underwear">
-                                <span class="ml-2">Period Underwear</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox collection-filter" value="Haila Active">
-                                <span class="ml-2">Haila Active</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox collection-filter" value="Other">
-                                <span class="ml-2">Other</span>
-                            </label>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" class="filter-pill collection-filter" data-value="Period Underwear">Period Underwear</button>
+                            <button type="button" class="filter-pill collection-filter" data-value="Haila Active">Haila Active</button>
+                            <button type="button" class="filter-pill collection-filter" data-value="Other">Other</button>
+                            <button type="button" class="filter-pill collection-filter" data-value="Postpartum">Postpartum</button>
                         </div>
                     </div>
                     <!-- Absorbency Filter -->
                     <div class="mb-6 pb-8 border-b border-gray-line">
                         <h3 class="text-lg font-semibold mb-6">Absorbency</h3>
-                        <div class="space-y-2">
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox absorbency-filter" value="Regular">
-                                <span class="ml-2">Regular</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox absorbency-filter" value="Heavy">
-                                <span class="ml-2">Heavy</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox absorbency-filter" value="Super Heavy">
-                                <span class="ml-2">Super Heavy</span>
-                            </label>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" class="filter-pill absorbency-filter" data-value="Regular">Regular</button>
+                            <button type="button" class="filter-pill absorbency-filter" data-value="Heavy">Heavy</button>
+                            <button type="button" class="filter-pill absorbency-filter" data-value="Super Heavy">Super Heavy</button>
                         </div>
                     </div>
                     <!-- Coverage Filter -->
                     <div class="mb-6 pb-8 border-b border-gray-line">
                         <h3 class="text-lg font-semibold mb-6">Coverage</h3>
-                        <div class="space-y-2">
-                            <label class="flex items-center custom-color-checkbox" data-color="#ff0000">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Day</span>
-                            </label>
-                            <label class="flex items-center custom-color-checkbox" data-color="#0000ff">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Active</span>
-                            </label>
-                            <label class="flex items-center custom-color-checkbox" data-color="#00ff00">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Overnight</span>
-                            </label>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" class="filter-pill" data-value="Day">Day</button>
+                            <button type="button" class="filter-pill" data-value="Active">Active</button>
+                            <button type="button" class="filter-pill" data-value="Overnight">Overnight</button>
                         </div>
                     </div>
                     <!-- Fit Filter -->
                     <div class="mb-6 pb-8 border-b border-gray-line">
                         <h3 class="text-lg font-semibold mb-6">Fit</h3>
-                        <div class="space-y-2">
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Brief</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">High-waist</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Full coverage</span>
-                            </label>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" class="filter-pill" data-value="Brief">Brief</button>
+                            <button type="button" class="filter-pill" data-value="High-waist">High-waist</button>
+                            <button type="button" class="filter-pill" data-value="Full coverage">Full coverage</button>
                         </div>
                     </div>
                     <!-- Protection Filter -->
                     <div class="mb-6">
                         <h3 class="text-lg font-semibold mb-6">Protection level</h3>
-                        <div class="space-y-2">
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Light</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Moderate</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox custom-checkbox">
-                                <span class="ml-2">Max</span>
-                            </label>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" class="filter-pill" data-value="Light">Light</button>
+                            <button type="button" class="filter-pill" data-value="Moderate">Moderate</button>
+                            <button type="button" class="filter-pill" data-value="Max">Max</button>
                         </div>
                     </div>
                 </div>
@@ -279,7 +239,7 @@
                     <!-- Products grid -->
                     <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <!-- Product 1 -->
-                        <div class="bg-white p-4 rounded-lg shadow" data-category="Period Underwear" data-absorbency="Regular">
+                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Period Underwear" data-absorbency="Regular">
                             <img src="assets/images/products/1.jpg" alt="Stretchy Briefs"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
@@ -294,7 +254,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 2 -->
-                        <div class="bg-white p-4 rounded-lg shadow" data-category="Period Underwear" data-absorbency="Heavy">
+                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Period Underwear" data-absorbency="Heavy">
                             <img src="assets/images/products/2.jpg" alt="Boxer Shorts"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
@@ -308,7 +268,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 3 -->
-                        <div class="bg-white p-4 rounded-lg shadow" data-category="Period Underwear" data-absorbency="Regular">
+                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Period Underwear" data-absorbency="Regular">
                             <img src="assets/images/products/3.jpg" alt="Lace Briefs"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
@@ -323,7 +283,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 4 -->
-                        <div class="bg-white p-4 rounded-lg shadow" data-category="Haila Active" data-absorbency="Heavy">
+                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Haila Active" data-absorbency="Heavy">
                             <img src="assets/images/products/4.jpg" alt="Gym Leggings"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
@@ -337,7 +297,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 5 -->
-                        <div class="bg-white p-4 rounded-lg shadow" data-category="Haila Active" data-absorbency="Regular">
+                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Haila Active" data-absorbency="Regular">
                             <img src="assets/images/products/5.jpg" alt="Gym Shorts"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
@@ -352,7 +312,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 6 -->
-                        <div class="bg-white p-4 rounded-lg shadow" data-category="Haila Active" data-absorbency="Super Heavy">
+                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Haila Active" data-absorbency="Super Heavy">
                             <img src="assets/images/products/6.jpg" alt="Swimwear"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
@@ -366,7 +326,7 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 7 -->
-                        <div class="bg-white p-4 rounded-lg shadow" data-category="Other" data-absorbency="Super Heavy">
+                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Other" data-absorbency="Super Heavy">
                             <img src="assets/images/products/7.jpg" alt="Period Activewear"
                                 class="w-full object-cover mb-4 rounded-lg">
                             <div class="inline-flex rounded-none bg-gray-light text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Other</div>
@@ -380,52 +340,44 @@
                                 class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full">Add
                                 to Cart</button>
                         </div>
-                    </div>
-                    <!-- Pagination -->
-                    <div class="flex justify-center mt-8">
-                        <nav aria-label="Page navigation">
-                            <ul class="inline-flex space-x-2">
-                                <li>
-                                    <a href="#"
-                                        class="bg-primary text-white w-10 h-10 flex items-center justify-center rounded-none">1</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="w-10 h-10 flex items-center justify-center rounded-none hover:bg-primary hover:text-white">2</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="w-10 h-10 flex items-center justify-center rounded-none hover:bg-primary hover:text-white">3</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <!-- Product 8 -->
+                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Postpartum" data-absorbency="Super Heavy">
+                            <img src="assets/images/products/8.jpg" alt="Postpartum Recovery Set"
+                                class="w-full object-cover mb-4 rounded-lg">
+                            <div class="inline-flex rounded-none bg-secondary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Postpartum</div>
+                            <a href="#" class="text-lg font-semibold mb-2 block">Postpartum Recovery Set</a>
+                            <p class="my-2 text-gray-txt">Gentle, high-coverage support for the postpartum weeks.</p>
+                            <div class="flex items-center mb-4">
+                                <span class="text-lg font-bold text-gray-900">$36.99</span>
+                            </div>
+                            <button
+                                class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full">Add
+                                to Cart</button>
+                        </div>
                     </div>
                 </div>
-                    <div class="flex justify-center mt-8">
-                        <nav aria-label="Page navigation">
-                            <ul class="inline-flex space-x-2">
-                                <li>
-                                    <a href="#"
-                                        class="bg-primary text-white w-10 h-10 flex items-center justify-center rounded-none">1</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="w-10 h-10 flex items-center justify-center rounded-none hover:bg-primary hover:text-white">2</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="w-10 h-10 flex items-center justify-center rounded-none hover:bg-primary hover:text-white">3</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="flex justify-center mt-8">
+                <nav aria-label="Page navigation">
+                    <ul class="inline-flex space-x-2">
+                        <li>
+                            <a href="#"
+                                class="bg-primary text-white w-10 h-10 flex items-center justify-center rounded-none">1</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="w-10 h-10 flex items-center justify-center rounded-none hover:bg-primary hover:text-white">2</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="w-10 h-10 flex items-center justify-center rounded-none hover:bg-primary hover:text-white">3</a>
+                        </li>
+                        <li>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full">Next</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </section>
@@ -436,7 +388,7 @@
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-bold mb-4">Period underwear, activewear, and more</h2>
                 <p class="mb-4">
-                    Haila's collection spans three families: Period Underwear (stretchy briefs, boxer shorts, and lace briefs), Haila Active (gym leggings, gym shorts, and swimwear), and Other (period activewear).
+                    Haila's collection spans four families: Period Underwear (stretchy briefs, boxer shorts, and lace briefs), Haila Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum (recovery essentials).
                 </p>
                 <p>
                     Browse the collection and pick the style that matches your day, whether that's everyday comfort, a workout, or a swim.
@@ -453,29 +405,30 @@
                 <div class="w-full sm:w-1/6 px-4 mb-8">
                     <h3 class="text-lg font-semibold mb-4">Shop</h3>
                     <ul>
-                        <li><a href="/shop.html" class="hover:text-primary">Shop</a></li>
-                        <li><a href="/single-product-page.html" class="hover:text-primary">Women</a></li>
-                        <li><a href="/single-product-page.html" class="hover:text-primary">Shoes</a></li>
-                        <li><a href="/single-product-page.html" class="hover:text-primary">Accessories</a></li>
+                        <li><a href="shop.html" class="hover:text-primary">Shop</a></li>
+                        <li><a href="shop.html?category=Period%20Underwear" class="hover:text-primary">Period Underwear</a></li>
+                        <li><a href="shop.html?category=Haila%20Active" class="hover:text-primary">Haila Active</a></li>
+                        <li><a href="shop.html?category=Postpartum" class="hover:text-primary">Postpartum</a></li>
+                        <li><a href="shop.html?category=Other" class="hover:text-primary">Other</a></li>
                     </ul>
                 </div>
                 <!-- Menu 2 -->
                 <div class="w-full sm:w-1/6 px-4 mb-8">
                     <h3 class="text-lg font-semibold mb-4">Pages</h3>
                     <ul>
-                        <li><a href="/shop.html" class="hover:text-primary">Shop</a></li>
-                        <li><a href="/single-product-page.html" class="hover:text-primary">Product</a></li>
-                        <li><a href="/checkout.html" class="hover:text-primary">Checkout</a></li>
-                        <li><a href="/404.html" class="hover:text-primary">404</a></li>
+                        <li><a href="index.html" class="hover:text-primary">Home</a></li>
+                        <li><a href="shop.html" class="hover:text-primary">Shop</a></li>
+                        <li><a href="checkout.html" class="hover:text-primary">Checkout</a></li>
+                        <li><a href="register.html" class="hover:text-primary">Register</a></li>
                     </ul>
                 </div>
                 <!-- Menu 3 -->
                 <div class="w-full sm:w-1/6 px-4 mb-8">
                     <h3 class="text-lg font-semibold mb-4">Account</h3>
                     <ul>
-                        <li><a href="/cart.html" class="hover:text-primary">Cart</a></li>
-                        <li><a href="/register.html" class="hover:text-primary">Registration</a></li>
-                        <li><a href="/register.html" class="hover:text-primary">Login</a></li>
+                        <li><a href="cart.html" class="hover:text-primary">Cart</a></li>
+                        <li><a href="register.html" class="hover:text-primary">Registration</a></li>
+                        <li><a href="register.html" class="hover:text-primary">Login</a></li>
                     </ul>
                 </div>
                 <!-- Social Media -->
@@ -502,7 +455,7 @@
                 <!-- Contact Information -->
                 <div class="w-full sm:w-2/6 px-4 mb-8">
                     <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-                    <p><img src="assets/images/Haila_logo.png" alt="Haila logo" class="h-[60px] mb-4"></p>
+                    <p><img src="assets/images/Haila_logo2.png" alt="Haila logo" class="footer-logo h-[60px] mb-4"></p>
                     <p>123 Street Name, Paris, France</p>
                     <p class="text-xl font-bold my-4">Phone: (123) 456-7890</p>
                     <a href="mailto:info@haila.com" class="underline">Email: info@haila.com</a>
