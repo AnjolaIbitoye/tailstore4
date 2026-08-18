@@ -22,9 +22,21 @@
 
 
 <body>
+    <!-- Announcement marquee -->
+    <div class="marquee-bar text-white py-2 overflow-hidden">
+        <div class="marquee-content">
+            <span class="marquee-item">Free Shipping on Orders Over $50</span>
+            <span class="marquee-item">30-Day Hassle-Free Returns</span>
+            <span class="marquee-item">Cruelty-Free &amp; Sustainably Made</span>
+            <span class="marquee-item">Free Shipping on Orders Over $50</span>
+            <span class="marquee-item">30-Day Hassle-Free Returns</span>
+            <span class="marquee-item">Cruelty-Free &amp; Sustainably Made</span>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="bg-gray-100 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center py-4">
+        <div class="container mx-auto flex justify-between items-center py-4 px-4">
             <!-- Left section: Logo -->
             <a href="index.html" class="flex items-center">
               <div>
@@ -45,7 +57,7 @@
 
             <!-- Center section: Menu -->
             <nav class="hidden lg:flex md:flex-grow justify-center">
-              <ul class="flex justify-center space-x-4 text-gray-dark">
+              <ul class="flex justify-center space-x-4 text-black">
                   
                   
 
@@ -146,20 +158,13 @@
     <section id="shop">
         <div class="container mx-auto">
             <!-- Top Filter -->
-            <div class="flex flex-col md:flex-row justify-between items-center py-4">
-                <div class="flex items-center space-x-4">
-                    <button
-                        class="bg-primary text-white hover:bg-transparent hover:text-primary border hover:border-primary py-2 px-4 rounded-none focus:outline-none">Show
-                        On
-                        Sale</button>
-                    <button
-                        class="bg-primary text-white hover:bg-transparent hover:text-primary border hover:border-primary py-2 px-4 rounded-none focus:outline-none">List
-                        View</button>
-                    <button
-                        class="bg-primary text-white hover:bg-transparent hover:text-primary border hover:border-primary py-2 px-4 rounded-none focus:outline-none">Grid
-                        View</button>
+            <div class="flex flex-row justify-between md:justify-end items-center py-4 px-4 md:px-0">
+                <!-- Filter Toggle Button for Mobile -->
+                <div class="block md:hidden">
+                    <button id="products-toggle-filters"
+                        class="bg-primary text-white py-2 px-4 rounded-none focus:outline-none">Show Filters</button>
                 </div>
-                <div class="flex mt-5 md:mt-0 space-x-4">
+                <div class="flex space-x-4">
                     <div class="relative">
                         <select
                             class="block appearance-none w-full bg-white border  hover:border-primary px-4 py-2 pr-8 rounded-full shadow leading-tight focus:outline-none focus:shadow-outline">
@@ -169,18 +174,13 @@
                         </select>
                         <div
                             class="pointer-events-none absolute inset-y-0 right-0 flex items-center justify-center px-2">
-                            <img id="arrow-down" class="h-4 w-4" src="/assets/images/filter-down-arrow.svg"
+                            <img id="arrow-down" class="h-4 w-4" src="assets/images/filter-down-arrow.svg"
                                 alt="filter arrow">
-                            <img id="arrow-up" class="h-4 w-4 hidden" src="/assets/images/filter-up-arrow.svg"
+                            <img id="arrow-up" class="h-4 w-4 hidden" src="assets/images/filter-up-arrow.svg"
                                 alt="filter arrow">
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Filter Toggle Button for Mobile -->
-            <div class="block md:hidden text-center mb-4">
-                <button id="products-toggle-filters"
-                    class="bg-primary text-white py-2 px-4 rounded-none focus:outline-none">Show Filters</button>
             </div>
             <!-- Active Filter Tags -->
             <div id="active-filters" class="flex flex-wrap gap-2 mb-4"></div>
@@ -237,16 +237,23 @@
                 <!-- Products List -->
                 <div class="w-full md:w-3/4 p-4">
                     <!-- Products grid -->
-                    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div id="products-grid" class="product-grid-auto gap-2 sm:gap-4">
                         <!-- Product 1 -->
-                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Period Underwear" data-absorbency="Regular">
+                        <div class="bg-white p-4 rounded-none shadow scroll-reveal" data-category="Period Underwear" data-absorbency="Regular">
                             <img src="assets/images/products/1.jpg" alt="Stretchy Briefs"
-                                class="w-full object-cover mb-4 rounded-lg">
+                                class="w-full h-40 sm:h-48 object-cover mb-4 rounded-none">
                             <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
                             <a href="#" class="text-lg font-semibold mb-2 block">Stretchy Briefs</a>
+                            <div class="absorbency-droplets" aria-label="Absorbency: Regular">
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                <span class="absorbency-label">Regular</span>
+                            </div>
                             <p class="my-2 text-gray-txt">Soft, stretchy comfort for everyday wear.</p>
                             <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-primary">$19.99</span>
+                                <span class="text-lg font-bold text-black">$19.99</span>
                                 <span class="text-sm line-through ml-2">$24.99</span>
                             </div>
                             <button
@@ -254,11 +261,18 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 2 -->
-                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Period Underwear" data-absorbency="Heavy">
+                        <div class="bg-white p-4 rounded-none shadow scroll-reveal" data-category="Period Underwear" data-absorbency="Heavy">
                             <img src="assets/images/products/2.jpg" alt="Boxer Shorts"
-                                class="w-full object-cover mb-4 rounded-lg">
+                                class="w-full h-40 sm:h-48 object-cover mb-4 rounded-none">
                             <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
                             <a href="#" class="text-lg font-semibold mb-2 block">Boxer Shorts</a>
+                            <div class="absorbency-droplets" aria-label="Absorbency: Heavy">
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                <span class="absorbency-label">Heavy</span>
+                            </div>
                             <p class="my-2 text-gray-txt">Relaxed fit with reliable leak protection.</p>
                             <div class="flex items-center mb-4">
                                 <span class="text-lg font-bold text-gray-900">$27.99</span>
@@ -268,14 +282,21 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 3 -->
-                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Period Underwear" data-absorbency="Regular">
+                        <div class="bg-white p-4 rounded-none shadow scroll-reveal" data-category="Period Underwear" data-absorbency="Regular">
                             <img src="assets/images/products/3.jpg" alt="Lace Briefs"
-                                class="w-full object-cover mb-4 rounded-lg">
+                                class="w-full h-40 sm:h-48 object-cover mb-4 rounded-none">
                             <div class="inline-flex rounded-none bg-primary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Period Underwear</div>
                             <a href="#" class="text-lg font-semibold mb-2 block">Lace Briefs</a>
+                            <div class="absorbency-droplets" aria-label="Absorbency: Regular">
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                <span class="absorbency-label">Regular</span>
+                            </div>
                             <p class="my-2 text-gray-txt">Delicate lace design with hidden absorbency.</p>
                             <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-primary">$22.99</span>
+                                <span class="text-lg font-bold text-black">$22.99</span>
                                 <span class="text-sm line-through ml-2">$27.99</span>
                             </div>
                             <button
@@ -283,11 +304,18 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 4 -->
-                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Haila Active" data-absorbency="Heavy">
+                        <div class="bg-white p-4 rounded-none shadow scroll-reveal" data-category="Haila Active" data-absorbency="Heavy">
                             <img src="assets/images/products/4.jpg" alt="Gym Leggings"
-                                class="w-full object-cover mb-4 rounded-lg">
+                                class="w-full h-40 sm:h-48 object-cover mb-4 rounded-none">
                             <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
                             <a href="#" class="text-lg font-semibold mb-2 block">Gym Leggings</a>
+                            <div class="absorbency-droplets" aria-label="Absorbency: Heavy">
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                <span class="absorbency-label">Heavy</span>
+                            </div>
                             <p class="my-2 text-gray-txt">High-performance leggings built for movement.</p>
                             <div class="flex items-center mb-4">
                                 <span class="text-lg font-bold text-gray-900">$34.99</span>
@@ -297,14 +325,21 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 5 -->
-                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Haila Active" data-absorbency="Regular">
+                        <div class="bg-white p-4 rounded-none shadow scroll-reveal" data-category="Haila Active" data-absorbency="Regular">
                             <img src="assets/images/products/5.jpg" alt="Gym Shorts"
-                                class="w-full object-cover mb-4 rounded-lg">
+                                class="w-full h-40 sm:h-48 object-cover mb-4 rounded-none">
                             <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
                             <a href="#" class="text-lg font-semibold mb-2 block">Gym Shorts</a>
+                            <div class="absorbency-droplets" aria-label="Absorbency: Regular">
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                <span class="absorbency-label">Regular</span>
+                            </div>
                             <p class="my-2 text-gray-txt">Breathable shorts made for high-intensity workouts.</p>
                             <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-primary">$24.99</span>
+                                <span class="text-lg font-bold text-black">$24.99</span>
                                 <span class="text-sm line-through ml-2">$29.99</span>
                             </div>
                             <button
@@ -312,11 +347,18 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 6 -->
-                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Haila Active" data-absorbency="Super Heavy">
+                        <div class="bg-white p-4 rounded-none shadow scroll-reveal" data-category="Haila Active" data-absorbency="Super Heavy">
                             <img src="assets/images/products/6.jpg" alt="Swimwear"
-                                class="w-full object-cover mb-4 rounded-lg">
+                                class="w-full h-40 sm:h-48 object-cover mb-4 rounded-none">
                             <div class="inline-flex rounded-none bg-clay text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Haila Active</div>
                             <a href="#" class="text-lg font-semibold mb-2 block">Swimwear</a>
+                            <div class="absorbency-droplets" aria-label="Absorbency: Super Heavy">
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <span class="absorbency-label">Super Heavy</span>
+                            </div>
                             <p class="my-2 text-gray-txt">Leak-proof swimwear for worry-free days at the pool.</p>
                             <div class="flex items-center mb-4">
                                 <span class="text-lg font-bold text-gray-900">$44.99</span>
@@ -326,14 +368,21 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 7 -->
-                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Other" data-absorbency="Super Heavy">
+                        <div class="bg-white p-4 rounded-none shadow scroll-reveal" data-category="Other" data-absorbency="Super Heavy">
                             <img src="assets/images/products/7.jpg" alt="Period Activewear"
-                                class="w-full object-cover mb-4 rounded-lg">
+                                class="w-full h-40 sm:h-48 object-cover mb-4 rounded-none">
                             <div class="inline-flex rounded-none bg-gray-light text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Other</div>
                             <a href="#" class="text-lg font-semibold mb-2 block">Period Activewear</a>
+                            <div class="absorbency-droplets" aria-label="Absorbency: Super Heavy">
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <span class="absorbency-label">Super Heavy</span>
+                            </div>
                             <p class="my-2 text-gray-txt">Versatile activewear designed for period days.</p>
                             <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-primary">$32.99</span>
+                                <span class="text-lg font-bold text-black">$32.99</span>
                                 <span class="text-sm line-through ml-2">$39.99</span>
                             </div>
                             <button
@@ -341,11 +390,18 @@
                                 to Cart</button>
                         </div>
                         <!-- Product 8 -->
-                        <div class="bg-white p-4 rounded-lg shadow scroll-reveal" data-category="Postpartum" data-absorbency="Super Heavy">
+                        <div class="bg-white p-4 rounded-none shadow scroll-reveal" data-category="Postpartum" data-absorbency="Super Heavy">
                             <img src="assets/images/products/8.jpg" alt="Postpartum Recovery Set"
-                                class="w-full object-cover mb-4 rounded-lg">
+                                class="w-full h-40 sm:h-48 object-cover mb-4 rounded-none">
                             <div class="inline-flex rounded-none bg-secondary text-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Postpartum</div>
                             <a href="#" class="text-lg font-semibold mb-2 block">Postpartum Recovery Set</a>
+                            <div class="absorbency-droplets" aria-label="Absorbency: Super Heavy">
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <i class="fa-solid fa-droplet filled"></i>
+                                <span class="absorbency-label">Super Heavy</span>
+                            </div>
                             <p class="my-2 text-gray-txt">Gentle, high-coverage support for the postpartum weeks.</p>
                             <div class="flex items-center mb-4">
                                 <span class="text-lg font-bold text-gray-900">$36.99</span>

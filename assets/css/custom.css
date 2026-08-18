@@ -3,6 +3,67 @@ a {
     font-family: Manrope, sans-serif;
 }
 
+/* Fallback: purged Tailwind build doesn't include bare .grid-cols-2 */
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Product card grid: cards grow/shrink to fill each row evenly and wrap to a new
+   line once they no longer fit, instead of staying a fixed width or stretching
+   full-bleed across the row. */
+.product-grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+@media (width >= 640px) {
+    .sm\:h-48 {
+        height: calc(var(--spacing) * 48);
+    }
+    .sm\:gap-6 {
+        gap: calc(var(--spacing) * 6);
+    }
+    .sm\:px-4 {
+        padding-inline: calc(var(--spacing) * 4);
+    }
+}
+
+/* Fallback: purged Tailwind build doesn't include these lg: variants (blog/care guide cards) */
+@media (width >= 1024px) {
+    .lg\:h-56 {
+        height: calc(var(--spacing) * 56);
+    }
+    .lg\:mb-8 {
+        margin-bottom: calc(var(--spacing) * 8);
+    }
+    .lg\:mb-4 {
+        margin-bottom: calc(var(--spacing) * 4);
+    }
+    .lg\:p-6 {
+        padding: calc(var(--spacing) * 6);
+    }
+    .lg\:mt-8 {
+        margin-top: calc(var(--spacing) * 8);
+    }
+    .lg\:text-base {
+        font-size: var(--text-base);
+        line-height: var(--tw-leading, var(--text-base--line-height));
+    }
+}
+
+/* Fallback: purged Tailwind build doesn't include these utility classes */
+.px-0 {
+    padding-inline: calc(var(--spacing) * 0);
+}
+@media (width >= 768px) {
+    .md\:justify-end {
+        justify-content: flex-end;
+    }
+    .md\:px-0 {
+        padding-inline: calc(var(--spacing) * 0);
+    }
+}
+
 h1,
 h2,
 h3,
@@ -40,9 +101,50 @@ body {
     background-color: #ffffff;
 }
 
+/* Interactive card hover effect */
+.hover-lift {
+    transition: transform 0.35s ease;
+    will-change: transform;
+}
+.hover-lift:hover {
+    transform: translateY(-8px);
+}
+
+.hover-zoom img {
+    transition: transform 0.5s ease;
+}
+.hover-lift:hover .hover-zoom img,
+.hover-lift.hover-zoom:hover img {
+    transform: scale(1.08);
+}
+
+/* Absorbency droplet indicator */
+.absorbency-droplets {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.absorbency-droplets .fa-droplet {
+    font-size: 0.8rem;
+    color: var(--color-gray-300);
+}
+
+.absorbency-droplets .fa-droplet.filled {
+    color: var(--color-primary);
+}
+
+.absorbency-label {
+    font-size: 0.75rem;
+    color: var(--color-gray-500);
+    margin-left: 0.25rem;
+}
+
 /* Announcement marquee */
 .marquee-bar {
     width: 100%;
+    background: linear-gradient(180deg, #A3B59A 0%, #8FA584 100%);
 }
 
 .social-icon {
