@@ -156,6 +156,7 @@
     <section id="cart-page" class="cart-page-section py-16" style="background: radial-gradient(circle at top left, rgba(163, 181, 154, 0.18), transparent 32%), radial-gradient(circle at bottom right, rgba(207, 165, 154, 0.22), transparent 28%), linear-gradient(180deg, #F7DDE2 0%, #FBF4F2 56%, #F4E9DE 100%); position: relative; overflow: hidden;">
         <div class="container mx-auto px-4">
             <h1 class="text-2xl font-semibold mb-4" style="color: #5A2032;">Shopping Cart</h1>
+            <div class="flex flex-col md:flex-row gap-8 items-start">
                 <div class="md:w-3/4">
                     <div class="cart-main-card bg-white rounded-3xl shadow-md p-6 mb-4" style="background: rgba(255, 255, 255, 0.92); border: 1px solid rgba(207, 165, 154, 0.7); box-shadow: 0 18px 40px rgba(90, 32, 50, 0.08); backdrop-filter: blur(8px);">
                         <div class="overflow-x-auto">
@@ -169,14 +170,17 @@
                                     </tr>
                                 </thead>
                                 <tbody id="cart-items">
-                                    <tr class="pb-4 border-b border-gray-line">
+                                    <tr class="cart-row pb-4 border-b border-gray-line">
                                         <td class="px-1 py-4">
                                             <div class="flex items-center flex-col sm:flex-row text-center sm:text-left">
                                                 <img class="h-16 w-16 md:h-24 md:w-24 sm:mr-8 mb-4 sm:mb-0" src="/assets/images/single-product/1.jpg" alt="Product image">
-                                                <p class="text-sm md:text-base md:font-semibold">Haila Everyday Brief</p>
+                                                <div>
+                                                    <p class="text-sm md:text-base md:font-semibold">Haila Everyday Brief</p>
+                                                    <button type="button" class="cart-remove text-xs text-primary underline mt-1">Remove</button>
+                                                </div>
                                             </div>
                                         </td>
-                                        <td class="px-1 py-4 text-center">$19.99</td>
+                                        <td class="cart-unit-price px-1 py-4 text-center">$19.99</td>
                                         <td class="px-1 py-4 text-center">
                                             <div class="flex items-center justify-center">
                                                 <button class="cart-decrement border border-primary bg-primary text-white hover:bg-transparent hover:text-primary rounded-none w-10 h-10 flex items-center justify-center">-</button>
@@ -184,16 +188,19 @@
                                                 <button class="cart-increment border border-primary bg-primary text-white hover:bg-transparent hover:text-primary rounded-none w-10 h-10 flex items-center justify-center">+</button>
                                             </div>
                                         </td>
-                                        <td class="px-1 py-4 text-right">$19.99</td>
+                                        <td class="cart-row-total px-1 py-4 text-right">$19.99</td>
                                     </tr>
-                                    <tr class="pb-4">
+                                    <tr class="cart-row pb-4">
                                         <td class="px-1 py-4">
                                             <div class="flex items-center flex-col sm:flex-row text-center sm:text-left">
                                                 <img class="h-16 w-16 md:h-24 md:w-24 sm:mr-8 mb-4 sm:mb-0" src="/assets/images/single-product/2.jpg" alt="Product image">
-                                                <p class="text-sm md:text-base md:font-semibold">Haila Overnight Boxer</p>
+                                                <div>
+                                                    <p class="text-sm md:text-base md:font-semibold">Haila Overnight Boxer</p>
+                                                    <button type="button" class="cart-remove text-xs text-primary underline mt-1">Remove</button>
+                                                </div>
                                             </div>
                                         </td>
-                                        <td class="px-1 py-4 text-center">$19.99</td>
+                                        <td class="cart-unit-price px-1 py-4 text-center">$24.99</td>
                                         <td class="px-1 py-4 text-center">
                                             <div class="flex items-center justify-center">
                                                 <button class="cart-decrement border border-primary bg-primary text-white hover:bg-transparent hover:text-primary rounded-none w-10 h-10 flex items-center justify-center">-</button>
@@ -201,7 +208,7 @@
                                                 <button class="cart-increment border border-primary bg-primary text-white hover:bg-transparent hover:text-primary rounded-none w-10 h-10 flex items-center justify-center">+</button>
                                             </div>
                                         </td>
-                                        <td class="px-1 py-4 text-right">$19.99</td>
+                                        <td class="cart-row-total px-1 py-4 text-right">$24.99</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -211,8 +218,8 @@
                                     <button class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary rounded-r-full py-2 px-4">Apply Coupon</button>
                                 </div>
                                 <div class="mt-4 lg:mt-0 flex space-x-2">
-                                    <button class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary rounded-none py-2 px-4">Empty Cart</button>
-                                    <button class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary rounded-none py-2 px-4">Update Cart</button>
+                                    <button id="cart-empty" class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary rounded-none py-2 px-4">Empty Cart</button>
+                                    <button id="cart-update" class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary rounded-none py-2 px-4">Update Cart</button>
                                 </div>
                             </div>
                         </div>
@@ -223,21 +230,21 @@
                         <h2 class="text-lg font-semibold mb-4">Summary</h2>
                         <div class="flex justify-between mb-4">
                             <p>Subtotal</p>
-                            <p>$19.99</p>
+                            <p id="cart-subtotal">$0.00</p>
                         </div>
                         <div class="flex justify-between mb-4">
                             <p>Taxes</p>
-                            <p>$1.99</p>
+                            <p id="cart-tax">$0.00</p>
                         </div>
                         <div class="flex justify-between mb-4 pb-4 border-b border-gray-line">
                             <p>Shipping</p>
-                            <p>$0.00</p>
+                            <p id="cart-shipping">$0.00</p>
                         </div>
                         <div class="flex justify-between mb-2">
                             <p class="font-semibold">Total</p>
-                            <p class="font-semibold">$21.98</p>
+                            <p id="cart-total" class="font-semibold">$0.00</p>
                         </div>
-                        <a href="/checkout" class="bg-primary text-white border hover:border-primary hover:bg-transparent hover:text-primary py-2 px-4 rounded-none mt-4 w-full text-center block">Proceed to checkout</a>
+                        <a href="checkout.html" class="bg-primary text-white border hover:border-primary hover:bg-transparent hover:text-primary py-2 px-4 rounded-none mt-4 w-full text-center block">Proceed to checkout</a>
                     </div>
                 </div>
             </div>

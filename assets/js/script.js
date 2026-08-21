@@ -47,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const allPills = document.querySelectorAll('.filter-pill');
   const productCards = document.querySelectorAll('#products-grid > [data-category]');
   const activeFiltersContainer = document.getElementById('active-filters');
+  const searchInputs = document.querySelectorAll('input[placeholder="Search for products..."]');
+  let searchQuery = '';
 
   if ((!categoryPills.length && !absorbencyPills.length) || !productCards.length) return;
 
@@ -61,7 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
     productCards.forEach(function (card) {
       const matchesCategory = activeCategories.length === 0 || activeCategories.includes(card.dataset.category);
       const matchesAbsorbency = activeAbsorbencies.length === 0 || activeAbsorbencies.includes(card.dataset.absorbency);
-      card.classList.toggle('hidden', !(matchesCategory && matchesAbsorbency));
+      const title = (card.querySelector('a')?.textContent || card.querySelector('img')?.alt || '').toLowerCase();
+      const matchesSearch = searchQuery === '' || title.includes(searchQuery);
+      card.classList.toggle('hidden', !(matchesCategory && matchesAbsorbency && matchesSearch));
     });
   }
 
@@ -121,14 +125,43 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Live product search from the header/mobile search fields
+  searchInputs.forEach(function (input) {
+    input.addEventListener('input', function () {
+      searchQuery = input.value.trim().toLowerCase();
+      searchInputs.forEach(function (other) { if (other !== input) other.value = input.value; });
+      applyFilter();
+    });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyFilter();
+      }
+    });
+  });
+
   // Pre-select a category filter when arriving via a nav link like shop.html?category=Postpartum
-  const requestedCategory = new URLSearchParams(window.location.search).get('category');
+  const params = new URLSearchParams(window.location.search);
+  const requestedCategory = params.get('category');
   if (requestedCategory) {
     const matchingCategoryPill = Array.from(categoryPills).find(pill => pill.dataset.value === requestedCategory);
     if (matchingCategoryPill) {
       matchingCategoryPill.classList.add('is-active');
       handleFilterChange();
     }
+  }
+
+  // Apply a search term passed from another page, e.g. shop.html?search=leggings
+  const requestedSearch = params.get('search');
+  if (requestedSearch) {
+    searchQuery = requestedSearch.trim().toLowerCase();
+    searchInputs.forEach(function (input) { input.value = requestedSearch; });
+    const searchField = document.getElementById('search-field');
+    if (searchField) {
+      searchField.classList.remove('hidden');
+      searchField.classList.add('search-slide-down');
+    }
+    applyFilter();
   }
 });
 
@@ -199,10 +232,26 @@ document.getElementById('search-icon').addEventListener('click', function() {
   if (searchField.classList.contains('hidden')) {
       searchField.classList.remove('hidden');
       searchField.classList.add('search-slide-down');
+      var input = searchField.querySelector('input');
+      if (input) input.focus();
   } else {
       searchField.classList.add('hidden');
       searchField.classList.remove('search-slide-down');
   }
+});
+
+/* search submit on pages without a product grid -> go to shop with the query */
+document.addEventListener('DOMContentLoaded', function () {
+  if (document.getElementById('products-grid')) return;
+  const searchInputs = document.querySelectorAll('input[placeholder="Search for products..."]');
+  searchInputs.forEach(function (input) {
+    input.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      const query = input.value.trim();
+      if (query) window.location.href = 'shop.html?search=' + encodeURIComponent(query);
+    });
+  });
 });
 
 function toggleDropdown(id, show) {
@@ -311,21 +360,75 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* cart page */
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.cart-increment').forEach(button => {
-      button.addEventListener('click', function () {
-          let quantityElement = this.previousElementSibling;
-          let quantity = parseInt(quantityElement.textContent, 10);
-          quantityElement.textContent = quantity + 1;
-      });
+  const cartItems = document.getElementById('cart-items');
+  if (!cartItems) return;
+
+  const TAX_RATE = 0.10;
+  const money = value => '$' + value.toFixed(2);
+  const parseMoney = text => parseFloat((text || '').replace(/[^0-9.]/g, '')) || 0;
+
+  function recalculate() {
+    let subtotal = 0;
+    cartItems.querySelectorAll('.cart-row').forEach(function (row) {
+      const unitPrice = parseMoney(row.querySelector('.cart-unit-price')?.textContent);
+      const quantity = parseInt(row.querySelector('.quantity')?.textContent, 10) || 0;
+      const rowTotal = unitPrice * quantity;
+      const totalCell = row.querySelector('.cart-row-total');
+      if (totalCell) totalCell.textContent = money(rowTotal);
+      subtotal += rowTotal;
+    });
+
+    const tax = subtotal * TAX_RATE;
+    const shipping = 0;
+    const total = subtotal + tax + shipping;
+
+    const setText = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = money(value);
+    };
+    setText('cart-subtotal', subtotal);
+    setText('cart-tax', tax);
+    setText('cart-shipping', shipping);
+    setText('cart-total', total);
+  }
+
+  cartItems.addEventListener('click', function (e) {
+    const incrementBtn = e.target.closest('.cart-increment');
+    const decrementBtn = e.target.closest('.cart-decrement');
+    const removeBtn = e.target.closest('.cart-remove');
+
+    if (incrementBtn) {
+      const q = incrementBtn.previousElementSibling;
+      q.textContent = (parseInt(q.textContent, 10) || 0) + 1;
+      recalculate();
+    } else if (decrementBtn) {
+      const q = decrementBtn.nextElementSibling;
+      const current = parseInt(q.textContent, 10) || 1;
+      if (current > 1) {
+        q.textContent = current - 1;
+        recalculate();
+      }
+    } else if (removeBtn) {
+      removeBtn.closest('.cart-row').remove();
+      recalculate();
+    }
   });
 
-  document.querySelectorAll('.cart-decrement').forEach(button => {
-      button.addEventListener('click', function () {
-          let quantityElement = this.nextElementSibling;
-          let quantity = parseInt(quantityElement.textContent, 10);
-          if (quantity > 1) {
-              quantityElement.textContent = quantity - 1;
-          }
-      });
-  });
+  const emptyBtn = document.getElementById('cart-empty');
+  if (emptyBtn) {
+    emptyBtn.addEventListener('click', function () {
+      cartItems.querySelectorAll('.cart-row').forEach(row => row.remove());
+      recalculate();
+    });
+  }
+
+  const updateBtn = document.getElementById('cart-update');
+  if (updateBtn) {
+    updateBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      recalculate();
+    });
+  }
+
+  recalculate();
 });
