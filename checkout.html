@@ -140,7 +140,7 @@
               class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none inline-block flex items-center justify-center min-w-[110px]">Register</a>
           <a href="register.html"
               class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none inline-block flex items-center justify-center min-w-[110px]">Login</a>
-          <a href="register.html"
+          <a href="cart.html"
               class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none inline-block flex items-center justify-center min-w-[110px]">Cart -&nbsp;<span class="cart-count">5</span>&nbsp;items</a>
       </div>
       <!-- Search field -->
@@ -201,17 +201,22 @@
                 <!-- Order Summary -->
                 <div class="md:w-1/3 p-4 shadow-md" style="background: #ffffff; border: 1px solid rgba(216, 177, 168, 0.6); border-radius: 0;">
                     <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+                    <div id="checkout-items" class="mb-4 space-y-3 pb-4 border-b border-gray-line"></div>
                     <div class="flex justify-between mb-4">
                         <p>Subtotal</p>
-                        <p>$59.00</p>
+                        <p id="checkout-subtotal">$0.00</p>
                     </div>
                     <div class="flex justify-between mb-4">
+                        <p>Taxes</p>
+                        <p id="checkout-tax">$0.00</p>
+                    </div>
+                    <div class="flex justify-between mb-4 pb-4 border-b border-gray-line">
                         <p>Shipping</p>
-                        <p>$10.00</p>
+                        <p id="checkout-shipping">$0.00</p>
                     </div>
                     <div class="flex justify-between mb-4">
                         <p class="font-semibold">Total</p>
-                        <p class="font-semibold">$69.00</p>
+                        <p id="checkout-total" class="font-semibold">$0.00</p>
                     </div>
                     <button class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary py-2 px-4 rounded-none w-full">Proceed to Payment</button>
                 </div>

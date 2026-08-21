@@ -474,6 +474,28 @@ document.addEventListener('DOMContentLoaded', function () {
     renderDropdown();
     renderCount();
     renderCartPage();
+    renderCheckout();
+  }
+
+  function renderCheckout() {
+    const container = document.getElementById('checkout-items');
+    if (!container) return;
+    const items = readCart();
+    container.innerHTML = items.length
+      ? items.map(function (i) {
+          return '<div class="flex justify-between items-center text-sm">' +
+                   '<span>' + escapeHtml(i.name) + ' <span class="text-gray-500">&times; ' + i.qty + '</span></span>' +
+                   '<span class="font-semibold">' + money(i.price * i.qty) + '</span>' +
+                 '</div>';
+        }).join('')
+      : '<p class="text-sm text-center">Your cart is empty.</p>';
+    const sub = subtotal();
+    const tax = sub * TAX_RATE;
+    const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = money(v); };
+    setText('checkout-subtotal', sub);
+    setText('checkout-tax', tax);
+    setText('checkout-shipping', 0);
+    setText('checkout-total', sub + tax);
   }
 
   // Pull product details from the surrounding markup so no per-button data is needed.

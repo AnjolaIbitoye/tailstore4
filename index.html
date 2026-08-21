@@ -143,7 +143,7 @@
               class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none flex items-center justify-center min-w-[110px]">Register</a>
           <a href="register.html"
               class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none flex items-center justify-center min-w-[110px]">Login</a>
-          <a href="register.html"
+          <a href="cart.html"
               class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none flex items-center justify-center min-w-[110px]">Cart -&nbsp;<span class="cart-count">5</span>&nbsp;items</a>
       </div>
       <!-- Search field -->
@@ -163,7 +163,9 @@
                 <div class="swiper-slide">
                     <img src="assets/images/main-slider/Haila_landing.jpg" alt="Product 1">
                     <div class="swiper-slide-content">
+                      <span class="hero-eyebrow">Reusable period care</span>
                       <h2 class="text-3xl md:text-7xl font-bold text-white mb-2 md:mb-4">SHOP ALL</h2>
+                      <p class="hero-subtitle">Comfort, confidence, and leak protection for every cycle.</p>
                         <a href="#"
                             class="bg-primary hover:bg-transparent text-white hover:text-white border border-transparent hover:border-white font-semibold px-4 py-2 rounded-none inline-block">Shop
                             now</a>
@@ -186,11 +188,11 @@
                 <div class="w-1/2 sm:w-1/3 px-2 sm:px-4 mb-8">
                     <a href="/" class="group block hover-lift">
                         <div class="category-banner hover-zoom relative overflow-hidden rounded-none shadow-lg h-72 md:h-80">
-                            <img src="assets/images/Haila_Activewear1.jpg" alt="Category 1" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gray-light/50"></div>
-                        </div>
-                        <div class="text-center mt-4">
-                            <h2 class="text-lg font-semibold text-gray-dark group-hover:underline">Period Underwear</h2>
+                            <img src="assets/images/Haila_Activewear1.jpg" alt="Period Underwear" class="w-full h-full object-cover">
+                            <div class="category-banner__overlay">
+                                <span class="category-banner__eyebrow">Shop</span>
+                                <h2 class="category-banner__title">Period Underwear</h2>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -198,11 +200,11 @@
                 <div class="w-1/2 sm:w-1/3 px-2 sm:px-4 mb-8">
                     <a href="/" class="group block hover-lift">
                         <div class="category-banner hover-zoom relative overflow-hidden rounded-none shadow-lg h-72 md:h-80">
-                            <img src="assets/images/Haila_Activewear1.jpg" alt="Category 2" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-clay/50"></div>
-                        </div>
-                        <div class="text-center mt-4">
-                            <h2 class="text-lg font-semibold text-gray-dark group-hover:underline">Activewear</h2>
+                            <img src="assets/images/Haila_Activewear1.jpg" alt="Activewear" class="w-full h-full object-cover">
+                            <div class="category-banner__overlay">
+                                <span class="category-banner__eyebrow">Shop</span>
+                                <h2 class="category-banner__title">Activewear</h2>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -210,11 +212,11 @@
                 <div class="w-1/2 sm:w-1/3 px-2 sm:px-4 mb-8">
                     <a href="/" class="group block hover-lift">
                         <div class="category-banner hover-zoom relative overflow-hidden rounded-none shadow-lg h-72 md:h-80">
-                            <img src="assets/images/Haila_Other.jpg" alt="Category 3" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gray-light/50"></div>
-                        </div>
-                        <div class="text-center mt-4">
-                            <h2 class="text-lg font-semibold text-gray-dark group-hover:underline">Other</h2>
+                            <img src="assets/images/Haila_Other.jpg" alt="Other" class="w-full h-full object-cover">
+                            <div class="category-banner__overlay">
+                                <span class="category-banner__eyebrow">Shop</span>
+                                <h2 class="category-banner__title">Other</h2>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -225,9 +227,10 @@
     <!-- Brand section -->
     <section id="brands" class="bg-white py-16 px-4">
         <div class="mx-auto max-w-5xl px-4 testimonials text-center">
-          <div class="text-center mb-12 lg:mb-20">
-            <h2 class="text-5xl font-bold mb-4">Discover <span class="text-black">Haila Benefits</span></h2>
-            <p class="my-7">Comfort, reusability, and leak protection for every cycle.</p>
+          <div class="section-heading mb-12 lg:mb-20">
+            <span class="section-heading__eyebrow">Why Haila</span>
+            <h2 class="section-heading__title">Discover Haila Benefits</h2>
+            <p class="section-heading__subtitle">Comfort, reusability, and leak protection for every cycle.</p>
         </div>
             <div class="swiper brands-swiper-slider mx-auto max-w-4xl">
                 <div class="swiper-wrapper">
@@ -249,7 +252,10 @@
     <!-- Popular product section -->
     <section id="popular-products">
         <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="text-2xl font-bold mb-8">Shop Haila Products</h2>
+            <div class="section-heading section-heading--left mb-10">
+                <span class="section-heading__eyebrow">Bestsellers</span>
+                <h2 class="section-heading__title">Shop Haila Products</h2>
+            </div>
             <div class="product-grid-auto gap-4 sm:gap-6">
                 <!-- Product 1 -->
                 <div class="bg-white rounded-none shadow-lg overflow-hidden flex flex-col w-full hover-lift hover-zoom">
@@ -310,9 +316,10 @@
 
     <!-- Blog section -->
     <section class="py-16">
-      <div class="text-center mb-12 lg:mb-20">
-          <h2 class="text-5xl font-bold mb-4">Discover <span class="text-black">Haila</span> Care Guide</h2>
-          <p class="my-7">Learn how to choose the right absorbency, fit, and care routine for period underwear.</p>
+      <div class="section-heading mb-12 lg:mb-20">
+          <span class="section-heading__eyebrow">Care Guide</span>
+          <h2 class="section-heading__title">Discover Haila Care Guide</h2>
+          <p class="section-heading__subtitle">Learn how to choose the right absorbency, fit, and care routine for period underwear.</p>
       </div>
       <div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
           <div class="grid w-full grid-cols-2 gap-4 sm:gap-6 mx-auto lg:grid-cols-3">
