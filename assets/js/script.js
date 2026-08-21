@@ -358,77 +358,173 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-/* cart page */
+/* ------- Shopping cart (persisted in localStorage) ------- */
 document.addEventListener('DOMContentLoaded', function () {
-  const cartItems = document.getElementById('cart-items');
-  if (!cartItems) return;
-
+  const STORAGE_KEY = 'haila_cart';
   const TAX_RATE = 0.10;
-  const money = value => '$' + value.toFixed(2);
-  const parseMoney = text => parseFloat((text || '').replace(/[^0-9.]/g, '')) || 0;
 
-  function recalculate() {
-    let subtotal = 0;
-    cartItems.querySelectorAll('.cart-row').forEach(function (row) {
-      const unitPrice = parseMoney(row.querySelector('.cart-unit-price')?.textContent);
-      const quantity = parseInt(row.querySelector('.quantity')?.textContent, 10) || 0;
-      const rowTotal = unitPrice * quantity;
-      const totalCell = row.querySelector('.cart-row-total');
-      if (totalCell) totalCell.textContent = money(rowTotal);
-      subtotal += rowTotal;
-    });
+  const money = v => '$' + (v || 0).toFixed(2);
+  const readCart = () => { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch (e) { return []; } };
+  const writeCart = items => localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  const escapeHtml = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-    const tax = subtotal * TAX_RATE;
-    const shipping = 0;
-    const total = subtotal + tax + shipping;
-
-    const setText = (id, value) => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = money(value);
-    };
-    setText('cart-subtotal', subtotal);
-    setText('cart-tax', tax);
-    setText('cart-shipping', shipping);
-    setText('cart-total', total);
+  // Seed a sample cart on the first ever visit so the UI isn't empty by default.
+  if (localStorage.getItem(STORAGE_KEY) === null) {
+    writeCart([
+      { name: 'Haila Everyday Brief', price: 19.99, image: 'assets/images/single-product/1.jpg', qty: 1 },
+      { name: 'Haila Overnight Boxer', price: 24.99, image: 'assets/images/single-product/2.jpg', qty: 1 }
+    ]);
   }
 
-  cartItems.addEventListener('click', function (e) {
-    const incrementBtn = e.target.closest('.cart-increment');
-    const decrementBtn = e.target.closest('.cart-decrement');
-    const removeBtn = e.target.closest('.cart-remove');
+  const totalCount = () => readCart().reduce((s, i) => s + i.qty, 0);
+  const subtotal = () => readCart().reduce((s, i) => s + i.price * i.qty, 0);
 
-    if (incrementBtn) {
-      const q = incrementBtn.previousElementSibling;
-      q.textContent = (parseInt(q.textContent, 10) || 0) + 1;
-      recalculate();
-    } else if (decrementBtn) {
-      const q = decrementBtn.nextElementSibling;
-      const current = parseInt(q.textContent, 10) || 1;
-      if (current > 1) {
-        q.textContent = current - 1;
-        recalculate();
+  function addItem(product) {
+    const items = readCart();
+    const existing = items.find(i => i.name === product.name);
+    if (existing) existing.qty += product.qty || 1;
+    else items.push({ name: product.name, price: product.price, image: product.image, qty: product.qty || 1 });
+    writeCart(items);
+    renderAll();
+  }
+  function setQty(name, qty) {
+    let items = readCart();
+    const it = items.find(i => i.name === name);
+    if (!it) return;
+    it.qty = qty;
+    if (it.qty <= 0) items = items.filter(i => i.name !== name);
+    writeCart(items);
+    renderAll();
+  }
+  function removeItem(name) {
+    writeCart(readCart().filter(i => i.name !== name));
+    renderAll();
+  }
+
+  function renderDropdown() {
+    document.querySelectorAll('.cart-wrapper').forEach(function (wrapper) {
+      const container = wrapper.querySelector('.space-y-4');
+      if (!container) return;
+      const items = readCart();
+      if (!items.length) {
+        container.innerHTML = '<p class="text-sm py-4 text-center">Your cart is empty.</p>';
+        return;
       }
-    } else if (removeBtn) {
-      removeBtn.closest('.cart-row').remove();
-      recalculate();
+      container.innerHTML = items.map(function (i) {
+        return '<div class="flex items-center justify-between pb-4 border-b border-gray-line">' +
+                 '<div class="flex items-center">' +
+                   '<img src="' + escapeHtml(i.image) + '" alt="' + escapeHtml(i.name) + '" class="h-12 w-12 object-cover rounded mr-2">' +
+                   '<div><p class="font-semibold">' + escapeHtml(i.name) + '</p><p class="text-sm">Quantity: ' + i.qty + '</p></div>' +
+                 '</div>' +
+                 '<p class="font-semibold">' + money(i.price * i.qty) + '</p>' +
+               '</div>';
+      }).join('');
+    });
+  }
+
+  function renderCount() {
+    const c = totalCount();
+    document.querySelectorAll('.cart-count').forEach(el => { el.textContent = c; });
+    document.querySelectorAll('.cart-wrapper > a').forEach(function (link) {
+      let badge = link.querySelector('.cart-count-badge');
+      if (!badge) {
+        badge = document.createElement('span');
+        badge.className = 'cart-count-badge';
+        link.appendChild(badge);
+      }
+      badge.textContent = c;
+      badge.style.display = c > 0 ? 'flex' : 'none';
+    });
+  }
+
+  function renderCartPage() {
+    const cartItems = document.getElementById('cart-items');
+    if (!cartItems) return;
+    const items = readCart();
+    if (!items.length) {
+      cartItems.innerHTML = '<tr><td colspan="4" class="py-10 text-center">Your cart is empty. <a href="shop.html" class="text-primary underline">Continue shopping</a></td></tr>';
+    } else {
+      cartItems.innerHTML = items.map(function (i, idx) {
+        return '<tr class="cart-row pb-4 border-b border-gray-line" data-index="' + idx + '">' +
+          '<td class="px-1 py-4"><div class="flex items-center flex-col sm:flex-row text-center sm:text-left">' +
+            '<img class="h-16 w-16 md:h-24 md:w-24 sm:mr-8 mb-4 sm:mb-0" src="' + escapeHtml(i.image) + '" alt="' + escapeHtml(i.name) + '">' +
+            '<div><p class="text-sm md:text-base md:font-semibold">' + escapeHtml(i.name) + '</p>' +
+            '<button type="button" class="cart-remove text-xs text-primary underline mt-1">Remove</button></div>' +
+          '</div></td>' +
+          '<td class="cart-unit-price px-1 py-4 text-center">' + money(i.price) + '</td>' +
+          '<td class="px-1 py-4 text-center"><div class="flex items-center justify-center">' +
+            '<button class="cart-decrement border border-primary bg-primary text-white hover:bg-transparent hover:text-primary rounded-none w-10 h-10 flex items-center justify-center">-</button>' +
+            '<p class="quantity text-center w-8">' + i.qty + '</p>' +
+            '<button class="cart-increment border border-primary bg-primary text-white hover:bg-transparent hover:text-primary rounded-none w-10 h-10 flex items-center justify-center">+</button>' +
+          '</div></td>' +
+          '<td class="cart-row-total px-1 py-4 text-right">' + money(i.price * i.qty) + '</td>' +
+        '</tr>';
+      }).join('');
+    }
+    const sub = subtotal();
+    const tax = sub * TAX_RATE;
+    const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = money(v); };
+    setText('cart-subtotal', sub);
+    setText('cart-tax', tax);
+    setText('cart-shipping', 0);
+    setText('cart-total', sub + tax);
+  }
+
+  function renderAll() {
+    renderDropdown();
+    renderCount();
+    renderCartPage();
+  }
+
+  // Pull product details from the surrounding markup so no per-button data is needed.
+  function extractProduct(btn) {
+    const spInfo = btn.closest('.pb-8');
+    if (spInfo && spInfo.querySelector('#quantity')) {
+      const name = (spInfo.querySelector('h1')?.textContent || 'Item').trim();
+      const price = parseFloat((spInfo.querySelector('.text-2xl')?.textContent || '').replace(/[^0-9.]/g, '')) || 0;
+      const qty = parseInt(document.getElementById('quantity')?.value, 10) || 1;
+      const image = document.getElementById('main-image')?.getAttribute('src') || '';
+      return { name, price, image, qty };
+    }
+    const card = btn.closest('.scroll-reveal') || btn.closest('.bg-white') || btn.closest('[data-category]');
+    if (!card) return null;
+    const name = (card.querySelector('a[href]')?.textContent || card.querySelector('img')?.alt || 'Item').trim();
+    const price = parseFloat((card.querySelector('.font-bold')?.textContent || '').replace(/[^0-9.]/g, '')) || 0;
+    const image = card.querySelector('img')?.getAttribute('src') || '';
+    return { name, price, image, qty: 1 };
+  }
+
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    if (btn.textContent.replace(/\s+/g, ' ').trim().toLowerCase() !== 'add to cart') return;
+    e.preventDefault();
+    const product = extractProduct(btn);
+    if (product && product.name) {
+      addItem(product);
+      document.querySelectorAll('.cart-count-badge').forEach(function (b) {
+        b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump');
+      });
     }
   });
 
-  const emptyBtn = document.getElementById('cart-empty');
-  if (emptyBtn) {
-    emptyBtn.addEventListener('click', function () {
-      cartItems.querySelectorAll('.cart-row').forEach(row => row.remove());
-      recalculate();
+  // Cart page interactions
+  const cartItems = document.getElementById('cart-items');
+  if (cartItems) {
+    cartItems.addEventListener('click', function (e) {
+      const row = e.target.closest('.cart-row');
+      if (!row) return;
+      const item = readCart()[parseInt(row.dataset.index, 10)];
+      if (!item) return;
+      if (e.target.closest('.cart-increment')) setQty(item.name, item.qty + 1);
+      else if (e.target.closest('.cart-decrement')) setQty(item.name, item.qty - 1);
+      else if (e.target.closest('.cart-remove')) removeItem(item.name);
     });
+    const emptyBtn = document.getElementById('cart-empty');
+    if (emptyBtn) emptyBtn.addEventListener('click', function () { writeCart([]); renderAll(); });
+    const updateBtn = document.getElementById('cart-update');
+    if (updateBtn) updateBtn.addEventListener('click', function (e) { e.preventDefault(); renderAll(); });
   }
 
-  const updateBtn = document.getElementById('cart-update');
-  if (updateBtn) {
-    updateBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      recalculate();
-    });
-  }
-
-  recalculate();
+  renderAll();
 });

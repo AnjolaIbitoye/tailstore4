@@ -645,6 +645,35 @@ img.cursor-pointer:hover {
     }
 }
 
+/* Cart count badge on the header cart icon */
+.cart-wrapper > a {
+    position: relative;
+    display: inline-flex;
+}
+.cart-count-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+}
+.cart-count-badge.bump {
+    animation: cart-bump 0.3s ease;
+}
+@keyframes cart-bump {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+}
+
 
 
 
