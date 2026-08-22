@@ -475,6 +475,7 @@ document.addEventListener('DOMContentLoaded', function () {
     renderCount();
     renderCartPage();
     renderCheckout();
+    document.dispatchEvent(new CustomEvent('haila:rerender'));
   }
 
   function renderCheckout() {
@@ -549,4 +550,216 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   renderAll();
+});
+
+/* ------- Language switch (English / German) ------- */
+document.addEventListener('DOMContentLoaded', function () {
+  const LANG_KEY = 'haila_lang';
+
+  const de = {
+    // Announcement bar
+    'Free Shipping on Orders Over $50': 'Kostenloser Versand ab 50 $',
+    '30-Day Hassle-Free Returns': '30 Tage unkomplizierte Rückgabe',
+    'Cruelty-Free & Sustainably Made': 'Tierversuchsfrei & nachhaltig hergestellt',
+    // Nav / header
+    'Shop': 'Shop',
+    'Period Underwear': 'Periodenunterwäsche',
+    'Haila Active': 'Haila Active',
+    'Postpartum': 'Wochenbett',
+    'Other': 'Sonstiges',
+    'Register': 'Registrieren',
+    'Login': 'Anmelden',
+    'Registration': 'Registrierung',
+    'Search for products...': 'Produkte suchen...',
+    'items': 'Artikel',
+    // Hero
+    'Reusable period care': 'Wiederverwendbare Periodenpflege',
+    'SHOP ALL': 'ALLES SHOPPEN',
+    'Comfort, confidence, and leak protection for every cycle.': 'Komfort, Selbstvertrauen und Auslaufschutz für jeden Zyklus.',
+    'Shop now': 'Jetzt shoppen',
+    'Shop Now': 'Jetzt shoppen',
+    'New Arrivals': 'Neuheiten',
+    'Sale': 'Sale',
+    // Category banners
+    'Activewear': 'Sportkleidung',
+    // Benefits section
+    'Why Haila': 'Warum Haila',
+    'Discover Haila Benefits': 'Entdecke die Haila-Vorteile',
+    'Comfort, reusability, and leak protection for every cycle.': 'Komfort, Wiederverwendbarkeit und Auslaufschutz für jeden Zyklus.',
+    // Popular products
+    'Bestsellers': 'Bestseller',
+    'Shop Haila Products': 'Haila-Produkte shoppen',
+    'High-waist period brief': 'Perioden-Slip mit hohem Bund',
+    'Seamless period brief': 'Nahtloser Perioden-Slip',
+    'Overnight period boxer': 'Perioden-Boxer für die Nacht',
+    'Period Underwear, Accessories': 'Periodenunterwäsche, Accessoires',
+    'Add to Cart': 'In den Warenkorb',
+    // Welcome banner
+    'Welcome to Haila': 'Willkommen bei Haila',
+    // Blog / care guide
+    'Care Guide': 'Pflegeratgeber',
+    'Discover Haila Care Guide': 'Entdecke den Haila-Pflegeratgeber',
+    'Learn how to choose the right absorbency, fit, and care routine for period underwear.': 'Erfahre, wie du die richtige Saugstärke, Passform und Pflege für Periodenunterwäsche wählst.',
+    'Fit Guide': 'Passform-Guide',
+    'Choosing the Right Absorbency': 'Die richtige Saugstärke wählen',
+    'Learn how to match absorbency, rise, and fabric to your cycle so you stay dry and comfortable.': 'Erfahre, wie du Saugstärke, Bundhöhe und Stoff auf deinen Zyklus abstimmst, damit du trocken und bequem bleibst.',
+    'Care Tips': 'Pflegetipps',
+    'How to Wash Period Underwear': 'Periodenunterwäsche richtig waschen',
+    'Rinse cold, wash gently, and air dry to keep your Haila pieces performing well longer.': 'Kalt ausspülen, sanft waschen und an der Luft trocknen, damit deine Haila-Teile länger gut funktionieren.',
+    'Cycle Confidence': 'Selbstsicher im Zyklus',
+    'Real Stories from Haila Wearers': 'Echte Geschichten von Haila-Trägerinnen',
+    'Read how Haila helps customers feel secure, comfortable, and confident throughout the day.': 'Lies, wie Haila Kundinnen hilft, sich den ganzen Tag sicher, bequem und selbstbewusst zu fühlen.',
+    'Read more': 'Mehr lesen',
+    // Newsletter
+    'Enter your email address': 'E-Mail-Adresse eingeben',
+    'Subscribe': 'Abonnieren',
+    // Footer
+    'Pages': 'Seiten',
+    'Account': 'Konto',
+    'Follow Us': 'Folge uns',
+    'Contact Us': 'Kontakt',
+    'Home': 'Startseite',
+    'Checkout': 'Kasse',
+    'Cart': 'Warenkorb',
+    'Privacy Policy': 'Datenschutz',
+    'Terms of Service': 'Nutzungsbedingungen',
+    'FAQ': 'FAQ',
+    // Shop page
+    'Show Filters': 'Filter anzeigen',
+    'Sort by Latest': 'Nach Neuheit sortieren',
+    'Sort by Popularity': 'Nach Beliebtheit sortieren',
+    'Sort by A-Z': 'Nach A-Z sortieren',
+    'Collection': 'Kollektion',
+    'Absorbency': 'Saugstärke',
+    'Coverage': 'Abdeckung',
+    'Fit': 'Passform',
+    'Protection level': 'Schutzstufe',
+    'Regular': 'Normal',
+    'Heavy': 'Stark',
+    'Super Heavy': 'Sehr stark',
+    'Day': 'Tag',
+    'Active': 'Aktiv',
+    'Overnight': 'Nacht',
+    'Brief': 'Slip',
+    'High-waist': 'Hoher Bund',
+    'Full coverage': 'Volle Abdeckung',
+    'Light': 'Leicht',
+    'Moderate': 'Mittel',
+    'Max': 'Maximal',
+    'Stretchy Briefs': 'Dehnbarer Slip',
+    'Soft, stretchy comfort for everyday wear.': 'Weicher, dehnbarer Komfort für jeden Tag.',
+    'Boxer Shorts': 'Boxershorts',
+    'Relaxed fit with reliable leak protection.': 'Lockere Passform mit zuverlässigem Auslaufschutz.',
+    'Lace Briefs': 'Spitzenslip',
+    'Delicate lace design with hidden absorbency.': 'Zartes Spitzendesign mit verborgener Saugkraft.',
+    'Gym Leggings': 'Sport-Leggings',
+    'High-performance leggings built for movement.': 'Leistungsstarke Leggings für jede Bewegung.',
+    'Gym Shorts': 'Sport-Shorts',
+    'Breathable shorts made for high-intensity workouts.': 'Atmungsaktive Shorts für intensive Workouts.',
+    'Swimwear': 'Bademode',
+    'Leak-proof swimwear for worry-free days at the pool.': 'Auslaufsichere Bademode für sorgenfreie Tage am Pool.',
+    'Period Activewear': 'Perioden-Sportkleidung',
+    'Versatile activewear designed for period days.': 'Vielseitige Sportkleidung für die Periodentage.',
+    'Postpartum Recovery Set': 'Wochenbett-Set',
+    'Gentle, high-coverage support for the postpartum weeks.': 'Sanfter Halt mit hoher Abdeckung für die Wochen nach der Geburt.',
+    'The Haila Collection': 'Die Haila-Kollektion',
+    'Period underwear, activewear & more': 'Periodenunterwäsche, Sportkleidung & mehr',
+    "Haila's collection spans four families — Period Underwear (stretchy briefs, boxer shorts, and lace briefs), Haila Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": 'Die Haila-Kollektion umfasst vier Familien – Periodenunterwäsche (dehnbare Slips, Boxershorts und Spitzenslips), Haila Active (Sport-Leggings, Sport-Shorts und Bademode), Sonstiges (Perioden-Sportkleidung) und Wochenbett-Essentials.',
+    'Browse the collection and pick the style that matches your day — everyday comfort, a workout, or a swim.': 'Stöbere durch die Kollektion und wähle den Stil, der zu deinem Tag passt – Alltagskomfort, Workout oder Schwimmen.',
+    // Cart page
+    'Shopping Cart': 'Warenkorb',
+    'Product': 'Produkt',
+    'Price': 'Preis',
+    'Quantity': 'Menge',
+    'Total': 'Gesamt',
+    'Coupon code': 'Gutscheincode',
+    'Apply Coupon': 'Gutschein einlösen',
+    'Empty Cart': 'Warenkorb leeren',
+    'Update Cart': 'Warenkorb aktualisieren',
+    'Summary': 'Zusammenfassung',
+    'Subtotal': 'Zwischensumme',
+    'Taxes': 'Steuern',
+    'Shipping': 'Versand',
+    'Proceed to checkout': 'Zur Kasse',
+    'Remove': 'Entfernen',
+    'Your cart is empty.': 'Dein Warenkorb ist leer.',
+    'Continue shopping': 'Weiter einkaufen',
+    // Checkout page
+    'Billing Details': 'Rechnungsdaten',
+    'Full Name': 'Vollständiger Name',
+    'Email': 'E-Mail',
+    'Address': 'Adresse',
+    'City': 'Stadt',
+    'State': 'Bundesland',
+    'ZIP Code': 'Postleitzahl',
+    'Phone Number': 'Telefonnummer',
+    'Ship to a different address?': 'An eine andere Adresse liefern?',
+    'Yes': 'Ja',
+    'Order Summary': 'Bestellübersicht',
+    'Proceed to Payment': 'Zur Zahlung'
+  };
+
+  const norm = s => s.trim().replace(/\s+/g, ' ');
+  const currentLang = () => localStorage.getItem(LANG_KEY) || 'en';
+
+  function translateNodes(lang) {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        const p = node.parentNode;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        const tag = p.nodeName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'OPTION' || tag === 'SELECT') return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    let node;
+    while ((node = walker.nextNode())) {
+      if (node.__orig === undefined) node.__orig = node.nodeValue;
+      const key = norm(node.__orig);
+      node.nodeValue = (lang === 'de' && de[key]) ? de[key] : node.__orig;
+    }
+    document.querySelectorAll('[placeholder]').forEach(function (el) {
+      if (el.__origPh === undefined) el.__origPh = el.getAttribute('placeholder');
+      const key = norm(el.__origPh || '');
+      el.setAttribute('placeholder', (lang === 'de' && de[key]) ? de[key] : el.__origPh);
+    });
+  }
+
+  function updateToggles(lang) {
+    document.querySelectorAll('.lang-select').forEach(function (sel) {
+      sel.value = lang;
+    });
+  }
+
+  function applyLang(lang) {
+    translateNodes(lang);
+    document.documentElement.lang = lang;
+    localStorage.setItem(LANG_KEY, lang);
+    updateToggles(lang);
+  }
+
+  function makeToggle() {
+    const sel = document.createElement('select');
+    sel.className = 'lang-select';
+    sel.setAttribute('aria-label', 'Change language');
+    sel.innerHTML = '<option value="en">EN</option><option value="de">DE</option>';
+    sel.value = currentLang();
+    sel.addEventListener('change', function () {
+      applyLang(sel.value);
+    });
+    return sel;
+  }
+
+  const desktopActions = document.querySelector('.hidden.lg\\:flex.items-center');
+  if (desktopActions) desktopActions.appendChild(makeToggle());
+  const mobileActions = document.querySelector('.mobile-menu .flex.flex-col.mt-6');
+  if (mobileActions) mobileActions.appendChild(makeToggle());
+
+  // Re-apply the current language whenever the cart re-renders dynamic content.
+  document.addEventListener('haila:rerender', function () {
+    if (currentLang() === 'de') translateNodes('de');
+  });
+
+  applyLang(currentLang());
 });
