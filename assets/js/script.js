@@ -348,6 +348,48 @@ document.addEventListener('DOMContentLoaded', function () {
   mq.addEventListener('change', syncState);
 });
 
+/* FAQ page search/filter */
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.getElementById('faq-search-input');
+  const clearBtn = document.getElementById('faq-clear-search');
+  const emptyState = document.getElementById('faq-empty-state');
+  const items = Array.from(document.querySelectorAll('[data-faq-item]'));
+  if (!input || !clearBtn || !items.length) return;
+
+  const groups = Array.from(document.querySelectorAll('.faq-page-group'));
+
+  function applyFaqFilter() {
+    const query = input.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    items.forEach(function (item) {
+      const text = item.textContent.toLowerCase();
+      const show = query === '' || text.includes(query);
+      item.classList.toggle('hidden', !show);
+      if (show) visibleCount += 1;
+    });
+
+    groups.forEach(function (group) {
+      const groupItems = Array.from(group.querySelectorAll('[data-faq-item]'));
+      const hasVisibleItems = groupItems.some(function (item) {
+        return !item.classList.contains('hidden');
+      });
+      group.classList.toggle('hidden', !hasVisibleItems);
+    });
+
+    if (emptyState) {
+      emptyState.classList.toggle('hidden', visibleCount !== 0);
+    }
+  }
+
+  input.addEventListener('input', applyFaqFilter);
+  clearBtn.addEventListener('click', function () {
+    input.value = '';
+    applyFaqFilter();
+    input.focus();
+  });
+});
+
 function toggleDropdown(id, show) {
   const dropdown = document.getElementById(id);
   if (show) {
