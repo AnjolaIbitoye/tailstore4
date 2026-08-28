@@ -685,7 +685,7 @@ document.addEventListener('DOMContentLoaded', function () {
                    '<span class="text-lg font-bold text-black">' + money(item.price) + '</span>' +
                    (item.comparePrice ? '<span class="text-sm line-through ml-2">' + money(item.comparePrice) + '</span>' : '') +
                  '</div>' +
-                 '<button class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full">Add to Cart</button>' +
+                 '<a href="single-product-page.html?product=' + item.slug + '" class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full block text-center">Select Options</a>' +
                '</div>' +
              '</div>';
     }).join('');
