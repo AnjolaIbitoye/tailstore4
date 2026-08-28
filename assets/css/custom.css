@@ -696,27 +696,6 @@ img.cursor-pointer:hover {
     background-color: #fff;
 }
 
-.faq-page-eyebrow {
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.72rem;
-    color: var(--color-primary);
-    font-weight: 700;
-}
-
-.faq-page-title {
-    color: var(--color-gray-dark);
-    line-height: 1.1;
-    font-size: clamp(2rem, 3.6vw, 3.6rem);
-}
-
-.faq-page-subtitle {
-    max-width: 62ch;
-    color: var(--color-gray-txt);
-    line-height: 1.65;
-}
-
 .faq-toolbar {
     display: flex;
     flex-wrap: wrap;
@@ -825,6 +804,48 @@ img.cursor-pointer:hover {
     color: var(--color-gray-txt);
     text-align: center;
     padding: 1rem;
+}
+
+/* single-product options */
+.product-option-label {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gray-500);
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+}
+
+.product-option-select {
+    width: 100%;
+    border: 1px solid var(--color-gray-line);
+    background: #fff;
+    min-height: 42px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0;
+    color: var(--color-gray-dark);
+}
+
+.product-option-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(163, 181, 154, 0.18);
+}
+
+.product-color-chip {
+    border: 1px solid var(--color-gray-line);
+    background: #fff;
+    color: var(--color-gray-dark);
+    font-size: 0.88rem;
+    padding: 0.45rem 0.75rem;
+    min-height: 38px;
+}
+
+.product-color-chip.is-active,
+.product-color-chip:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 @media (prefers-reduced-motion: reduce) {

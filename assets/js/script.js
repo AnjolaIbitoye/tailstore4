@@ -401,8 +401,298 @@ function toggleDropdown(id, show) {
 
 function changeImage(element) {
   var mainImage = document.getElementById('main-image');
+  if (!mainImage) return;
   mainImage.src = element.getAttribute('data-full');
 }
+
+const PRODUCT_CATALOG = [
+  {
+    slug: 'stretchy-briefs',
+    name: 'Stretchy Briefs',
+    code: 'HAILAFLO-001',
+    category: 'Period Underwear',
+    price: 19.99,
+    comparePrice: 24.99,
+    absorbency: ['Light', 'Regular', 'Heavy'],
+    defaultAbsorbency: 'Regular',
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    defaultSize: 'M',
+    colors: ['Midnight Black', 'Blush', 'Sage'],
+    defaultColor: 'Midnight Black',
+    image: 'assets/images/products/1.jpg',
+    gallery: ['assets/images/products/1.jpg', 'assets/images/single-product/1.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg'],
+    shortDescription: 'Soft, stretchy comfort for everyday wear with reliable leak protection.',
+    longTitle: 'Everyday comfort designed to move with your routine.',
+    longDescription: 'Stretchy Briefs combine breathable fabric and absorbent layers for a smooth, secure fit from morning to night.',
+    highlight1: 'A slim multi-layer core absorbs quickly while staying flexible under clothing.',
+    highlight2: 'Soft edge seams reduce pressure and help prevent digging around the waist and legs.'
+  },
+  {
+    slug: 'boxer-shorts',
+    name: 'Boxer Shorts',
+    code: 'HAILAFLO-002',
+    category: 'Period Underwear',
+    price: 27.99,
+    absorbency: ['Regular', 'Heavy', 'Super Heavy'],
+    defaultAbsorbency: 'Heavy',
+    sizes: ['S', 'M', 'L', 'XL'],
+    defaultSize: 'M',
+    colors: ['Midnight Black', 'Charcoal', 'Burgundy'],
+    defaultColor: 'Charcoal',
+    image: 'assets/images/products/2.jpg',
+    gallery: ['assets/images/products/2.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
+    shortDescription: 'Relaxed fit with reliable leak protection and wider coverage.',
+    longTitle: 'Extended coverage for rest days and overnight confidence.',
+    longDescription: 'Boxer Shorts provide fuller cut support and dependable absorbency for heavier-flow moments and longer wear windows.',
+    highlight1: 'Longer leg design helps prevent shifting and supports secure movement.',
+    highlight2: 'High-capacity gusset offers extended absorbency for all-day and overnight use.'
+  },
+  {
+    slug: 'lace-briefs',
+    name: 'Lace Briefs',
+    code: 'HAILAFLO-003',
+    category: 'Period Underwear',
+    price: 22.99,
+    comparePrice: 27.99,
+    absorbency: ['Light', 'Regular'],
+    defaultAbsorbency: 'Regular',
+    sizes: ['XS', 'S', 'M', 'L'],
+    defaultSize: 'S',
+    colors: ['Rosewood', 'Midnight Black', 'Ivory'],
+    defaultColor: 'Rosewood',
+    image: 'assets/images/products/3.jpg',
+    gallery: ['assets/images/products/3.jpg', 'assets/images/single-product/1.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
+    shortDescription: 'Delicate lace design with hidden absorbency for lighter to regular days.',
+    longTitle: 'Elegant styling meets dependable daily protection.',
+    longDescription: 'Lace Briefs pair a flattering silhouette with discreet absorbent technology so you can feel polished and protected.',
+    highlight1: 'Breathable lace panels balance style with comfort throughout the day.',
+    highlight2: 'Low-profile absorbent core stays invisible under fitted outfits.'
+  },
+  {
+    slug: 'gym-leggings',
+    name: 'Gym Leggings',
+    code: 'HAILAFLO-004',
+    category: 'HailaFlo Active',
+    price: 34.99,
+    absorbency: ['Regular', 'Heavy'],
+    defaultAbsorbency: 'Heavy',
+    sizes: ['S', 'M', 'L', 'XL'],
+    defaultSize: 'M',
+    colors: ['Onyx', 'Ocean Blue', 'Forest'],
+    defaultColor: 'Onyx',
+    image: 'assets/images/products/4.jpg',
+    gallery: ['assets/images/products/4.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
+    shortDescription: 'High-performance leggings built for movement and secure protection.',
+    longTitle: 'Performance support engineered for active cycle days.',
+    longDescription: 'Gym Leggings are built with stretch recovery and absorbent support, helping you train confidently through every session.',
+    highlight1: 'Compression-inspired fit keeps fabric stable through high-motion workouts.',
+    highlight2: 'Sweat-managing and absorbent layers work together for dry, focused training.'
+  },
+  {
+    slug: 'gym-shorts',
+    name: 'Gym Shorts',
+    code: 'HAILAFLO-005',
+    category: 'HailaFlo Active',
+    price: 24.99,
+    comparePrice: 29.99,
+    absorbency: ['Regular', 'Heavy'],
+    defaultAbsorbency: 'Regular',
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    defaultSize: 'M',
+    colors: ['Graphite', 'Berry', 'Sage'],
+    defaultColor: 'Graphite',
+    image: 'assets/images/products/5.jpg',
+    gallery: ['assets/images/products/5.jpg', 'assets/images/single-product/1.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
+    shortDescription: 'Breathable shorts made for high-intensity workouts.',
+    longTitle: 'Lightweight mobility for training, errands, and recovery.',
+    longDescription: 'Gym Shorts are optimized for airflow and stretch, with core absorbency support for confidence during active hours.',
+    highlight1: 'Quick-drying outer fabric keeps the short feeling light during movement.',
+    highlight2: 'Supportive inner layer helps keep protection centered while you train.'
+  },
+  {
+    slug: 'swimwear',
+    name: 'Swimwear',
+    code: 'HAILAFLO-006',
+    category: 'HailaFlo Active',
+    price: 44.99,
+    absorbency: ['Regular', 'Heavy', 'Super Heavy'],
+    defaultAbsorbency: 'Super Heavy',
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    defaultSize: 'M',
+    colors: ['Midnight', 'Teal', 'Merlot'],
+    defaultColor: 'Midnight',
+    image: 'assets/images/products/6.jpg',
+    gallery: ['assets/images/products/6.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
+    shortDescription: 'Leak-proof swimwear for worry-free pool and beach days.',
+    longTitle: 'Water-ready protection without compromising style.',
+    longDescription: 'Swimwear combines secure fit construction with absorbent protection designed for confidence in and around water.',
+    highlight1: 'Quick-rinse fabrics support clean transitions from water to dry wear.',
+    highlight2: 'Streamlined silhouette offers active support with minimal bulk.'
+  },
+  {
+    slug: 'period-activewear',
+    name: 'Period Activewear',
+    code: 'HAILAFLO-007',
+    category: 'Other',
+    price: 32.99,
+    comparePrice: 39.99,
+    absorbency: ['Heavy', 'Super Heavy'],
+    defaultAbsorbency: 'Super Heavy',
+    sizes: ['S', 'M', 'L', 'XL'],
+    defaultSize: 'L',
+    colors: ['Carbon', 'Plum', 'Navy'],
+    defaultColor: 'Carbon',
+    image: 'assets/images/products/7.jpg',
+    gallery: ['assets/images/products/7.jpg', 'assets/images/single-product/1.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg'],
+    shortDescription: 'Versatile activewear designed for period days and busy routines.',
+    longTitle: 'All-day support from commute to cooldown.',
+    longDescription: 'Period Activewear bridges lifestyle and performance with reliable absorbency and stretch-first comfort.',
+    highlight1: 'Adaptive fit contours to movement for all-day wear comfort.',
+    highlight2: 'High-capacity absorbent core supports longer intervals between changes.'
+  },
+  {
+    slug: 'postpartum-recovery-set',
+    name: 'Postpartum Recovery Set',
+    code: 'HAILAFLO-008',
+    category: 'Postpartum',
+    price: 36.99,
+    absorbency: ['Heavy', 'Super Heavy'],
+    defaultAbsorbency: 'Super Heavy',
+    sizes: ['S', 'M', 'L', 'XL', '2XL'],
+    defaultSize: 'L',
+    colors: ['Warm Gray', 'Soft Black', 'Mauve'],
+    defaultColor: 'Warm Gray',
+    image: 'assets/images/products/8.jpg',
+    gallery: ['assets/images/products/8.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
+    shortDescription: 'Gentle, high-coverage support for postpartum recovery weeks.',
+    longTitle: 'Comfort-forward essentials for postpartum care.',
+    longDescription: 'Postpartum Recovery Set provides soft structure, extended coverage, and absorbent peace of mind during early recovery.',
+    highlight1: 'Soft-touch waistband and seams are designed to feel gentle on sensitive skin.',
+    highlight2: 'High-coverage cut supports comfort throughout longer rest periods.'
+  }
+];
+
+const PRODUCT_BY_SLUG = PRODUCT_CATALOG.reduce(function (map, item) {
+  map[item.slug] = item;
+  return map;
+}, {});
+
+/* dynamic single-product-page rendering */
+document.addEventListener('DOMContentLoaded', function () {
+  const productPageRoot = document.querySelector('[data-product-page]');
+  if (!productPageRoot) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('product') || 'stretchy-briefs';
+  const product = PRODUCT_BY_SLUG[slug] || PRODUCT_CATALOG[0];
+
+  const titleEl = document.getElementById('sp-title');
+  const codeEl = document.getElementById('sp-code');
+  const priceEl = document.getElementById('sp-price');
+  const compareEl = document.getElementById('sp-compare-price');
+  const shortDescriptionEl = document.getElementById('sp-short-description');
+  const longTitleEl = document.getElementById('sp-long-title');
+  const longDescriptionEl = document.getElementById('sp-long-description');
+  const mainImageEl = document.getElementById('main-image');
+  const thumbsEl = document.getElementById('product-thumbnails');
+  const absorbencyEl = document.getElementById('sp-absorbency');
+  const sizeEl = document.getElementById('sp-size');
+  const colorsEl = document.getElementById('sp-color-options');
+  const relatedEl = document.getElementById('related-products-grid');
+  const h1 = document.querySelector('h1');
+  const highlightImage1 = document.getElementById('sp-highlight-image-1');
+  const highlightImage2 = document.getElementById('sp-highlight-image-2');
+  const highlightText1 = document.getElementById('sp-highlight-text-1');
+  const highlightText2 = document.getElementById('sp-highlight-text-2');
+
+  const money = function (v) { return '$' + Number(v).toFixed(2); };
+  if (titleEl) titleEl.textContent = 'HailaFlo ' + product.name;
+  if (h1 && h1 !== titleEl) h1.textContent = 'HailaFlo ' + product.name;
+  if (codeEl) codeEl.textContent = ' ' + product.code;
+  if (priceEl) priceEl.textContent = money(product.price);
+  if (compareEl) {
+    compareEl.textContent = product.comparePrice ? money(product.comparePrice) : '';
+    compareEl.classList.toggle('hidden', !product.comparePrice);
+  }
+  if (shortDescriptionEl) shortDescriptionEl.textContent = product.shortDescription;
+  if (longTitleEl) longTitleEl.textContent = product.longTitle;
+  if (longDescriptionEl) longDescriptionEl.textContent = product.longDescription;
+  if (highlightText1) highlightText1.textContent = product.highlight1;
+  if (highlightText2) highlightText2.textContent = product.highlight2;
+
+  if (mainImageEl) {
+    mainImageEl.src = product.image;
+    mainImageEl.alt = product.name;
+  }
+
+  if (thumbsEl) {
+    thumbsEl.innerHTML = product.gallery.map(function (img, idx) {
+      return '<div><img onclick="changeImage(this)" data-full="' + img + '" src="' + img + '" class="object-cover object-center max-h-30 max-w-full rounded-lg cursor-pointer" alt="' + product.name + ' image ' + (idx + 1) + '"></div>';
+    }).join('');
+  }
+
+  if (highlightImage1) highlightImage1.src = product.gallery[1] || product.image;
+  if (highlightImage2) highlightImage2.src = product.gallery[2] || product.image;
+
+  if (absorbencyEl) {
+    absorbencyEl.innerHTML = product.absorbency.map(function (value) {
+      const selected = value === product.defaultAbsorbency ? ' selected' : '';
+      return '<option' + selected + '>' + value + '</option>';
+    }).join('');
+  }
+
+  if (sizeEl) {
+    sizeEl.innerHTML = product.sizes.map(function (value) {
+      const selected = value === product.defaultSize ? ' selected' : '';
+      return '<option' + selected + '>' + value + '</option>';
+    }).join('');
+  }
+
+  if (colorsEl) {
+    colorsEl.innerHTML = product.colors.map(function (value) {
+      const active = value === product.defaultColor ? ' is-active' : '';
+      return '<button type="button" class="product-color-chip' + active + '" data-color="' + value + '">' + value + '</button>';
+    }).join('');
+
+    colorsEl.addEventListener('click', function (e) {
+      const chip = e.target.closest('.product-color-chip');
+      if (!chip) return;
+      colorsEl.querySelectorAll('.product-color-chip').forEach(function (btn) {
+        btn.classList.remove('is-active');
+      });
+      chip.classList.add('is-active');
+    });
+  }
+
+  const sizeChartBtn = document.getElementById('open-size-chart');
+  const sizeTab = document.getElementById('size-shape-tab');
+  if (sizeChartBtn && sizeTab) {
+    sizeChartBtn.addEventListener('click', function () {
+      sizeTab.click();
+      document.getElementById('size-shape-content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  if (relatedEl) {
+    const related = PRODUCT_CATALOG.filter(function (item) { return item.slug !== product.slug; }).slice(0, 4);
+    relatedEl.innerHTML = related.map(function (item) {
+      return '<div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">' +
+               '<div class="bg-white p-3 rounded-lg shadow-lg">' +
+                 '<a href="single-product-page.html?product=' + item.slug + '"><img src="' + item.image + '" alt="' + item.name + '" class="w-full object-cover mb-4 rounded-lg"></a>' +
+                 '<a href="single-product-page.html?product=' + item.slug + '" class="text-lg font-semibold mb-2 block">' + item.name + '</a>' +
+                 '<p class="my-2">' + item.category + '</p>' +
+                 '<div class="flex items-center mb-4">' +
+                   '<span class="text-lg font-bold text-black">' + money(item.price) + '</span>' +
+                   (item.comparePrice ? '<span class="text-sm line-through ml-2">' + money(item.comparePrice) + '</span>' : '') +
+                 '</div>' +
+                 '<button class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full">Add to Cart</button>' +
+               '</div>' +
+             '</div>';
+    }).join('');
+  }
+
+  document.title = 'HailaFlo | ' + product.name;
+});
 
 /* single page product count */
 document.addEventListener('DOMContentLoaded', function () {
@@ -639,7 +929,12 @@ document.addEventListener('DOMContentLoaded', function () {
   function extractProduct(btn) {
     const spInfo = btn.closest('.pb-8');
     if (spInfo && spInfo.querySelector('#quantity')) {
-      const name = (spInfo.querySelector('h1')?.textContent || 'Item').trim();
+      const baseName = (spInfo.querySelector('h1')?.textContent || 'Item').trim();
+      const absorbency = document.getElementById('sp-absorbency')?.value;
+      const size = document.getElementById('sp-size')?.value;
+      const color = document.querySelector('.product-color-chip.is-active')?.dataset.color;
+      const selectedOptions = [absorbency, size, color].filter(Boolean).join(' / ');
+      const name = selectedOptions ? baseName + ' (' + selectedOptions + ')' : baseName;
       const price = parseFloat((spInfo.querySelector('.text-2xl')?.textContent || '').replace(/[^0-9.]/g, '')) || 0;
       const qty = parseInt(document.getElementById('quantity')?.value, 10) || 1;
       const image = document.getElementById('main-image')?.getAttribute('src') || '';
