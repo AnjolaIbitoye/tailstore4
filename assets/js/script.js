@@ -265,6 +265,89 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+/* mobile footer accordion */
+document.addEventListener('DOMContentLoaded', function () {
+  const footer = document.querySelector('.footer-sage');
+  if (!footer) return;
+
+  const mq = window.matchMedia('(max-width: 639px)');
+  const topFooterRow = footer.querySelector('.container .flex.flex-wrap.-mx-4');
+  if (!topFooterRow) return;
+
+  const sections = Array.from(topFooterRow.children).map(function (col, index) {
+    const heading = col.querySelector(':scope > h3');
+    if (!heading) return null;
+
+    const content = Array.from(col.children).find(function (child) {
+      return child !== heading;
+    });
+    if (!content) return null;
+
+    if (!content.id) content.id = 'footer-accordion-content-' + index;
+    heading.setAttribute('aria-controls', content.id);
+
+    return { col: col, heading: heading, content: content };
+  }).filter(Boolean);
+
+  if (!sections.length) return;
+
+  function applyDesktopState() {
+    sections.forEach(function (section) {
+      section.col.classList.remove('footer-accordion-section', 'is-open');
+      section.heading.classList.remove('footer-accordion-heading');
+      section.heading.removeAttribute('role');
+      section.heading.removeAttribute('tabindex');
+      section.heading.removeAttribute('aria-expanded');
+      section.content.classList.remove('footer-accordion-content');
+      section.content.hidden = false;
+    });
+  }
+
+  function setOpenSection(openIndex) {
+    sections.forEach(function (section, index) {
+      const isOpen = index === openIndex;
+      section.col.classList.toggle('is-open', isOpen);
+      section.heading.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      section.content.hidden = !isOpen;
+    });
+  }
+
+  function applyMobileState() {
+    sections.forEach(function (section) {
+      section.col.classList.add('footer-accordion-section');
+      section.heading.classList.add('footer-accordion-heading');
+      section.heading.setAttribute('role', 'button');
+      section.heading.setAttribute('tabindex', '0');
+      section.content.classList.add('footer-accordion-content');
+    });
+    setOpenSection(0);
+  }
+
+  function syncState() {
+    if (mq.matches) applyMobileState();
+    else applyDesktopState();
+  }
+
+  sections.forEach(function (section, index) {
+    section.heading.addEventListener('click', function () {
+      if (!mq.matches) return;
+      const isOpen = section.col.classList.contains('is-open');
+      setOpenSection(isOpen ? -1 : index);
+    });
+
+    section.heading.addEventListener('keydown', function (e) {
+      if (!mq.matches) return;
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault();
+      const isOpen = section.col.classList.contains('is-open');
+      setOpenSection(isOpen ? -1 : index);
+    });
+  });
+
+  syncState();
+  mq.addEventListener('change', syncState);
+});
+
 function toggleDropdown(id, show) {
   const dropdown = document.getElementById(id);
   if (show) {

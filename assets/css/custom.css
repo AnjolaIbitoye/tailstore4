@@ -281,6 +281,35 @@ button:hover {
    margin-top: 12px;
 }
 
+@media (max-width: 639px) {
+    .footer-sage .footer-accordion-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 0;
+        padding: 0.9rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+        cursor: pointer;
+    }
+
+    .footer-sage .footer-accordion-heading::after {
+        content: '+';
+        font-family: inherit;
+        font-size: 1.15rem;
+        line-height: 1;
+        transition: transform 0.2s ease;
+    }
+
+    .footer-sage .footer-accordion-section.is-open .footer-accordion-heading::after {
+        content: '\2212';
+    }
+
+    .footer-sage .footer-accordion-content {
+        padding-top: 0.75rem;
+    }
+}
+
 /* .group:hover h3,
 .group:hover p {
     color: #ffffff;
