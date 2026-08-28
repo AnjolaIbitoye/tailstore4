@@ -31,12 +31,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileMenu = document.querySelector('.mobile-menu');
   const closeBtn = document.getElementById('mobile-menu-close');
 
+  if (!hamburgerBtn || !mobileMenu || !closeBtn) return;
+
   hamburgerBtn.addEventListener('click', function () {
     mobileMenu.classList.toggle('is-open');
   });
 
   closeBtn.addEventListener('click', function () {
     mobileMenu.classList.remove('is-open');
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!mobileMenu.classList.contains('is-open')) return;
+    const clickedInsideMenu = mobileMenu.contains(e.target);
+    const clickedHamburger = hamburgerBtn.contains(e.target);
+    if (!clickedInsideMenu && !clickedHamburger) {
+      mobileMenu.classList.remove('is-open');
+    }
   });
 });
 
@@ -371,8 +382,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // Seed a sample cart on the first ever visit so the UI isn't empty by default.
   if (localStorage.getItem(STORAGE_KEY) === null) {
     writeCart([
-      { name: 'Haila Everyday Brief', price: 19.99, image: 'assets/images/single-product/1.jpg', qty: 1 },
-      { name: 'Haila Overnight Boxer', price: 24.99, image: 'assets/images/single-product/2.jpg', qty: 1 }
+      { name: 'HailaFlo Everyday Brief', price: 19.99, image: 'assets/images/single-product/1.jpg', qty: 1 },
+      { name: 'HailaFlo Overnight Boxer', price: 24.99, image: 'assets/images/single-product/2.jpg', qty: 1 }
     ]);
   }
 
@@ -564,7 +575,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Nav / header
     'Shop': 'Shop',
     'Period Underwear': 'Periodenunterwäsche',
-    'Haila Active': 'Haila Active',
+    'HailaFlo Active': 'HailaFlo Active',
     'Postpartum': 'Wochenbett',
     'Other': 'Sonstiges',
     'Register': 'Registrieren',
@@ -583,32 +594,32 @@ document.addEventListener('DOMContentLoaded', function () {
     // Category banners
     'Activewear': 'Sportkleidung',
     // Benefits section
-    'Why Haila': 'Warum Haila',
-    'Discover Haila Benefits': 'Entdecke die Haila-Vorteile',
+    'Why HailaFlo': 'Warum HailaFlo',
+    'Discover HailaFlo Benefits': 'Entdecke die HailaFlo-Vorteile',
     'Comfort, reusability, and leak protection for every cycle.': 'Komfort, Wiederverwendbarkeit und Auslaufschutz für jeden Zyklus.',
     // Popular products
     'Bestsellers': 'Bestseller',
-    'Shop Haila Products': 'Haila-Produkte shoppen',
+    'Shop HailaFlo Products': 'HailaFlo-Produkte shoppen',
     'High-waist period brief': 'Perioden-Slip mit hohem Bund',
     'Seamless period brief': 'Nahtloser Perioden-Slip',
     'Overnight period boxer': 'Perioden-Boxer für die Nacht',
     'Period Underwear, Accessories': 'Periodenunterwäsche, Accessoires',
     'Add to Cart': 'In den Warenkorb',
     // Welcome banner
-    'Welcome to Haila': 'Willkommen bei Haila',
+    'Welcome to HailaFlo': 'Willkommen bei HailaFlo',
     // Blog / care guide
     'Care Guide': 'Pflegeratgeber',
-    'Discover Haila Care Guide': 'Entdecke den Haila-Pflegeratgeber',
+    'Discover HailaFlo Care Guide': 'Entdecke den HailaFlo-Pflegeratgeber',
     'Learn how to choose the right absorbency, fit, and care routine for period underwear.': 'Erfahre, wie du die richtige Saugstärke, Passform und Pflege für Periodenunterwäsche wählst.',
     'Fit Guide': 'Passform-Guide',
     'Choosing the Right Absorbency': 'Die richtige Saugstärke wählen',
     'Learn how to match absorbency, rise, and fabric to your cycle so you stay dry and comfortable.': 'Erfahre, wie du Saugstärke, Bundhöhe und Stoff auf deinen Zyklus abstimmst, damit du trocken und bequem bleibst.',
     'Care Tips': 'Pflegetipps',
     'How to Wash Period Underwear': 'Periodenunterwäsche richtig waschen',
-    'Rinse cold, wash gently, and air dry to keep your Haila pieces performing well longer.': 'Kalt ausspülen, sanft waschen und an der Luft trocknen, damit deine Haila-Teile länger gut funktionieren.',
+    'Rinse cold, wash gently, and air dry to keep your HailaFlo pieces performing well longer.': 'Kalt ausspülen, sanft waschen und an der Luft trocknen, damit deine HailaFlo-Teile länger gut funktionieren.',
     'Cycle Confidence': 'Selbstsicher im Zyklus',
-    'Real Stories from Haila Wearers': 'Echte Geschichten von Haila-Trägerinnen',
-    'Read how Haila helps customers feel secure, comfortable, and confident throughout the day.': 'Lies, wie Haila Kundinnen hilft, sich den ganzen Tag sicher, bequem und selbstbewusst zu fühlen.',
+    'Real Stories from HailaFlo Wearers': 'Echte Geschichten von HailaFlo-Trägerinnen',
+    'Read how HailaFlo helps customers feel secure, comfortable, and confident throughout the day.': 'Lies, wie HailaFlo Kundinnen hilft, sich den ganzen Tag sicher, bequem und selbstbewusst zu fühlen.',
     'Read more': 'Mehr lesen',
     // Newsletter
     'Enter your email address': 'E-Mail-Adresse eingeben',
@@ -662,9 +673,9 @@ document.addEventListener('DOMContentLoaded', function () {
     'Versatile activewear designed for period days.': 'Vielseitige Sportkleidung für die Periodentage.',
     'Postpartum Recovery Set': 'Wochenbett-Set',
     'Gentle, high-coverage support for the postpartum weeks.': 'Sanfter Halt mit hoher Abdeckung für die Wochen nach der Geburt.',
-    'The Haila Collection': 'Die Haila-Kollektion',
+    'The HailaFlo Collection': 'Die HailaFlo-Kollektion',
     'Period underwear, activewear & more': 'Periodenunterwäsche, Sportkleidung & mehr',
-    "Haila's collection spans four families — Period Underwear (stretchy briefs, boxer shorts, and lace briefs), Haila Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": 'Die Haila-Kollektion umfasst vier Familien – Periodenunterwäsche (dehnbare Slips, Boxershorts und Spitzenslips), Haila Active (Sport-Leggings, Sport-Shorts und Bademode), Sonstiges (Perioden-Sportkleidung) und Wochenbett-Essentials.',
+    "HailaFlo's collection spans four families — Period Underwear (stretchy briefs, boxer shorts, and lace briefs), HailaFlo Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": 'Die HailaFlo-Kollektion umfasst vier Familien – Periodenunterwäsche (dehnbare Slips, Boxershorts und Spitzenslips), HailaFlo Active (Sport-Leggings, Sport-Shorts und Bademode), Sonstiges (Perioden-Sportkleidung) und Wochenbett-Essentials.',
     'Browse the collection and pick the style that matches your day — everyday comfort, a workout, or a swim.': 'Stöbere durch die Kollektion und wähle den Stil, der zu deinem Tag passt – Alltagskomfort, Workout oder Schwimmen.',
     // Cart page
     'Shopping Cart': 'Warenkorb',
