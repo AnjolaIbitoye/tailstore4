@@ -146,6 +146,24 @@ body {
     transform: scale(1.08);
 }
 
+/* Hide scrollbar for horizontally scrolling carousels (e.g. related products on mobile) */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Main product image: match thumbnail style (full-width, cover) */
+#main-image {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+}
+
 /* Absorbency droplet indicator */
 .absorbency-droplets {
     display: flex;
