@@ -390,6 +390,30 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+/* Help / contact form - submits to Netlify Forms so entries arrive by email */
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('help-form');
+  const success = document.getElementById('help-form-success');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const data = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: data
+    })
+      .then(function () {
+        form.reset();
+        if (success) success.classList.remove('hidden');
+      })
+      .catch(function () {
+        alert('Sorry, something went wrong sending your message. Please email us directly at info@hailaflo.com.');
+      });
+  });
+});
+
 function toggleDropdown(id, show) {
   const dropdown = document.getElementById(id);
   if (show) {
@@ -417,8 +441,8 @@ const PRODUCT_CATALOG = [
     defaultAbsorbency: 'Regular',
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     defaultSize: 'M',
-    colors: ['Midnight Black', 'Blush', 'Sage'],
-    defaultColor: 'Midnight Black',
+    colors: ['Black', 'Grey'],
+    defaultColor: 'Black',
     image: 'assets/images/products/1.jpg',
     gallery: ['assets/images/products/1.jpg', 'assets/images/single-product/1.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg'],
     shortDescription: 'Soft, stretchy comfort for everyday wear with reliable leak protection.',
@@ -437,8 +461,8 @@ const PRODUCT_CATALOG = [
     defaultAbsorbency: 'Heavy',
     sizes: ['S', 'M', 'L', 'XL'],
     defaultSize: 'M',
-    colors: ['Midnight Black', 'Charcoal', 'Burgundy'],
-    defaultColor: 'Charcoal',
+    colors: ['Black', 'Grey'],
+    defaultColor: 'Black',
     image: 'assets/images/products/2.jpg',
     gallery: ['assets/images/products/2.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
     shortDescription: 'Relaxed fit with reliable leak protection and wider coverage.',
@@ -458,8 +482,8 @@ const PRODUCT_CATALOG = [
     defaultAbsorbency: 'Regular',
     sizes: ['XS', 'S', 'M', 'L'],
     defaultSize: 'S',
-    colors: ['Rosewood', 'Midnight Black', 'Ivory'],
-    defaultColor: 'Rosewood',
+    colors: ['Black', 'Grey'],
+    defaultColor: 'Black',
     image: 'assets/images/products/3.jpg',
     gallery: ['assets/images/products/3.jpg', 'assets/images/single-product/1.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
     shortDescription: 'Delicate lace design with hidden absorbency for lighter to regular days.',
@@ -478,8 +502,8 @@ const PRODUCT_CATALOG = [
     defaultAbsorbency: 'Heavy',
     sizes: ['S', 'M', 'L', 'XL'],
     defaultSize: 'M',
-    colors: ['Onyx', 'Ocean Blue', 'Forest'],
-    defaultColor: 'Onyx',
+    colors: ['Black', 'Grey'],
+    defaultColor: 'Black',
     image: 'assets/images/products/4.jpg',
     gallery: ['assets/images/products/4.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
     shortDescription: 'High-performance leggings built for movement and secure protection.',
@@ -499,8 +523,8 @@ const PRODUCT_CATALOG = [
     defaultAbsorbency: 'Regular',
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     defaultSize: 'M',
-    colors: ['Graphite', 'Berry', 'Sage'],
-    defaultColor: 'Graphite',
+    colors: ['Black', 'Grey'],
+    defaultColor: 'Black',
     image: 'assets/images/products/5.jpg',
     gallery: ['assets/images/products/5.jpg', 'assets/images/single-product/1.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
     shortDescription: 'Breathable shorts made for high-intensity workouts.',
@@ -519,8 +543,8 @@ const PRODUCT_CATALOG = [
     defaultAbsorbency: 'Super Heavy',
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     defaultSize: 'M',
-    colors: ['Midnight', 'Teal', 'Merlot'],
-    defaultColor: 'Midnight',
+    colors: ['Black', 'Grey'],
+    defaultColor: 'Black',
     image: 'assets/images/products/6.jpg',
     gallery: ['assets/images/products/6.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
     shortDescription: 'Leak-proof swimwear for worry-free pool and beach days.',
@@ -540,8 +564,8 @@ const PRODUCT_CATALOG = [
     defaultAbsorbency: 'Super Heavy',
     sizes: ['S', 'M', 'L', 'XL'],
     defaultSize: 'L',
-    colors: ['Carbon', 'Plum', 'Navy'],
-    defaultColor: 'Carbon',
+    colors: ['Black', 'Grey'],
+    defaultColor: 'Black',
     image: 'assets/images/products/7.jpg',
     gallery: ['assets/images/products/7.jpg', 'assets/images/single-product/1.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg'],
     shortDescription: 'Versatile activewear designed for period days and busy routines.',
@@ -560,8 +584,8 @@ const PRODUCT_CATALOG = [
     defaultAbsorbency: 'Super Heavy',
     sizes: ['S', 'M', 'L', 'XL', '2XL'],
     defaultSize: 'L',
-    colors: ['Warm Gray', 'Soft Black', 'Mauve'],
-    defaultColor: 'Warm Gray',
+    colors: ['Black', 'Grey'],
+    defaultColor: 'Black',
     image: 'assets/images/products/8.jpg',
     gallery: ['assets/images/products/8.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
     shortDescription: 'Gentle, high-coverage support for postpartum recovery weeks.',
@@ -649,9 +673,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (colorsEl) {
+    const COLOR_HEX = { 'Black': '#1a1a1a', 'Grey': '#9ca3af', 'Gray': '#9ca3af' };
     colorsEl.innerHTML = product.colors.map(function (value) {
       const active = value === product.defaultColor ? ' is-active' : '';
-      return '<button type="button" class="product-color-chip' + active + '" data-color="' + value + '">' + value + '</button>';
+      const hex = COLOR_HEX[value] || '#cccccc';
+      return '<button type="button" class="product-color-chip' + active + '" data-color="' + value + '" title="' + value + '" aria-label="' + value + '" style="background-color:' + hex + '"></button>';
     }).join('');
 
     colorsEl.addEventListener('click', function (e) {
@@ -677,16 +703,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const related = PRODUCT_CATALOG.filter(function (item) { return item.slug !== product.slug; }).slice(0, 4);
     relatedEl.innerHTML = related.map(function (item) {
       return '<div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">' +
-               '<div class="bg-white p-3 rounded-lg shadow-lg">' +
-                 '<a href="single-product-page.html?product=' + item.slug + '"><img src="' + item.image + '" alt="' + item.name + '" class="w-full object-cover mb-4 rounded-lg"></a>' +
-                 '<a href="single-product-page.html?product=' + item.slug + '" class="text-lg font-semibold mb-2 block">' + item.name + '</a>' +
+               '<a href="single-product-page.html?product=' + item.slug + '" class="bg-white p-3 block rounded-none overflow-hidden hover-lift hover-zoom">' +
+                 '<img src="' + item.image + '" alt="' + item.name + '" class="w-full object-cover mb-4 rounded-none">' +
+                 '<p class="text-lg font-semibold mb-2 block">' + item.name + '</p>' +
                  '<p class="my-2">' + item.category + '</p>' +
                  '<div class="flex items-center mb-4">' +
                    '<span class="text-lg font-bold text-black">' + money(item.price) + '</span>' +
                    (item.comparePrice ? '<span class="text-sm line-through ml-2">' + money(item.comparePrice) + '</span>' : '') +
                  '</div>' +
-                 '<a href="single-product-page.html?product=' + item.slug + '" class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none w-full block text-center">Select Options</a>' +
-               '</div>' +
+               '</a>' +
              '</div>';
     }).join('');
   }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
     <link rel="icon" type="icon" href="assets/images/favicon.png" />
-    <title>Cart page</title>
+    <title>Help &amp; Contact | HailaFlo</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="assets/css/custom.css">
@@ -57,9 +57,6 @@
             <!-- Center section: Menu -->
             <nav class="hidden lg:flex md:flex-grow justify-center">
               <ul class="flex justify-center items-center gap-8 text-black whitespace-nowrap">
-                  
-                 
-
                   <li><a href="shop.html" class="hover:text-clay font-semibold">Shop</a></li>
                   <li><a href="shop.html?category=Period%20Underwear" class="hover:text-clay font-semibold">Period</a></li>
                   <li><a href="shop.html?category=HailaFlo%20Active" class="hover:text-clay font-semibold">Active</a></li>
@@ -127,8 +124,6 @@
         </svg>
       </button>
       <ul class="w-full">
-          
-                
           <li><a href="shop.html" class="hover:text-clay font-bold block py-2">Shop</a></li>
           <li><a href="shop.html?category=Period%20Underwear" class="hover:text-clay font-bold block py-2">Period</a></li>
           <li><a href="shop.html?category=HailaFlo%20Active" class="hover:text-clay font-bold block py-2">Active</a></li>
@@ -144,7 +139,7 @@
               class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none flex items-center justify-center min-w-[110px]">Cart</a>
       </div>
       <!-- Search field -->
-      <div 
+      <div
           class="  top-full right-0 mt-2 w-full bg-white shadow-lg p-2 rounded">
           <input type="text" class="w-full p-2 border border-gray-300 rounded"
               placeholder="Search for products...">
@@ -152,53 +147,64 @@
     </nav>
     </header>
 
-    <!-- Register and login -->
-    <section id="register-login-page" class="bg-white py-16">
+    <!-- Help / Contact -->
+    <section id="help-page" class="bg-white py-16">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row gap-4">
-                <div class="md:w-1/2 bg-white rounded-lg shadow-md p-4 md:p-10 md:m-10">
-                    <h2 class="text-2xl font-semibold mb-4">Login</h2>
-                    <form>
-                        <div class="mb-3">
-                            <label for="login-email" class="block ">Email</label>
-                            <input type="email" id="login-email" class="w-full px-3 py-1 border  rounded-full focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary" required>
+            <div class="section-heading mb-10">
+                <span class="section-heading__eyebrow">We're here for you</span>
+                <h2 class="section-heading__title">Help &amp; Contact</h2>
+                <p class="section-heading__subtitle">Have a question about an order, sizing, or anything else? Send us a message and we'll get back to you.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-10">
+                <!-- Contact form -->
+                <div class="w-full lg:w-2/3">
+                    <form id="help-form" name="help" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-5">
+                        <input type="hidden" name="form-name" value="help">
+                        <p class="hidden">
+                            <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                        </p>
+                        <div>
+                            <label for="help-name" class="block mb-1 font-medium">Name</label>
+                            <input type="text" id="help-name" name="name"
+                                class="w-full px-3 py-2 border border-gray-line focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary"
+                                required>
                         </div>
-                        <div class="mb-3">
-                            <label for="login-password" class="block ">Password</label>
-                            <input type="password" id="login-password" class="w-full px-3 py-1 border  rounded-full focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <div>
+                            <label for="help-email" class="block mb-1 font-medium">Email</label>
+                            <input type="email" id="help-email" name="email"
+                                class="w-full px-3 py-2 border border-gray-line focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary"
+                                required>
                         </div>
-                        <div class="flex items-center mb-3">
-                            <input type="checkbox" id="remember-me" class="mr-2">
-                            <label for="remember-me" class="">Remember Me</label>
+                        <div>
+                            <label for="help-phone" class="block mb-1 font-medium">Phone number</label>
+                            <input type="tel" id="help-phone" name="phone"
+                                class="w-full px-3 py-2 border border-gray-line focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary">
                         </div>
-                        <div class="mb-3">
-                            <a href="#" class="text-black hover:underline">Forgot Password?</a>
+                        <div>
+                            <label for="help-message" class="block mb-1 font-medium">Message</label>
+                            <textarea id="help-message" name="message" rows="5"
+                                class="w-full px-3 py-2 border border-gray-line focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary"
+                                required></textarea>
                         </div>
-                        <button type="submit" class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary py-2 px-3 rounded-none w-full">Login</button>
+                        <button type="submit"
+                            class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-6 rounded-none">Send</button>
+                        <p id="help-form-success" class="text-primary font-semibold hidden">Thanks! Your message has been sent — we'll be in touch soon.</p>
                     </form>
                 </div>
-                <div class="md:w-1/2 bg-white rounded-lg shadow-md p-4 md:p-10 md:m-10">
-                    <h2 class="text-2xl font-semibold mb-4">Register</h2>
-                    <form>
-                        <div class="mb-3">
-                            <label for="register-email" class="block ">Email</label>
-                            <input type="email" id="register-email" class="w-full px-3 py-1 border focus:border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-primary" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="register-password" class="block ">Password</label>
-                            <input type="password" id="register-password" class="w-full px-3 py-1 border focus:border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-primary" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="register-confirm-password" class="block ">Confirm Password</label>
-                            <input type="password" id="register-confirm-password" class="w-full px-3 py-1 border focus:border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-primary" required>
-                        </div>
-                        <button type="submit" class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary py-2 px-3 rounded-none w-full">Register</button>
-                    </form>
+
+                <!-- Contact info -->
+                <div class="w-full lg:w-1/3">
+                    <h3 class="text-lg font-semibold mb-4">Contact information</h3>
+                    <p class="mb-2">123 Street Name, Paris, France</p>
+                    <p class="mb-2">Phone: (123) 456-7890</p>
+                    <p class="mb-2"><a href="mailto:info@hailaflo.com" class="underline">info@hailaflo.com</a></p>
+                    <p class="mt-6"><a href="faq.html" class="text-primary underline">Looking for quick answers? Visit our FAQ</a></p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="footer-sage border-t border-gray-line">
         <!-- Top part -->
@@ -280,7 +286,7 @@
             </ul>
             <p class="text-sm mt-4">HailaFlo makes reusable period underwear with breathable comfort, leak protection, and a fit designed for everyday confidence.</p>
             </div>
-            
+
         </div>
         </div>
     </footer>
