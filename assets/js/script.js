@@ -702,7 +702,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (relatedEl) {
     const related = PRODUCT_CATALOG.filter(function (item) { return item.slug !== product.slug; }).slice(0, 4);
     relatedEl.innerHTML = related.map(function (item) {
-      return '<div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">' +
+      return '<div class="w-[72%] shrink-0 snap-start px-2 mb-8 sm:w-1/2 sm:shrink sm:px-4 lg:w-1/4">' +
                '<a href="single-product-page.html?product=' + item.slug + '" class="bg-white p-3 block rounded-none overflow-hidden hover-lift hover-zoom">' +
                  '<img src="' + item.image + '" alt="' + item.name + '" class="w-full object-cover mb-4 rounded-none">' +
                  '<p class="text-lg font-semibold mb-2 block">' + item.name + '</p>' +
