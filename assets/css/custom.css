@@ -161,6 +161,24 @@ body {
     transform: scale(1.08);
 }
 
+/* Hide scrollbar for horizontally scrolling carousels (e.g. related products on mobile) */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Main product image: match thumbnail style (full-width, cover) */
+#main-image {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+}
+
 /* Absorbency droplet indicator */
 .absorbency-droplets {
     display: flex;
@@ -385,6 +403,15 @@ button:hover {
     }
 }
 
+@media (max-width: 640px) {
+    .main-slider .swiper-slide img {
+        height: 65vh;
+        min-height: 480px;
+        max-height: none;
+        object-fit: cover;
+    }
+}
+
 .main-slider .swiper-slide-content {
     position: absolute;
     bottom: 20%;
@@ -392,7 +419,7 @@ button:hover {
 
 @media (max-width:640px) {
     .main-slider .swiper-slide-content{
-        bottom: inherit;
+        bottom: 10%;
         padding: 10px;
     }
 }
@@ -506,6 +533,13 @@ img.cursor-pointer:hover {
 }
 .tab-content:not(.hidden) {
     display: block;
+}
+
+/* Description & spec area: use the single body font instead of serif headings */
+.tab-content :is(h1, h2, h3, h4, h5, h6),
+.product-description-heading {
+    font-family: Manrope, sans-serif;
+    letter-spacing: normal;
 }
 
 
@@ -849,18 +883,22 @@ img.cursor-pointer:hover {
 }
 
 .product-color-chip {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 9999px;
     border: 1px solid var(--color-gray-line);
-    background: #fff;
-    color: var(--color-gray-dark);
-    font-size: 0.88rem;
-    padding: 0.45rem 0.75rem;
-    min-height: 38px;
+    font-size: 0;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.product-color-chip.is-active,
+.product-color-chip.is-active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--color-primary);
+}
 .product-color-chip:hover {
     border-color: var(--color-primary);
-    color: var(--color-primary);
 }
 
 @media (prefers-reduced-motion: reduce) {
