@@ -37,6 +37,21 @@ a {
     }
 }
 
+/* On mobile, turn the 3 category banner cards into a horizontal, snap-scrolling row. */
+@media (width < 640px) {
+    #product-banners .flex-wrap {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.5rem;
+    }
+    #product-banners .flex-wrap > div {
+        flex: 0 0 78%;
+        scroll-snap-align: start;
+    }
+}
+
 /* Shop grid: show two cards per row on mobile instead of one to reduce scrolling. */
 @media (width < 640px) {
     #products-grid {
@@ -856,7 +871,7 @@ img.cursor-pointer:hover {
     }
 }
 
-/* Product category tags — soft, palette-consistent pills instead of solid blocks */
+/* Product category tags â€” soft, palette-consistent pills instead of solid blocks */
 .product-tag {
     display: inline-flex;
     align-items: center;
@@ -885,7 +900,7 @@ img.cursor-pointer:hover {
     color: #8a5a49;
 }
 
-/* Product card polish — soft border, gentle shadow and lift/zoom on hover */
+/* Product card polish â€” soft border, gentle shadow and lift/zoom on hover */
 #products-grid > div {
     overflow: hidden;
     border: 1px solid var(--color-gray-100);
@@ -904,7 +919,7 @@ img.cursor-pointer:hover {
     transform: scale(1.05);
 }
 
-/* Shop category description — editorial intro card */
+/* Shop category description â€” editorial intro card */
 .category-intro {
     max-width: 46rem;
     margin: 0 auto;
