@@ -261,9 +261,15 @@ button:hover {
     background-color: var(--color-gray-100);
     box-shadow: -8px 0 20px rgba(0, 0, 0, 0.15);
     overflow-y: auto;
+    overscroll-behavior: contain;
     z-index: 50;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
+}
+
+/* Prevent the page behind the open mobile nav from scrolling on touch. */
+body.mobile-menu-open {
+    overflow: hidden;
 }
 
 .mobile-menu.is-open {
@@ -909,7 +915,7 @@ img.cursor-pointer:hover {
     }
 }
 
-/* Product category tags â€” soft, palette-consistent pills instead of solid blocks */
+/* Product category tags Ã¢â‚¬â€ soft, palette-consistent pills instead of solid blocks */
 .product-tag {
     display: inline-flex;
     align-items: center;
@@ -938,7 +944,7 @@ img.cursor-pointer:hover {
     color: #8a5a49;
 }
 
-/* Product card polish â€” soft border, gentle shadow and lift/zoom on hover */
+/* Product card polish Ã¢â‚¬â€ soft border, gentle shadow and lift/zoom on hover */
 #products-grid > div {
     overflow: hidden;
     border: 1px solid var(--color-gray-100);
@@ -957,7 +963,7 @@ img.cursor-pointer:hover {
     transform: scale(1.05);
 }
 
-/* Shop category description â€” editorial intro card */
+/* Shop category description Ã¢â‚¬â€ editorial intro card */
 .category-intro {
     max-width: 46rem;
     margin: 0 auto;
