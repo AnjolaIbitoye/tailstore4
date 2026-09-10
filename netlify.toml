@@ -1,3 +1,18 @@
 [build]
   command = "npm run build"
   publish = "."
+
+[[redirects]]
+  from = "/cart.html"
+  to = "/shop.html"
+  status = 301
+
+[[redirects]]
+  from = "/checkout.html"
+  to = "/shop.html"
+  status = 301
+
+[[redirects]]
+  from = "/register.html"
+  to = "/shop.html"
+  status = 301

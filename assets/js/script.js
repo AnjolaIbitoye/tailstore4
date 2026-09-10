@@ -1,30 +1,3 @@
-/* cart */
-document.addEventListener('DOMContentLoaded', function () {
-  const cartIcon = document.querySelector('.cart-wrapper');
-  const cartDropdown = cartIcon.querySelector('.group-hover\\:block');
-
-  cartIcon.addEventListener('mouseenter', function () {
-      clearTimeout(cartIcon.__timer);
-      cartDropdown.classList.remove('hidden');
-  });
-
-  cartIcon.addEventListener('mouseleave', function () {
-      cartIcon.__timer = setTimeout(() => {
-          cartDropdown.classList.add('hidden');
-      }, 1300);
-  });
-
-  cartDropdown.addEventListener('mouseenter', function () {
-      clearTimeout(cartIcon.__timer);
-  });
-
-  cartDropdown.addEventListener('mouseleave', function () {
-      cartIcon.__timer = setTimeout(() => {
-          cartDropdown.classList.add('hidden');
-      }, 1300);
-  });
-});
-
 /* mobile menu */
 document.addEventListener("DOMContentLoaded", function () {
   const hamburgerBtn = document.getElementById('hamburger');
@@ -219,23 +192,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* swiper slider */
 if (typeof Swiper !== 'undefined') {
-  var swiper = new Swiper('.swiper', {
-    slidesPerView: 2,
-    loop: true,
-    autoplay: {
-        delay: 3000,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        1024: {
-            slidesPerView: 6,
-        },
-    },
-  });
-
   var swiper = new Swiper('.main-slider', {
     slidesPerView: 1,
     loop: true,
@@ -448,6 +404,8 @@ const PRODUCT_CATALOG = [
     slug: 'stretchy-briefs',
     name: 'Stretchy Briefs',
     code: 'HAILAFLO-001',
+    amazonUrl: 'https://www.amazon.com/s?k=HailaFlo%20Stretchy%20Briefs', // TODO: replace with the real Amazon listing URL
+    tiktokUrl: 'https://www.tiktok.com/shop', // TODO: replace with the real TikTok Shop listing URL
     category: 'Period Underwear',
     price: 19.99,
     comparePrice: 24.99,
@@ -469,6 +427,8 @@ const PRODUCT_CATALOG = [
     slug: 'boxer-shorts',
     name: 'Boxer Shorts',
     code: 'HAILAFLO-002',
+    amazonUrl: 'https://www.amazon.com/s?k=HailaFlo%20Boxer%20Shorts', // TODO: replace with the real Amazon listing URL
+    tiktokUrl: 'https://www.tiktok.com/shop', // TODO: replace with the real TikTok Shop listing URL
     category: 'Period Underwear',
     price: 27.99,
     absorbency: ['Regular', 'Heavy', 'Super Heavy'],
@@ -489,6 +449,8 @@ const PRODUCT_CATALOG = [
     slug: 'lace-briefs',
     name: 'Lace Briefs',
     code: 'HAILAFLO-003',
+    amazonUrl: 'https://www.amazon.com/s?k=HailaFlo%20Lace%20Briefs', // TODO: replace with the real Amazon listing URL
+    tiktokUrl: 'https://www.tiktok.com/shop', // TODO: replace with the real TikTok Shop listing URL
     category: 'Period Underwear',
     price: 22.99,
     comparePrice: 27.99,
@@ -510,6 +472,8 @@ const PRODUCT_CATALOG = [
     slug: 'gym-leggings',
     name: 'Gym Leggings',
     code: 'HAILAFLO-004',
+    amazonUrl: 'https://www.amazon.com/s?k=HailaFlo%20Gym%20Leggings', // TODO: replace with the real Amazon listing URL
+    tiktokUrl: 'https://www.tiktok.com/shop', // TODO: replace with the real TikTok Shop listing URL
     category: 'HailaFlo Active',
     price: 34.99,
     absorbency: ['Regular', 'Heavy'],
@@ -530,6 +494,8 @@ const PRODUCT_CATALOG = [
     slug: 'gym-shorts',
     name: 'Gym Shorts',
     code: 'HAILAFLO-005',
+    amazonUrl: 'https://www.amazon.com/s?k=HailaFlo%20Gym%20Shorts', // TODO: replace with the real Amazon listing URL
+    tiktokUrl: 'https://www.tiktok.com/shop', // TODO: replace with the real TikTok Shop listing URL
     category: 'HailaFlo Active',
     price: 24.99,
     comparePrice: 29.99,
@@ -551,6 +517,8 @@ const PRODUCT_CATALOG = [
     slug: 'swimwear',
     name: 'Swimwear',
     code: 'HAILAFLO-006',
+    amazonUrl: 'https://www.amazon.com/s?k=HailaFlo%20Swimwear', // TODO: replace with the real Amazon listing URL
+    tiktokUrl: 'https://www.tiktok.com/shop', // TODO: replace with the real TikTok Shop listing URL
     category: 'HailaFlo Active',
     price: 44.99,
     absorbency: ['Regular', 'Heavy', 'Super Heavy'],
@@ -571,6 +539,8 @@ const PRODUCT_CATALOG = [
     slug: 'period-activewear',
     name: 'Period Activewear',
     code: 'HAILAFLO-007',
+    amazonUrl: 'https://www.amazon.com/s?k=HailaFlo%20Period%20Activewear', // TODO: replace with the real Amazon listing URL
+    tiktokUrl: 'https://www.tiktok.com/shop', // TODO: replace with the real TikTok Shop listing URL
     category: 'Other',
     price: 32.99,
     comparePrice: 39.99,
@@ -592,6 +562,8 @@ const PRODUCT_CATALOG = [
     slug: 'postpartum-recovery-set',
     name: 'Postpartum Recovery Set',
     code: 'HAILAFLO-008',
+    amazonUrl: 'https://www.amazon.com/s?k=HailaFlo%20Postpartum%20Recovery%20Set', // TODO: replace with the real Amazon listing URL
+    tiktokUrl: 'https://www.tiktok.com/shop', // TODO: replace with the real TikTok Shop listing URL
     category: 'Postpartum',
     price: 36.99,
     absorbency: ['Heavy', 'Super Heavy'],
@@ -626,8 +598,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const titleEl = document.getElementById('sp-title');
   const codeEl = document.getElementById('sp-code');
-  const priceEl = document.getElementById('sp-price');
-  const compareEl = document.getElementById('sp-compare-price');
   const shortDescriptionEl = document.getElementById('sp-short-description');
   const longTitleEl = document.getElementById('sp-long-title');
   const longDescriptionEl = document.getElementById('sp-long-description');
@@ -640,18 +610,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const h1 = document.querySelector('h1');
   const highlightImage1 = document.getElementById('sp-highlight-image-1');
   const highlightImage2 = document.getElementById('sp-highlight-image-2');
+  const buyAmazonEl = document.getElementById('sp-buy-amazon');
+  const buyTiktokEl = document.getElementById('sp-buy-tiktok');
   const highlightText1 = document.getElementById('sp-highlight-text-1');
   const highlightText2 = document.getElementById('sp-highlight-text-2');
 
-  const money = function (v) { return '$' + Number(v).toFixed(2); };
   if (titleEl) titleEl.textContent = 'HailaFlo ' + product.name;
   if (h1 && h1 !== titleEl) h1.textContent = 'HailaFlo ' + product.name;
   if (codeEl) codeEl.textContent = ' ' + product.code;
-  if (priceEl) priceEl.textContent = money(product.price);
-  if (compareEl) {
-    compareEl.textContent = product.comparePrice ? money(product.comparePrice) : '';
-    compareEl.classList.toggle('hidden', !product.comparePrice);
-  }
   if (shortDescriptionEl) shortDescriptionEl.textContent = product.shortDescription;
   if (longTitleEl) longTitleEl.textContent = product.longTitle;
   if (longDescriptionEl) longDescriptionEl.textContent = product.longDescription;
@@ -662,6 +628,9 @@ document.addEventListener('DOMContentLoaded', function () {
     mainImageEl.src = product.image;
     mainImageEl.alt = product.name;
   }
+
+  if (buyAmazonEl) buyAmazonEl.href = product.amazonUrl || '#';
+  if (buyTiktokEl) buyTiktokEl.href = product.tiktokUrl || '#';
 
   if (thumbsEl) {
     thumbsEl.innerHTML = product.gallery.map(function (img, idx) {
@@ -674,36 +643,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (absorbencyEl) {
     absorbencyEl.innerHTML = product.absorbency.map(function (value) {
-      const selected = value === product.defaultAbsorbency ? ' selected' : '';
-      return '<option' + selected + '>' + value + '</option>';
+      return '<span class="product-option-value">' + value + '</span>';
     }).join('');
   }
 
   if (sizeEl) {
     sizeEl.innerHTML = product.sizes.map(function (value) {
-      const selected = value === product.defaultSize ? ' selected' : '';
-      return '<option' + selected + '>' + value + '</option>';
+      return '<span class="product-option-value">' + value + '</span>';
     }).join('');
   }
 
   if (colorsEl) {
     const COLOR_HEX = { 'Black': '#1a1a1a', 'Grey': '#9ca3af', 'Gray': '#9ca3af' };
     colorsEl.innerHTML = product.colors.map(function (value) {
-      const active = value === product.defaultColor ? ' is-active' : '';
       const hex = COLOR_HEX[value] || '#cccccc';
-      return '<button type="button" class="product-color-chip' + active + '" data-color="' + value + '" title="' + value + '" aria-label="' + value + '" style="background-color:' + hex + '"></button>';
+      return '<span class="product-option-value product-option-value--color"><span class="product-option-swatch" style="background-color:' + hex + '"></span>' + value + '</span>';
     }).join('');
-
-    colorsEl.addEventListener('click', function (e) {
-      const chip = e.target.closest('.product-color-chip');
-      if (!chip) return;
-      colorsEl.querySelectorAll('.product-color-chip').forEach(function (btn) {
-        btn.classList.remove('is-active');
-      });
-      chip.classList.add('is-active');
-    });
   }
-
   const sizeChartBtn = document.getElementById('open-size-chart');
   const sizeTab = document.getElementById('size-shape-tab');
   if (sizeChartBtn && sizeTab) {
@@ -721,10 +677,7 @@ document.addEventListener('DOMContentLoaded', function () {
                  '<img src="' + item.image + '" alt="' + item.name + '" class="w-full object-cover mb-4 rounded-none">' +
                  '<p class="text-lg font-semibold mb-2 block">' + item.name + '</p>' +
                  '<p class="my-2">' + item.category + '</p>' +
-                 '<div class="flex items-center mb-4">' +
-                   '<span class="text-lg font-bold text-black">' + money(item.price) + '</span>' +
-                   (item.comparePrice ? '<span class="text-sm line-through ml-2">' + money(item.comparePrice) + '</span>' : '') +
-                 '</div>' +
+                 '<p class="product-marketplace-cue"><i class="fa-solid fa-store" aria-hidden="true"></i> Marketplace options</p>' +
                '</a>' +
              '</div>';
     }).join('');
@@ -732,39 +685,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.title = 'HailaFlo | ' + product.name;
 });
-
-/* single page product count */
-document.addEventListener('DOMContentLoaded', function () {
-    const decreaseButton = document.getElementById('decrease');
-    const increaseButton = document.getElementById('increase');
-    const quantityInput = document.getElementById('quantity');
-  
-    if (decreaseButton && increaseButton && quantityInput) {
-        decreaseButton.addEventListener('click', function () {
-            let quantity = parseInt(quantityInput.value);
-            if (quantity > 1) {
-                quantity -= 1;
-                quantityInput.value = quantity;
-            }
-            updateButtons();
-        });
-  
-        increaseButton.addEventListener('click', function () {
-            let quantity = parseInt(quantityInput.value);
-            quantity += 1;
-            quantityInput.value = quantity;
-            updateButtons();
-        });
-  
-        function updateButtons() {
-            if (parseInt(quantityInput.value) === 1) {
-                decreaseButton.setAttribute('disabled', true);
-            } else {
-                decreaseButton.removeAttribute('disabled');
-            }
-        }
-    }
-  });
 
 /* single product tabs */
 document.addEventListener('DOMContentLoaded', function () {
@@ -823,213 +743,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-/* ------- Shopping cart (persisted in localStorage) ------- */
-document.addEventListener('DOMContentLoaded', function () {
-  const STORAGE_KEY = 'haila_cart';
-  const TAX_RATE = 0.10;
-
-  const money = v => '$' + (v || 0).toFixed(2);
-  const readCart = () => { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch (e) { return []; } };
-  const writeCart = items => localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-  const escapeHtml = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-
-  // Seed a sample cart on the first ever visit so the UI isn't empty by default.
-  if (localStorage.getItem(STORAGE_KEY) === null) {
-    writeCart([
-      { name: 'HailaFlo Everyday Brief', price: 19.99, image: 'assets/images/single-product/1.jpg', qty: 1 },
-      { name: 'HailaFlo Overnight Boxer', price: 24.99, image: 'assets/images/single-product/2.jpg', qty: 1 }
-    ]);
-  }
-
-  const totalCount = () => readCart().reduce((s, i) => s + i.qty, 0);
-  const subtotal = () => readCart().reduce((s, i) => s + i.price * i.qty, 0);
-
-  function addItem(product) {
-    const items = readCart();
-    const existing = items.find(i => i.name === product.name);
-    if (existing) existing.qty += product.qty || 1;
-    else items.push({ name: product.name, price: product.price, image: product.image, qty: product.qty || 1 });
-    writeCart(items);
-    renderAll();
-  }
-  function setQty(name, qty) {
-    let items = readCart();
-    const it = items.find(i => i.name === name);
-    if (!it) return;
-    it.qty = qty;
-    if (it.qty <= 0) items = items.filter(i => i.name !== name);
-    writeCart(items);
-    renderAll();
-  }
-  function removeItem(name) {
-    writeCart(readCart().filter(i => i.name !== name));
-    renderAll();
-  }
-
-  function renderDropdown() {
-    document.querySelectorAll('.cart-wrapper').forEach(function (wrapper) {
-      const container = wrapper.querySelector('.space-y-4');
-      if (!container) return;
-      const items = readCart();
-      if (!items.length) {
-        container.innerHTML = '<p class="text-sm py-4 text-center">Your cart is empty.</p>';
-        return;
-      }
-      container.innerHTML = items.map(function (i) {
-        return '<div class="flex items-center justify-between pb-4 border-b border-gray-line">' +
-                 '<div class="flex items-center">' +
-                   '<img src="' + escapeHtml(i.image) + '" alt="' + escapeHtml(i.name) + '" class="h-12 w-12 object-cover rounded mr-2">' +
-                   '<div><p class="font-semibold">' + escapeHtml(i.name) + '</p><p class="text-sm">Quantity: ' + i.qty + '</p></div>' +
-                 '</div>' +
-                 '<p class="font-semibold">' + money(i.price * i.qty) + '</p>' +
-               '</div>';
-      }).join('');
-    });
-  }
-
-  function renderCount() {
-    const c = totalCount();
-    document.querySelectorAll('.cart-count').forEach(el => { el.textContent = c; });
-    document.querySelectorAll('.cart-wrapper > a').forEach(function (link) {
-      let badge = link.querySelector('.cart-count-badge');
-      if (!badge) {
-        badge = document.createElement('span');
-        badge.className = 'cart-count-badge';
-        link.appendChild(badge);
-      }
-      badge.textContent = c;
-      badge.style.display = c > 0 ? 'flex' : 'none';
-    });
-  }
-
-  function renderCartPage() {
-    const cartItems = document.getElementById('cart-items');
-    if (!cartItems) return;
-    const items = readCart();
-    if (!items.length) {
-      cartItems.innerHTML = '<tr><td colspan="4" class="py-10 text-center">Your cart is empty. <a href="shop.html" class="text-primary underline">Continue shopping</a></td></tr>';
-    } else {
-      cartItems.innerHTML = items.map(function (i, idx) {
-        return '<tr class="cart-row pb-4 border-b border-gray-line" data-index="' + idx + '">' +
-          '<td class="px-1 py-4"><div class="flex items-center flex-col sm:flex-row text-center sm:text-left">' +
-            '<img class="h-16 w-16 md:h-24 md:w-24 sm:mr-8 mb-4 sm:mb-0" src="' + escapeHtml(i.image) + '" alt="' + escapeHtml(i.name) + '">' +
-            '<div><p class="text-sm md:text-base md:font-semibold">' + escapeHtml(i.name) + '</p>' +
-            '<button type="button" class="cart-remove text-xs text-primary underline mt-1">Remove</button></div>' +
-          '</div></td>' +
-          '<td class="cart-unit-price px-1 py-4 text-center">' + money(i.price) + '</td>' +
-          '<td class="px-1 py-4 text-center"><div class="flex items-center justify-center">' +
-            '<button class="cart-decrement border border-primary bg-primary text-white hover:bg-transparent hover:text-primary rounded-none w-10 h-10 flex items-center justify-center">-</button>' +
-            '<p class="quantity text-center w-8">' + i.qty + '</p>' +
-            '<button class="cart-increment border border-primary bg-primary text-white hover:bg-transparent hover:text-primary rounded-none w-10 h-10 flex items-center justify-center">+</button>' +
-          '</div></td>' +
-          '<td class="cart-row-total px-1 py-4 text-right">' + money(i.price * i.qty) + '</td>' +
-        '</tr>';
-      }).join('');
-    }
-    const sub = subtotal();
-    const tax = sub * TAX_RATE;
-    const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = money(v); };
-    setText('cart-subtotal', sub);
-    setText('cart-tax', tax);
-    setText('cart-shipping', 0);
-    setText('cart-total', sub + tax);
-  }
-
-  function renderAll() {
-    renderDropdown();
-    renderCount();
-    renderCartPage();
-    renderCheckout();
-    document.dispatchEvent(new CustomEvent('haila:rerender'));
-  }
-
-  function renderCheckout() {
-    const container = document.getElementById('checkout-items');
-    if (!container) return;
-    const items = readCart();
-    container.innerHTML = items.length
-      ? items.map(function (i) {
-          return '<div class="flex justify-between items-center text-sm">' +
-                   '<span>' + escapeHtml(i.name) + ' <span class="text-gray-500">&times; ' + i.qty + '</span></span>' +
-                   '<span class="font-semibold">' + money(i.price * i.qty) + '</span>' +
-                 '</div>';
-        }).join('')
-      : '<p class="text-sm text-center">Your cart is empty.</p>';
-    const sub = subtotal();
-    const tax = sub * TAX_RATE;
-    const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = money(v); };
-    setText('checkout-subtotal', sub);
-    setText('checkout-tax', tax);
-    setText('checkout-shipping', 0);
-    setText('checkout-total', sub + tax);
-  }
-
-  // Pull product details from the surrounding markup so no per-button data is needed.
-  function extractProduct(btn) {
-    const spInfo = btn.closest('.pb-8');
-    if (spInfo && spInfo.querySelector('#quantity')) {
-      const baseName = (spInfo.querySelector('h1')?.textContent || 'Item').trim();
-      const absorbency = document.getElementById('sp-absorbency')?.value;
-      const size = document.getElementById('sp-size')?.value;
-      const color = document.querySelector('.product-color-chip.is-active')?.dataset.color;
-      const selectedOptions = [absorbency, size, color].filter(Boolean).join(' / ');
-      const name = selectedOptions ? baseName + ' (' + selectedOptions + ')' : baseName;
-      const price = parseFloat((spInfo.querySelector('.text-2xl')?.textContent || '').replace(/[^0-9.]/g, '')) || 0;
-      const qty = parseInt(document.getElementById('quantity')?.value, 10) || 1;
-      const image = document.getElementById('main-image')?.getAttribute('src') || '';
-      return { name, price, image, qty };
-    }
-    const card = btn.closest('.scroll-reveal') || btn.closest('.bg-white') || btn.closest('[data-category]');
-    if (!card) return null;
-    const name = (card.querySelector('a[href]')?.textContent || card.querySelector('img')?.alt || 'Item').trim();
-    const price = parseFloat((card.querySelector('.font-bold')?.textContent || '').replace(/[^0-9.]/g, '')) || 0;
-    const image = card.querySelector('img')?.getAttribute('src') || '';
-    return { name, price, image, qty: 1 };
-  }
-
-  document.addEventListener('click', function (e) {
-    const btn = e.target.closest('button');
-    if (!btn) return;
-    if (btn.textContent.replace(/\s+/g, ' ').trim().toLowerCase() !== 'add to cart') return;
-    e.preventDefault();
-    const product = extractProduct(btn);
-    if (product && product.name) {
-      addItem(product);
-      document.querySelectorAll('.cart-count-badge').forEach(function (b) {
-        b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump');
-      });
-    }
-  });
-
-  // Cart page interactions
-  const cartItems = document.getElementById('cart-items');
-  if (cartItems) {
-    cartItems.addEventListener('click', function (e) {
-      const row = e.target.closest('.cart-row');
-      if (!row) return;
-      const item = readCart()[parseInt(row.dataset.index, 10)];
-      if (!item) return;
-      if (e.target.closest('.cart-increment')) setQty(item.name, item.qty + 1);
-      else if (e.target.closest('.cart-decrement')) setQty(item.name, item.qty - 1);
-      else if (e.target.closest('.cart-remove')) removeItem(item.name);
-    });
-    const emptyBtn = document.getElementById('cart-empty');
-    if (emptyBtn) emptyBtn.addEventListener('click', function () { writeCart([]); renderAll(); });
-    const updateBtn = document.getElementById('cart-update');
-    if (updateBtn) updateBtn.addEventListener('click', function (e) { e.preventDefault(); renderAll(); });
-  }
-
-  renderAll();
-});
-
 /* ------- Language switch (English / German) ------- */
 document.addEventListener('DOMContentLoaded', function () {
   const LANG_KEY = 'haila_lang';
 
   const de = {
     // Announcement bar
-    'Free Shipping on Orders Over $50': 'Kostenloser Versand ab 50 $',
-    '30-Day Hassle-Free Returns': '30 Tage unkomplizierte Rückgabe',
+
     'Cruelty-Free & Sustainably Made': 'Tierversuchsfrei & nachhaltig hergestellt',
     // Nav / header
     'Shop': 'Shop',
@@ -1037,9 +757,6 @@ document.addEventListener('DOMContentLoaded', function () {
     'HailaFlo Active': 'HailaFlo Active',
     'Postpartum': 'Wochenbett',
     'Other': 'Sonstiges',
-    'Register': 'Registrieren',
-    'Login': 'Anmelden',
-    'Registration': 'Registrierung',
     'Search for products...': 'Produkte suchen...',
     'items': 'Artikel',
     // Hero
@@ -1063,7 +780,6 @@ document.addEventListener('DOMContentLoaded', function () {
     'Seamless period brief': 'Nahtloser Perioden-Slip',
     'Overnight period boxer': 'Perioden-Boxer für die Nacht',
     'Period Underwear, Accessories': 'Periodenunterwäsche, Accessoires',
-    'Add to Cart': 'In den Warenkorb',
     // Welcome banner
     'Welcome to HailaFlo': 'Willkommen bei HailaFlo',
     // Blog / care guide
@@ -1085,12 +801,9 @@ document.addEventListener('DOMContentLoaded', function () {
     'Subscribe': 'Abonnieren',
     // Footer
     'Pages': 'Seiten',
-    'Account': 'Konto',
     'Follow Us': 'Folge uns',
     'Contact Us': 'Kontakt',
     'Home': 'Startseite',
-    'Checkout': 'Kasse',
-    'Cart': 'Warenkorb',
     'Privacy Policy': 'Datenschutz',
     'Terms of Service': 'Nutzungsbedingungen',
     'FAQ': 'FAQ',
@@ -1136,43 +849,26 @@ document.addEventListener('DOMContentLoaded', function () {
     'Period underwear, activewear & more': 'Periodenunterwäsche, Sportkleidung & mehr',
     "HailaFlo's collection spans four families — Period Underwear (stretchy briefs, boxer shorts, and lace briefs), HailaFlo Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": 'Die HailaFlo-Kollektion umfasst vier Familien – Periodenunterwäsche (dehnbare Slips, Boxershorts und Spitzenslips), HailaFlo Active (Sport-Leggings, Sport-Shorts und Bademode), Sonstiges (Perioden-Sportkleidung) und Wochenbett-Essentials.',
     'Browse the collection and pick the style that matches your day — everyday comfort, a workout, or a swim.': 'Stöbere durch die Kollektion und wähle den Stil, der zu deinem Tag passt – Alltagskomfort, Workout oder Schwimmen.',
-    // Cart page
-    'Shopping Cart': 'Warenkorb',
-    'Product': 'Produkt',
-    'Price': 'Preis',
-    'Quantity': 'Menge',
-    'Total': 'Gesamt',
-    'Coupon code': 'Gutscheincode',
-    'Apply Coupon': 'Gutschein einlösen',
-    'Empty Cart': 'Warenkorb leeren',
-    'Update Cart': 'Warenkorb aktualisieren',
-    'Summary': 'Zusammenfassung',
-    'Subtotal': 'Zwischensumme',
-    'Taxes': 'Steuern',
-    'Shipping': 'Versand',
-    'Proceed to checkout': 'Zur Kasse',
-    'Remove': 'Entfernen',
-    'Your cart is empty.': 'Dein Warenkorb ist leer.',
-    'Continue shopping': 'Weiter einkaufen',
-    // Checkout page
-    'Billing Details': 'Rechnungsdaten',
-    'Full Name': 'Vollständiger Name',
-    'Email': 'E-Mail',
-    'Address': 'Adresse',
-    'City': 'Stadt',
-    'State': 'Bundesland',
-    'ZIP Code': 'Postleitzahl',
-    'Phone Number': 'Telefonnummer',
-    'Ship to a different address?': 'An eine andere Adresse liefern?',
-    'Yes': 'Ja',
-    'Order Summary': 'Bestellübersicht',
-    'Proceed to Payment': 'Zur Zahlung'
+    'Browse here, purchase on your preferred marketplace.': 'Hier entdecken und auf deinem bevorzugten Marktplatz kaufen.',
+    'Current prices, checkout, delivery, and order support are provided by Amazon or TikTok Shop.': 'Aktuelle Preise, Bezahlung, Lieferung und Bestellservice werden von Amazon oder TikTok Shop bereitgestellt.',
+    'View marketplace options': 'Marktplatzoptionen ansehen',
+    'Marketplace options': 'Marktplatzoptionen',
+    'Choose a marketplace below to view current pricing, availability, and delivery options.': 'Wähle unten einen Marktplatz, um aktuelle Preise, Verfügbarkeit und Lieferoptionen zu sehen.',
+    'Available sizes': 'Verfügbare Größen',
+    'Available colors': 'Verfügbare Farben',
+    'Available from': 'Erhältlich bei',
+    'Where to buy': 'Wo erhältlich',
+    'Choose a product to continue securely on Amazon or TikTok Shop.': 'Wähle ein Produkt, um sicher bei Amazon oder TikTok Shop fortzufahren.',
+    'Browse products': 'Produkte ansehen',
+    'Official shopping options': 'Offizielle Einkaufsmöglichkeiten',
+    'Continue with your preferred marketplace': 'Auf deinem bevorzugten Marktplatz fortfahren',
+    'View current pricing, delivery, and order support directly from the marketplace.': 'Aktuelle Preise, Lieferung und Bestellservice findest du direkt beim Marktplatz.',
+    'Shop HailaFlo on Amazon': 'HailaFlo bei Amazon kaufen',
+    'Shop HailaFlo on TikTok': 'HailaFlo bei TikTok kaufen',
   };
 
   const fr = {
     // Announcement bar
-    "Free Shipping on Orders Over $50": "Livraison gratuite dès 50 $ d'achat",
-    '30-Day Hassle-Free Returns': 'Retours faciles sous 30 jours',
     'Cruelty-Free & Sustainably Made': 'Sans cruauté et fabriqué durablement',
     // Nav / header
     'Shop': 'Boutique',
@@ -1180,9 +876,6 @@ document.addEventListener('DOMContentLoaded', function () {
     'HailaFlo Active': 'HailaFlo Active',
     'Postpartum': 'Post-partum',
     'Other': 'Autre',
-    'Register': "S'inscrire",
-    'Login': 'Connexion',
-    'Registration': 'Inscription',
     'Search for products...': 'Rechercher des produits...',
     'items': 'articles',
     // Hero
@@ -1206,7 +899,6 @@ document.addEventListener('DOMContentLoaded', function () {
     'Seamless period brief': 'Culotte menstruelle sans couture',
     'Overnight period boxer': 'Boxer menstruel de nuit',
     'Period Underwear, Accessories': 'Culottes menstruelles, accessoires',
-    'Add to Cart': 'Ajouter au panier',
     // Welcome banner
     'Welcome to HailaFlo': 'Bienvenue chez HailaFlo',
     // Blog / care guide
@@ -1228,12 +920,9 @@ document.addEventListener('DOMContentLoaded', function () {
     'Subscribe': "S'abonner",
     // Footer
     'Pages': 'Pages',
-    'Account': 'Compte',
     'Follow Us': 'Suivez-nous',
     'Contact Us': 'Contactez-nous',
     'Home': 'Accueil',
-    'Checkout': 'Paiement',
-    'Cart': 'Panier',
     'Privacy Policy': 'Politique de confidentialité',
     'Terms of Service': "Conditions d'utilisation",
     'FAQ': 'FAQ',
@@ -1279,37 +968,22 @@ document.addEventListener('DOMContentLoaded', function () {
     'Period underwear, activewear & more': 'Culottes menstruelles, vêtements de sport et plus',
     "HailaFlo's collection spans four families — Period Underwear (stretchy briefs, boxer shorts, and lace briefs), HailaFlo Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": "La collection HailaFlo comprend quatre familles — Culottes menstruelles (culottes extensibles, boxers et culottes en dentelle), HailaFlo Active (leggings, shorts de sport et maillots de bain), Autre (vêtements de sport menstruels) et les essentiels de récupération post-partum.",
     'Browse the collection and pick the style that matches your day — everyday comfort, a workout, or a swim.': "Parcourez la collection et choisissez le style qui correspond à votre journée — confort au quotidien, entraînement ou baignade.",
-    // Cart page
-    'Shopping Cart': 'Panier',
-    'Product': 'Produit',
-    'Price': 'Prix',
-    'Quantity': 'Quantité',
-    'Total': 'Total',
-    'Coupon code': 'Code promo',
-    'Apply Coupon': 'Appliquer le code',
-    'Empty Cart': 'Vider le panier',
-    'Update Cart': 'Mettre à jour le panier',
-    'Summary': 'Résumé',
-    'Subtotal': 'Sous-total',
-    'Taxes': 'Taxes',
-    'Shipping': 'Livraison',
-    'Proceed to checkout': 'Passer à la caisse',
-    'Remove': 'Supprimer',
-    'Your cart is empty.': 'Votre panier est vide.',
-    'Continue shopping': 'Continuer vos achats',
-    // Checkout page
-    'Billing Details': 'Coordonnées de facturation',
-    'Full Name': 'Nom complet',
-    'Email': 'E-mail',
-    'Address': 'Adresse',
-    'City': 'Ville',
-    'State': 'Région',
-    'ZIP Code': 'Code postal',
-    'Phone Number': 'Numéro de téléphone',
-    'Ship to a different address?': 'Livrer à une adresse différente ?',
-    'Yes': 'Oui',
-    'Order Summary': 'Récapitulatif de la commande',
-    'Proceed to Payment': 'Procéder au paiement'
+    'Browse here, purchase on your preferred marketplace.': 'Découvrez ici, puis achetez sur la marketplace de votre choix.',
+    'Current prices, checkout, delivery, and order support are provided by Amazon or TikTok Shop.': 'Les prix actuels, le paiement, la livraison et le suivi de commande sont fournis par Amazon ou TikTok Shop.',
+    'View marketplace options': 'Voir les options marketplace',
+    'Marketplace options': 'Options marketplace',
+    'Choose a marketplace below to view current pricing, availability, and delivery options.': 'Choisissez une marketplace ci-dessous pour voir les prix, la disponibilité et les options de livraison.',
+    'Available sizes': 'Tailles disponibles',
+    'Available colors': 'Couleurs disponibles',
+    'Available from': 'Disponible chez',
+    'Where to buy': 'Où acheter',
+    'Choose a product to continue securely on Amazon or TikTok Shop.': 'Choisissez un produit pour continuer en toute sécurité sur Amazon ou TikTok Shop.',
+    'Browse products': 'Voir les produits',
+    'Official shopping options': 'Options officielles pour acheter',
+    'Continue with your preferred marketplace': 'Continuez sur la marketplace de votre choix',
+    'View current pricing, delivery, and order support directly from the marketplace.': 'Consultez les prix, la livraison et le suivi de commande directement sur la marketplace.',
+    'Shop HailaFlo on Amazon': 'Acheter HailaFlo sur Amazon',
+    'Shop HailaFlo on TikTok': 'Acheter HailaFlo sur TikTok',
   };
 
   const dictionaries = { de: de, fr: fr };

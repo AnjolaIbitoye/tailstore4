@@ -69,43 +69,7 @@
 
             <!-- Right section: Buttons (for desktop) -->
             <div class="hidden lg:flex items-center space-x-4 relative">
-              <a href="register.html"
-                  class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-none inline-block">Register</a>
-              <a href="register.html"
-                  class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-none inline-block">Login</a>
-              <div class="relative group cart-wrapper">
-                  <a href="cart.html" >
-                      <img src="assets/images/cart-shopping.svg" alt="Cart" class="h-6 w-6 group-hover:scale-120">
-                  </a>
-                  <!-- Cart dropdown -->
-                  <div class="absolute right-0 mt-1 w-80 bg-white shadow-lg p-4 rounded hidden group-hover:block">
-                      <div class="space-y-4">
-                          <!-- product item -->
-                          <div class="flex items-center justify-between pb-4 border-b border-gray-line">
-                              <div class="flex items-center">
-                                  <img src="assets/images/single-product/1.jpg" alt="Product" class="h-12 w-12 object-cover rounded mr-2">
-                                  <div>
-                                      <p class="font-semibold">HailaFlo Everyday Brief</p>
-                                      <p class="text-sm">Quantity: 1</p>
-                                  </div>
-                              </div>
-                              <p class="font-semibold">$25.00</p>
-                          </div>
-                          <!-- product item -->
-                          <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <img src="assets/images/single-product/2.jpg" alt="Product" class="h-12 w-12 object-cover rounded mr-2">
-                                <div>
-                                    <p class="font-semibold">HailaFlo Overnight Boxer</p>
-                                    <p class="text-sm">Quantity: 1</p>
-                                </div>
-                            </div>
-                            <p class="font-semibold">$125.00</p>
-                        </div>
-                      </div>
-                      <a href="cart.html" class="block text-center mt-4 border border-primary bg-primary hover:bg-transparent text-white hover:text-primary py-2 rounded-none font-semibold">Go to Cart</a>
-                  </div>
-              </div>
+              
               <a id="search-icon" href="javascript:void(0);" class="text-gray-dark hover:text-clay group">
                   <img src="assets/images/search-icon.svg" alt="Search"
                       class="h-6 w-6 transition-transform transform group-hover:scale-120">
@@ -135,14 +99,7 @@
           <li><a href="shop.html?category=Postpartum" class="hover:text-clay font-bold block py-2">Postpartum</a></li>
           <li><a href="shop.html?category=Other" class="hover:text-clay font-bold block py-2">More</a></li>
       </ul>
-      <div class="flex flex-col mt-6 space-y-2 items-center">
-          <a href="register.html"
-              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none flex items-center justify-center min-w-[110px]">Register</a>
-          <a href="register.html"
-              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none flex items-center justify-center min-w-[110px]">Login</a>
-          <a href="cart.html"
-              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none flex items-center justify-center min-w-[110px]">Cart</a>
-      </div>
+      
       <!-- Search field -->
       <div 
           class="  top-full right-0 mt-2 w-full bg-white shadow-lg p-2 rounded">
@@ -213,55 +170,39 @@
                     <div class="w-full lg:w-1/2 flex flex-col justify-between">
                         <div class="pb-8 border-b border-gray-line">
                             <h1 id="sp-title" class="text-3xl font-bold mb-4">HailaFlo Everyday Brief</h1>
-                            <div class="text-2xl font-semibold mb-6">
-                                <span id="sp-price">$40.00</span>
-                                <span id="sp-compare-price" class="text-base line-through text-gray-500 ml-2"></span>
-                            </div>
+                            <p class="marketplace-context">
+                                <i class="fa-solid fa-store" aria-hidden="true"></i>
+                                <span>Choose a marketplace below to view current pricing, availability, and delivery options.</span>
+                            </p>
 
-                            <div class="grid sm:grid-cols-2 gap-4 mb-6">
-                                <div>
-                                    <label for="sp-absorbency" class="product-option-label">Absorbency</label>
-                                    <select id="sp-absorbency" class="product-option-select">
-                                        <option>Regular</option>
-                                        <option>Heavy</option>
-                                        <option>Super Heavy</option>
-                                    </select>
+                            <div class="product-options-summary">
+                                <div class="product-option-summary">
+                                    <span class="product-option-label">Absorbency</span>
+                                    <div id="sp-absorbency" class="product-option-values"></div>
                                 </div>
-                                <div>
-                                    <label for="sp-size" class="product-option-label">Size</label>
-                                    <select id="sp-size" class="product-option-select">
-                                        <option>XS</option>
-                                        <option>S</option>
-                                        <option selected>M</option>
-                                        <option>L</option>
-                                        <option>XL</option>
-                                    </select>
+                                <div class="product-option-summary">
+                                    <span class="product-option-label">Available sizes</span>
+                                    <div id="sp-size" class="product-option-values"></div>
                                 </div>
-                            </div>
-
-                            <div class="mb-6">
-                                <span class="product-option-label block mb-2">Color</span>
-                                <div id="sp-color-options" class="flex flex-wrap gap-2">
-                                    <button type="button" class="product-color-chip is-active" data-color="Black" title="Black" aria-label="Black" style="background-color:#1a1a1a"></button>
-                                    <button type="button" class="product-color-chip" data-color="Grey" title="Grey" aria-label="Grey" style="background-color:#9ca3af"></button>
+                                <div class="product-option-summary">
+                                    <span class="product-option-label">Available colors</span>
+                                    <div id="sp-color-options" class="product-option-values"></div>
                                 </div>
                             </div>
 
                             <button id="open-size-chart"
                                 class="mb-6 border border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2 px-4 rounded-none">View size chart</button>
-
-                            <div class="flex items-center mb-8">
-                                <button id="decrease"
-                                    class="bg-primary hover:bg-transparent border border-transparent hover:border-primary text-white hover:text-primary font-semibold w-10 h-10 rounded-none flex items-center justify-center focus:outline-none"
-                                    disabled>-</button>
-                                <input id="quantity" type="number" value="1"
-                                    class="w-16 py-2 text-center focus:outline-none" readonly>
-                                <button id="increase"
-                                    class="bg-primary hover:bg-transparent border border-transparent hover:border-primary text-white hover:text-primary font-semibold  w-10 h-10 rounded-none focus:outline-none">+</button>
+                            <div class="marketplace-purchase">
+                                <span class="marketplace-purchase__label">Available from</span>
+                                <div class="marketplace-purchase__links">
+                                    <a id="sp-buy-amazon" href="#" target="_blank" rel="noopener noreferrer" class="marketplace-link">
+                                        <i class="fa-brands fa-amazon" aria-hidden="true"></i><span>Amazon</span><i class="fa-solid fa-arrow-up-right-from-square marketplace-link__external" aria-hidden="true"></i>
+                                    </a>
+                                    <a id="sp-buy-tiktok" href="#" target="_blank" rel="noopener noreferrer" class="marketplace-link">
+                                        <i class="fa-brands fa-tiktok" aria-hidden="true"></i><span>TikTok Shop</span><i class="fa-solid fa-arrow-up-right-from-square marketplace-link__external" aria-hidden="true"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <button
-                                class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-none">Add
-                                to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -481,18 +422,15 @@
             <ul>
                 <li><a href="index.html" class="hover:text-primary">Home</a></li>
                 <li><a href="shop.html" class="hover:text-primary">Shop</a></li>
-                <li><a href="checkout.html" class="hover:text-primary">Checkout</a></li>
-                <li><a href="register.html" class="hover:text-primary">Register</a></li>
+                
+                
             </ul>
             </div>
             <!-- Menu 3 -->
             <div class="w-full sm:w-1/6 px-4 mb-8">
-            <h3 class="text-lg font-semibold mb-4">Account</h3>
-            <ul>
-                <li><a href="cart.html" class="hover:text-primary">Cart</a></li>
-                <li><a href="register.html" class="hover:text-primary">Registration</a></li>
-                <li><a href="register.html" class="hover:text-primary">Login</a></li>
-            </ul>
+              <h3 class="text-lg font-semibold mb-4">Where to buy</h3>
+              <p class="footer-marketplace-note">Choose a product to continue securely on Amazon or TikTok Shop.</p>
+              <a href="shop.html" class="footer-marketplace-link">Browse products <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
             <!-- Social Media -->
             <div class="w-full sm:w-1/6 px-4 mb-8">

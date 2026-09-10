@@ -70,43 +70,7 @@
 
             <!-- Right section: Buttons (for desktop) -->
             <div class="hidden lg:flex items-center space-x-4 relative">
-              <a href="register.html"
-                  class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-none inline-block">Register</a>
-              <a href="register.html"
-                  class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-none inline-block">Login</a>
-              <div class="relative group cart-wrapper">
-                  <a href="cart.html" >
-                      <img src="assets/images/cart-shopping.svg" alt="Cart" class="h-6 w-6 group-hover:scale-120">
-                  </a>
-                  <!-- Cart dropdown -->
-                  <div class="absolute right-0 mt-1 w-80 bg-white shadow-lg p-4 rounded hidden group-hover:block">
-                      <div class="space-y-4">
-                          <!-- product item -->
-                          <div class="flex items-center justify-between pb-4 border-b border-gray-line">
-                              <div class="flex items-center">
-                                  <img src="assets/images/single-product/1.jpg" alt="Product" class="h-12 w-12 object-cover rounded mr-2">
-                                  <div>
-                                      <p class="font-semibold">HailaFlo Everyday Brief</p>
-                                      <p class="text-sm">Quantity: 1</p>
-                                  </div>
-                              </div>
-                              <p class="font-semibold">$25.00</p>
-                          </div>
-                          <!-- product item -->
-                          <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <img src="assets/images/single-product/2.jpg" alt="Product" class="h-12 w-12 object-cover rounded mr-2">
-                                <div>
-                                    <p class="font-semibold">HailaFlo Overnight Boxer</p>
-                                    <p class="text-sm">Quantity: 1</p>
-                                </div>
-                            </div>
-                            <p class="font-semibold">$125.00</p>
-                        </div>
-                      </div>
-                      <a href="cart.html" class="block text-center mt-4 border border-primary bg-primary hover:bg-transparent text-white hover:text-primary py-2 rounded-none font-semibold">Go to Cart</a>
-                  </div>
-              </div>
+              
               <a id="search-icon" href="javascript:void(0);" class="text-gray-dark hover:text-clay group">
                   <img src="assets/images/search-icon.svg" alt="Search"
                       class="h-6 w-6 transition-transform transform group-hover:scale-120">
@@ -136,14 +100,7 @@
           <li><a href="shop.html?category=Postpartum" class="hover:text-clay font-bold block py-2">Postpartum</a></li>
           <li><a href="shop.html?category=Other" class="hover:text-clay font-bold block py-2">More</a></li>
       </ul>
-      <div class="flex flex-col mt-6 space-y-2 items-center">
-          <a href="register.html"
-              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none flex items-center justify-center min-w-[110px]">Register</a>
-          <a href="register.html"
-              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none flex items-center justify-center min-w-[110px]">Login</a>
-          <a href="cart.html"
-              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-none flex items-center justify-center min-w-[110px]">Cart</a>
-      </div>
+      
       <!-- Search field -->
       <div 
           class="  top-full right-0 mt-2 w-full bg-white shadow-lg p-2 rounded">
@@ -155,6 +112,12 @@
 
     <!-- Shop -->
     <section id="shop">
+        <div class="container mx-auto px-4 pt-6">
+            <div class="shop-marketplace-notice" role="note">
+                <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                <div><strong>Browse here, purchase on your preferred marketplace.</strong><span> Current prices, checkout, delivery, and order support are provided by Amazon or TikTok Shop.</span></div>
+            </div>
+        </div>
         <div class="container mx-auto">
             <!-- Top Filter -->
             <div class="flex flex-row justify-between md:justify-end items-center py-4 px-4 md:px-0">
@@ -251,10 +214,7 @@
                                 <span class="absorbency-label">Regular</span>
                             </div>
                             <p class="my-2 text-gray-txt">Soft, stretchy comfort for everyday wear.</p>
-                            <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-black">$19.99</span>
-                                <span class="text-sm line-through ml-2">$24.99</span>
-                            </div>
+                            <p class="product-marketplace-cue"><i class="fa-solid fa-store" aria-hidden="true"></i> View marketplace options</p>
                         </a>
                         <!-- Product 2 -->
                         <a href="single-product-page.html?product=boxer-shorts" class="bg-white p-4 rounded-none scroll-reveal block overflow-hidden hover-lift hover-zoom" data-category="Period Underwear" data-absorbency="Heavy">
@@ -270,9 +230,7 @@
                                 <span class="absorbency-label">Heavy</span>
                             </div>
                             <p class="my-2 text-gray-txt">Relaxed fit with reliable leak protection.</p>
-                            <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-gray-900">$27.99</span>
-                            </div>
+                            <p class="product-marketplace-cue"><i class="fa-solid fa-store" aria-hidden="true"></i> View marketplace options</p>
                         </a>
                         <!-- Product 3 -->
                         <a href="single-product-page.html?product=lace-briefs" class="bg-white p-4 rounded-none scroll-reveal block overflow-hidden hover-lift hover-zoom" data-category="Period Underwear" data-absorbency="Regular">
@@ -288,10 +246,7 @@
                                 <span class="absorbency-label">Regular</span>
                             </div>
                             <p class="my-2 text-gray-txt">Delicate lace design with hidden absorbency.</p>
-                            <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-black">$22.99</span>
-                                <span class="text-sm line-through ml-2">$27.99</span>
-                            </div>
+                            <p class="product-marketplace-cue"><i class="fa-solid fa-store" aria-hidden="true"></i> View marketplace options</p>
                         </a>
                         <!-- Product 4 -->
                         <a href="single-product-page.html?product=gym-leggings" class="bg-white p-4 rounded-none scroll-reveal block overflow-hidden hover-lift hover-zoom" data-category="HailaFlo Active" data-absorbency="Heavy">
@@ -307,9 +262,7 @@
                                 <span class="absorbency-label">Heavy</span>
                             </div>
                             <p class="my-2 text-gray-txt">High-performance leggings built for movement.</p>
-                            <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-gray-900">$34.99</span>
-                            </div>
+                            <p class="product-marketplace-cue"><i class="fa-solid fa-store" aria-hidden="true"></i> View marketplace options</p>
                         </a>
                         <!-- Product 5 -->
                         <a href="single-product-page.html?product=gym-shorts" class="bg-white p-4 rounded-none scroll-reveal block overflow-hidden hover-lift hover-zoom" data-category="HailaFlo Active" data-absorbency="Regular">
@@ -325,10 +278,7 @@
                                 <span class="absorbency-label">Regular</span>
                             </div>
                             <p class="my-2 text-gray-txt">Breathable shorts made for high-intensity workouts.</p>
-                            <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-black">$24.99</span>
-                                <span class="text-sm line-through ml-2">$29.99</span>
-                            </div>
+                            <p class="product-marketplace-cue"><i class="fa-solid fa-store" aria-hidden="true"></i> View marketplace options</p>
                         </a>
                         <!-- Product 6 -->
                         <a href="single-product-page.html?product=swimwear" class="bg-white p-4 rounded-none scroll-reveal block overflow-hidden hover-lift hover-zoom" data-category="HailaFlo Active" data-absorbency="Super Heavy">
@@ -344,9 +294,7 @@
                                 <span class="absorbency-label">Super Heavy</span>
                             </div>
                             <p class="my-2 text-gray-txt">Leak-proof swimwear for worry-free days at the pool.</p>
-                            <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-gray-900">$44.99</span>
-                            </div>
+                            <p class="product-marketplace-cue"><i class="fa-solid fa-store" aria-hidden="true"></i> View marketplace options</p>
                         </a>
                         <!-- Product 7 -->
                         <a href="single-product-page.html?product=period-activewear" class="bg-white p-4 rounded-none scroll-reveal block overflow-hidden hover-lift hover-zoom" data-category="Other" data-absorbency="Super Heavy">
@@ -362,10 +310,7 @@
                                 <span class="absorbency-label">Super Heavy</span>
                             </div>
                             <p class="my-2 text-gray-txt">Versatile activewear designed for period days.</p>
-                            <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-black">$32.99</span>
-                                <span class="text-sm line-through ml-2">$39.99</span>
-                            </div>
+                            <p class="product-marketplace-cue"><i class="fa-solid fa-store" aria-hidden="true"></i> View marketplace options</p>
                         </a>
                         <!-- Product 8 -->
                         <a href="single-product-page.html?product=postpartum-recovery-set" class="bg-white p-4 rounded-none scroll-reveal block overflow-hidden hover-lift hover-zoom" data-category="Postpartum" data-absorbency="Super Heavy">
@@ -381,9 +326,7 @@
                                 <span class="absorbency-label">Super Heavy</span>
                             </div>
                             <p class="my-2 text-gray-txt">Gentle, high-coverage support for the postpartum weeks.</p>
-                            <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-gray-900">$36.99</span>
-                            </div>
+                            <p class="product-marketplace-cue"><i class="fa-solid fa-store" aria-hidden="true"></i> View marketplace options</p>
                         </a>
                     </div>
                 </div>
@@ -428,19 +371,16 @@
                     <ul>
                         <li><a href="index.html" class="hover:text-primary">Home</a></li>
                         <li><a href="shop.html" class="hover:text-primary">Shop</a></li>
-                        <li><a href="checkout.html" class="hover:text-primary">Checkout</a></li>
-                        <li><a href="register.html" class="hover:text-primary">Register</a></li>
+                        
+                        
                     </ul>
                 </div>
                 <!-- Menu 3 -->
                 <div class="w-full sm:w-1/6 px-4 mb-8">
-                    <h3 class="text-lg font-semibold mb-4">Account</h3>
-                    <ul>
-                        <li><a href="cart.html" class="hover:text-primary">Cart</a></li>
-                        <li><a href="register.html" class="hover:text-primary">Registration</a></li>
-                        <li><a href="register.html" class="hover:text-primary">Login</a></li>
-                    </ul>
-                </div>
+              <h3 class="text-lg font-semibold mb-4">Where to buy</h3>
+              <p class="footer-marketplace-note">Choose a product to continue securely on Amazon or TikTok Shop.</p>
+              <a href="shop.html" class="footer-marketplace-link">Browse products <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
                 <!-- Social Media -->
                 <div class="w-full sm:w-1/6 px-4 mb-8">
                     <h3 class="text-lg font-semibold mb-4">Follow Us</h3>

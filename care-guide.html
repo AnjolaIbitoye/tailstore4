@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="icon" href="assets/images/Haila_logo_burgundy.png" />
+    <title>HailaFlo | Care Guide</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body>
+    <div class="marquee-bar text-white py-2 overflow-hidden">
+        <div class="marquee-content">
+            <span class="marquee-item">Reusable Period Care</span>
+            <span class="marquee-item">Designed for Comfort</span>
+            <span class="marquee-item">Made to Last</span>
+            <span class="marquee-item">Reusable Period Care</span>
+            <span class="marquee-item">Designed for Comfort</span>
+            <span class="marquee-item">Made to Last</span>
+        </div>
+    </div>
+
+    <header class="bg-gray-100 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center py-4 px-4">
+            <a href="index.html" class="flex items-center">
+                <div>
+                    <img src="assets/images/Haila_logo_burgundy.png" alt="HailaFlo logo" class="h-14 w-auto">
+                </div>
+            </a>
+
+            <div class="flex lg:hidden">
+                <button id="hamburger" class="text-gray-dark focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="hidden lg:flex md:flex-grow justify-center">
+                <ul class="flex justify-center items-center gap-8 text-black whitespace-nowrap">
+                    <li><a href="shop.html" class="hover:text-clay font-semibold">Shop</a></li>
+                    <li><a href="shop.html?category=Period%20Underwear" class="hover:text-clay font-semibold">Period</a></li>
+                    <li><a href="shop.html?category=HailaFlo%20Active" class="hover:text-clay font-semibold">Active</a></li>
+                    <li><a href="shop.html?category=Postpartum" class="hover:text-clay font-semibold">Postpartum</a></li>
+                    <li><a href="shop.html?category=Other" class="hover:text-clay font-semibold">More</a></li>
+                </ul>
+            </nav>
+
+            <div class="hidden lg:flex items-center space-x-4 relative">
+                
+                <a id="search-icon" href="javascript:void(0);" class="text-gray-dark hover:underline group">
+                    <img src="assets/images/search-icon.svg" alt="Search" class="h-6 w-6 transition-transform transform group-hover:scale-120">
+                </a>
+                <div id="search-field" class="hidden absolute top-full right-0 mt-2 w-full bg-white shadow-lg p-2 rounded">
+                    <input type="text" class="w-full p-2 border border-gray-300 rounded" placeholder="Search for products...">
+                </div>
+            </div>
+        </div>
+
+        <nav id="mobile-menu-placeholder" class="mobile-menu flex-col items-center space-y-8 lg:hidden">
+            <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <ul class="w-full">
+                <li><a href="shop.html" class="hover:text-clay font-bold block py-2">Shop</a></li>
+                <li><a href="shop.html?category=Period%20Underwear" class="hover:text-clay font-bold block py-2">Period</a></li>
+                <li><a href="shop.html?category=HailaFlo%20Active" class="hover:text-clay font-bold block py-2">Active</a></li>
+                <li><a href="shop.html?category=Postpartum" class="hover:text-clay font-bold block py-2">Postpartum</a></li>
+                <li><a href="shop.html?category=Other" class="hover:text-clay font-bold block py-2">More</a></li>
+            </ul>
+            
+            <div class="top-full right-0 mt-2 w-full bg-white shadow-lg p-2 rounded">
+                <input type="text" class="w-full p-2 border border-gray-300 rounded" placeholder="Search for products...">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="care-guide-hero border-b border-gray-line">
+            <div class="container mx-auto px-4">
+                <div class="care-guide-hero__content">
+                    <span class="section-heading__eyebrow">Care Guide</span>
+                    <h1>Comfort that lasts, cycle after cycle</h1>
+                    <p>Simple guidance for choosing, wearing, washing, and storing your HailaFlo period underwear.</p>
+                    <nav class="care-guide-jump" aria-label="Care guide sections">
+                        <a href="#absorbency-fit">Absorbency &amp; fit</a>
+                        <a href="#washing">Washing</a>
+                        <a href="#care-routine">Care routine</a>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <section id="absorbency-fit" class="care-guide-section scroll-reveal">
+            <div class="container mx-auto px-4">
+                <div class="care-guide-layout">
+                    <div class="care-guide-media">
+                        <img src="assets/images/care-absorbency.jpg" alt="HailaFlo period underwear arranged for choosing the right fit">
+                    </div>
+                    <div class="care-guide-copy">
+                        <span class="care-guide-number">01</span>
+                        <span class="section-heading__eyebrow">Absorbency &amp; fit</span>
+                        <h2>Choose protection for your flow, not just the day</h2>
+                        <p>Your flow can change throughout your cycle. Match each pair to when and how you plan to wear it, and keep a higher-absorbency option available for heavier hours or overnight use.</p>
+                        <div class="care-guide-levels">
+                            <div><strong>Light</strong><span>Spotting, discharge, lighter cycle days, or backup protection.</span></div>
+                            <div><strong>Moderate</strong><span>Everyday flow, work, school, and regular daytime wear.</span></div>
+                            <div><strong>Heavy</strong><span>Heavier days, longer outings, and overnight protection.</span></div>
+                        </div>
+                        <h3>Check the fit</h3>
+                        <ul class="care-guide-checklist">
+                            <li>The waistband should sit securely without digging in.</li>
+                            <li>The gusset should lie close to the body without gaps.</li>
+                            <li>Leg openings should feel snug but should not leave painful marks.</li>
+                            <li>If you are between sizes, use your hip measurement and preferred fit as your guide.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="washing" class="care-guide-section care-guide-section--tint scroll-reveal">
+            <div class="container mx-auto px-4">
+                <div class="care-guide-layout care-guide-layout--reverse">
+                    <div class="care-guide-media">
+                        <img src="assets/images/care-washing.jpg" alt="Freshly washed period underwear air drying">
+                    </div>
+                    <div class="care-guide-copy">
+                        <span class="care-guide-number">02</span>
+                        <span class="section-heading__eyebrow">Washing</span>
+                        <h2>A gentle wash protects the absorbent layers</h2>
+                        <ol class="care-guide-steps">
+                            <li><span>1</span><div><strong>Rinse cold</strong><p>After wear, rinse under cold water until the water begins to run clear. Avoid hot water, which can set stains.</p></div></li>
+                            <li><span>2</span><div><strong>Wash gently</strong><p>Machine wash on a cool, gentle cycle with similar colors and mild detergent. A mesh laundry bag can reduce fabric stress.</p></div></li>
+                            <li><span>3</span><div><strong>Air dry</strong><p>Reshape the garment and hang or lay it flat in a ventilated place. Make sure it is completely dry before storing.</p></div></li>
+                        </ol>
+                        <div class="care-guide-avoid">
+                            <strong>Avoid</strong>
+                            <span>Bleach</span><span>Fabric softener</span><span>Tumble drying</span><span>Ironing the gusset</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="care-routine" class="care-guide-section scroll-reveal">
+            <div class="container mx-auto px-4">
+                <div class="care-guide-layout">
+                    <div class="care-guide-media">
+                        <img src="assets/images/care-stories.jpg" alt="A calm daily routine with HailaFlo period underwear">
+                    </div>
+                    <div class="care-guide-copy">
+                        <span class="care-guide-number">03</span>
+                        <span class="section-heading__eyebrow">Everyday routine</span>
+                        <h2>Build a routine that keeps each pair ready</h2>
+                        <p>A small rotation makes care easier. Most people begin with three to five pairs, with a mix of absorbencies for lighter days, heavier flow, and overnight wear.</p>
+                        <div class="care-guide-routine">
+                            <div><i class="fa-regular fa-clock" aria-hidden="true"></i><strong>Change when needed</strong><p>If the surface starts to feel damp or the gusset feels full, change into a fresh pair.</p></div>
+                            <div><i class="fa-solid fa-wind" aria-hidden="true"></i><strong>Dry completely</strong><p>Moisture trapped during storage can cause odor. Store only when every layer is fully dry.</p></div>
+                            <div><i class="fa-solid fa-box-open" aria-hidden="true"></i><strong>Store with care</strong><p>Keep pairs unfolded or loosely folded in a clean, dry drawer away from direct heat.</p></div>
+                        </div>
+                        <div class="care-guide-note"><strong>When performance changes:</strong> If a pair begins leaking sooner than expected, check the fit, review whether your flow has changed, and make sure fabric softener has not coated the absorbent fibers.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="care-guide-cta">
+            <div class="container mx-auto px-4">
+                <div>
+                    <span class="section-heading__eyebrow">More answers</span>
+                    <h2>Still deciding what works for you?</h2>
+                    <p>Explore common questions about materials, wear time, sizing, and cycle use.</p>
+                </div>
+                <a href="faq.html" class="care-guide-cta__link">Visit the FAQs <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-sage border-t border-gray-line">
+        <div class="container mx-auto px-4 py-10">
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full sm:w-1/6 px-4 mb-8">
+                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                    <ul>
+                        <li><a href="shop.html" class="hover:text-primary">Shop</a></li>
+                        <li><a href="shop.html?category=Period%20Underwear" class="hover:text-primary">Period Underwear</a></li>
+                        <li><a href="shop.html?category=HailaFlo%20Active" class="hover:text-primary">HailaFlo Active</a></li>
+                        <li><a href="shop.html?category=Postpartum" class="hover:text-primary">Postpartum</a></li>
+                        <li><a href="shop.html?category=Other" class="hover:text-primary">Other</a></li>
+                    </ul>
+                </div>
+                <div class="w-full sm:w-1/6 px-4 mb-8">
+                    <h3 class="text-lg font-semibold mb-4">Pages</h3>
+                    <ul>
+                        <li><a href="index.html" class="hover:text-primary">Home</a></li>
+                        <li><a href="shop.html" class="hover:text-primary">Shop</a></li>
+                        
+                        
+                    </ul>
+                </div>
+                <div class="w-full sm:w-1/6 px-4 mb-8">
+              <h3 class="text-lg font-semibold mb-4">Where to buy</h3>
+              <p class="footer-marketplace-note">Choose a product to continue securely on Amazon or TikTok Shop.</p>
+              <a href="shop.html" class="footer-marketplace-link">Browse products <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+                <div class="w-full sm:w-1/6 px-4 mb-8">
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex items-center space-x-4">
+                        <a href="#"><img src="assets/images/social_icons/instagram.svg" alt="Instagram" class="social-icon w-6 h-6 transition-transform transform hover:scale-110"></a>
+                        <a href="#"><img src="assets/images/social_icons/x.svg" alt="X" class="social-icon w-6 h-6 transition-transform transform hover:scale-110"></a>
+                        <a href="#"><img src="assets/images/social_icons/tiktok.svg" alt="TikTok" class="social-icon w-6 h-6 transition-transform transform hover:scale-110"></a>
+                    </div>
+                </div>
+                <div class="w-full sm:w-2/6 px-4 mb-8">
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <div>
+                    <p><img src="assets/images/Haila_logo_burgundy.png" alt="HailaFlo logo" class="footer-logo h-[60px] mb-4"></p>
+                    <p class="text-xl font-bold my-4">Phone: (123) 456-7890</p>
+                    <a href="mailto:info@hailaflo.com" class="underline">Email: info@hailaflo.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-6 border-t border-gray-line">
+            <div class="container mx-auto px-4 flex flex-wrap justify-between items-center">
+                <div class="w-full lg:w-3/4 text-center lg:text-left mb-4 lg:mb-0">
+                    <p class="mb-2 font-bold">&copy; 2024 HailaFlo. All rights reserved.</p>
+                    <ul class="flex justify-center lg:justify-start space-x-4 mb-4 lg:mb-0">
+                        <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary">Terms of Service</a></li>
+                        <li><a href="faq.html" class="hover:text-primary">FAQ</a></li>
+                        <li><a href="help.html" class="hover:text-primary">Help</a></li>
+                    </ul>
+                    <p class="text-sm mt-4">HailaFlo makes reusable period underwear with breathable comfort, leak protection, and a fit designed for everyday confidence.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
