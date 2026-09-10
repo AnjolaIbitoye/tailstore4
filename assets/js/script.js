@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-/* Help / contact form - submits to Netlify Forms so entries arrive by email */
+/* Help / contact form - opens the user's email app via a mailto: link, no backend needed */
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('help-form');
   const success = document.getElementById('help-form-success');
@@ -410,19 +410,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    const data = new URLSearchParams(new FormData(form)).toString();
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: data
-    })
-      .then(function () {
-        form.reset();
-        if (success) success.classList.remove('hidden');
-      })
-      .catch(function () {
-        alert('Sorry, something went wrong sending your message. Please email us directly at info@hailaflo.com.');
-      });
+    const name = form.querySelector('#help-name').value;
+    const email = form.querySelector('#help-email').value;
+    const phone = form.querySelector('#help-phone').value;
+    const message = form.querySelector('#help-message').value;
+
+    const subject = 'Website contact from ' + name;
+    const body = 'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + phone + '\n\n' +
+      message;
+
+    const mailto = 'mailto:info@hailaflo.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    window.location.href = mailto;
+
+    if (success) success.classList.remove('hidden');
   });
 });
 
@@ -1027,11 +1029,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const de = {
     // Announcement bar
     'Free Shipping on Orders Over $50': 'Kostenloser Versand ab 50 $',
-    '30-Day Hassle-Free Returns': '30 Tage unkomplizierte RÃ¼ckgabe',
+    '30-Day Hassle-Free Returns': '30 Tage unkomplizierte Rückgabe',
     'Cruelty-Free & Sustainably Made': 'Tierversuchsfrei & nachhaltig hergestellt',
     // Nav / header
     'Shop': 'Shop',
-    'Period Underwear': 'PeriodenunterwÃ¤sche',
+    'Period Underwear': 'Periodenunterwäsche',
     'HailaFlo Active': 'HailaFlo Active',
     'Postpartum': 'Wochenbett',
     'Other': 'Sonstiges',
@@ -1043,7 +1045,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Hero
     'Reusable period care': 'Wiederverwendbare Periodenpflege',
     'SHOP ALL': 'ALLES SHOPPEN',
-    'Comfort, confidence, and leak protection for every cycle.': 'Komfort, Selbstvertrauen und Auslaufschutz fÃ¼r jeden Zyklus.',
+    'Comfort, confidence, and leak protection for every cycle.': 'Komfort, Selbstvertrauen und Auslaufschutz für jeden Zyklus.',
     'Shop now': 'Jetzt shoppen',
     'Shop Now': 'Jetzt shoppen',
     'New Arrivals': 'Neuheiten',
@@ -1053,30 +1055,30 @@ document.addEventListener('DOMContentLoaded', function () {
     // Benefits section
     'Why HailaFlo': 'Warum HailaFlo',
     'Discover HailaFlo Benefits': 'Entdecke die HailaFlo-Vorteile',
-    'Comfort, reusability, and leak protection for every cycle.': 'Komfort, Wiederverwendbarkeit und Auslaufschutz fÃ¼r jeden Zyklus.',
+    'Comfort, reusability, and leak protection for every cycle.': 'Komfort, Wiederverwendbarkeit und Auslaufschutz für jeden Zyklus.',
     // Popular products
     'Bestsellers': 'Bestseller',
     'Shop HailaFlo Products': 'HailaFlo-Produkte shoppen',
     'High-waist period brief': 'Perioden-Slip mit hohem Bund',
     'Seamless period brief': 'Nahtloser Perioden-Slip',
-    'Overnight period boxer': 'Perioden-Boxer fÃ¼r die Nacht',
-    'Period Underwear, Accessories': 'PeriodenunterwÃ¤sche, Accessoires',
+    'Overnight period boxer': 'Perioden-Boxer für die Nacht',
+    'Period Underwear, Accessories': 'Periodenunterwäsche, Accessoires',
     'Add to Cart': 'In den Warenkorb',
     // Welcome banner
     'Welcome to HailaFlo': 'Willkommen bei HailaFlo',
     // Blog / care guide
     'Care Guide': 'Pflegeratgeber',
     'Discover HailaFlo Care Guide': 'Entdecke den HailaFlo-Pflegeratgeber',
-    'Learn how to choose the right absorbency, fit, and care routine for period underwear.': 'Erfahre, wie du die richtige SaugstÃ¤rke, Passform und Pflege fÃ¼r PeriodenunterwÃ¤sche wÃ¤hlst.',
+    'Learn how to choose the right absorbency, fit, and care routine for period underwear.': 'Erfahre, wie du die richtige Saugstärke, Passform und Pflege für Periodenunterwäsche wählst.',
     'Fit Guide': 'Passform-Guide',
-    'Choosing the Right Absorbency': 'Die richtige SaugstÃ¤rke wÃ¤hlen',
-    'Learn how to match absorbency, rise, and fabric to your cycle so you stay dry and comfortable.': 'Erfahre, wie du SaugstÃ¤rke, BundhÃ¶he und Stoff auf deinen Zyklus abstimmst, damit du trocken und bequem bleibst.',
+    'Choosing the Right Absorbency': 'Die richtige Saugstärke wählen',
+    'Learn how to match absorbency, rise, and fabric to your cycle so you stay dry and comfortable.': 'Erfahre, wie du Saugstärke, Bundhöhe und Stoff auf deinen Zyklus abstimmst, damit du trocken und bequem bleibst.',
     'Care Tips': 'Pflegetipps',
-    'How to Wash Period Underwear': 'PeriodenunterwÃ¤sche richtig waschen',
-    'Rinse cold, wash gently, and air dry to keep your HailaFlo pieces performing well longer.': 'Kalt ausspÃ¼len, sanft waschen und an der Luft trocknen, damit deine HailaFlo-Teile lÃ¤nger gut funktionieren.',
+    'How to Wash Period Underwear': 'Periodenunterwäsche richtig waschen',
+    'Rinse cold, wash gently, and air dry to keep your HailaFlo pieces performing well longer.': 'Kalt ausspülen, sanft waschen und an der Luft trocknen, damit deine HailaFlo-Teile länger gut funktionieren.',
     'Cycle Confidence': 'Selbstsicher im Zyklus',
-    'Real Stories from HailaFlo Wearers': 'Echte Geschichten von HailaFlo-TrÃ¤gerinnen',
-    'Read how HailaFlo helps customers feel secure, comfortable, and confident throughout the day.': 'Lies, wie HailaFlo Kundinnen hilft, sich den ganzen Tag sicher, bequem und selbstbewusst zu fÃ¼hlen.',
+    'Real Stories from HailaFlo Wearers': 'Echte Geschichten von HailaFlo-Trägerinnen',
+    'Read how HailaFlo helps customers feel secure, comfortable, and confident throughout the day.': 'Lies, wie HailaFlo Kundinnen hilft, sich den ganzen Tag sicher, bequem und selbstbewusst zu fühlen.',
     'Read more': 'Mehr lesen',
     // Newsletter
     'Enter your email address': 'E-Mail-Adresse eingeben',
@@ -1098,7 +1100,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Sort by Popularity': 'Nach Beliebtheit sortieren',
     'Sort by A-Z': 'Nach A-Z sortieren',
     'Collection': 'Kollektion',
-    'Absorbency': 'SaugstÃ¤rke',
+    'Absorbency': 'Saugstärke',
     'Coverage': 'Abdeckung',
     'Fit': 'Passform',
     'Protection level': 'Schutzstufe',
@@ -1115,25 +1117,25 @@ document.addEventListener('DOMContentLoaded', function () {
     'Moderate': 'Mittel',
     'Max': 'Maximal',
     'Stretchy Briefs': 'Dehnbarer Slip',
-    'Soft, stretchy comfort for everyday wear.': 'Weicher, dehnbarer Komfort fÃ¼r jeden Tag.',
+    'Soft, stretchy comfort for everyday wear.': 'Weicher, dehnbarer Komfort für jeden Tag.',
     'Boxer Shorts': 'Boxershorts',
-    'Relaxed fit with reliable leak protection.': 'Lockere Passform mit zuverlÃ¤ssigem Auslaufschutz.',
+    'Relaxed fit with reliable leak protection.': 'Lockere Passform mit zuverlässigem Auslaufschutz.',
     'Lace Briefs': 'Spitzenslip',
     'Delicate lace design with hidden absorbency.': 'Zartes Spitzendesign mit verborgener Saugkraft.',
     'Gym Leggings': 'Sport-Leggings',
-    'High-performance leggings built for movement.': 'Leistungsstarke Leggings fÃ¼r jede Bewegung.',
+    'High-performance leggings built for movement.': 'Leistungsstarke Leggings für jede Bewegung.',
     'Gym Shorts': 'Sport-Shorts',
-    'Breathable shorts made for high-intensity workouts.': 'Atmungsaktive Shorts fÃ¼r intensive Workouts.',
+    'Breathable shorts made for high-intensity workouts.': 'Atmungsaktive Shorts für intensive Workouts.',
     'Swimwear': 'Bademode',
-    'Leak-proof swimwear for worry-free days at the pool.': 'Auslaufsichere Bademode fÃ¼r sorgenfreie Tage am Pool.',
+    'Leak-proof swimwear for worry-free days at the pool.': 'Auslaufsichere Bademode für sorgenfreie Tage am Pool.',
     'Period Activewear': 'Perioden-Sportkleidung',
-    'Versatile activewear designed for period days.': 'Vielseitige Sportkleidung fÃ¼r die Periodentage.',
+    'Versatile activewear designed for period days.': 'Vielseitige Sportkleidung für die Periodentage.',
     'Postpartum Recovery Set': 'Wochenbett-Set',
-    'Gentle, high-coverage support for the postpartum weeks.': 'Sanfter Halt mit hoher Abdeckung fÃ¼r die Wochen nach der Geburt.',
+    'Gentle, high-coverage support for the postpartum weeks.': 'Sanfter Halt mit hoher Abdeckung für die Wochen nach der Geburt.',
     'The HailaFlo Collection': 'Die HailaFlo-Kollektion',
-    'Period underwear, activewear & more': 'PeriodenunterwÃ¤sche, Sportkleidung & mehr',
-    "HailaFlo's collection spans four families â€” Period Underwear (stretchy briefs, boxer shorts, and lace briefs), HailaFlo Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": 'Die HailaFlo-Kollektion umfasst vier Familien â€“ PeriodenunterwÃ¤sche (dehnbare Slips, Boxershorts und Spitzenslips), HailaFlo Active (Sport-Leggings, Sport-Shorts und Bademode), Sonstiges (Perioden-Sportkleidung) und Wochenbett-Essentials.',
-    'Browse the collection and pick the style that matches your day â€” everyday comfort, a workout, or a swim.': 'StÃ¶bere durch die Kollektion und wÃ¤hle den Stil, der zu deinem Tag passt â€“ Alltagskomfort, Workout oder Schwimmen.',
+    'Period underwear, activewear & more': 'Periodenunterwäsche, Sportkleidung & mehr',
+    "HailaFlo's collection spans four families — Period Underwear (stretchy briefs, boxer shorts, and lace briefs), HailaFlo Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": 'Die HailaFlo-Kollektion umfasst vier Familien – Periodenunterwäsche (dehnbare Slips, Boxershorts und Spitzenslips), HailaFlo Active (Sport-Leggings, Sport-Shorts und Bademode), Sonstiges (Perioden-Sportkleidung) und Wochenbett-Essentials.',
+    'Browse the collection and pick the style that matches your day — everyday comfort, a workout, or a swim.': 'Stöbere durch die Kollektion und wähle den Stil, der zu deinem Tag passt – Alltagskomfort, Workout oder Schwimmen.',
     // Cart page
     'Shopping Cart': 'Warenkorb',
     'Product': 'Produkt',
@@ -1141,7 +1143,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Quantity': 'Menge',
     'Total': 'Gesamt',
     'Coupon code': 'Gutscheincode',
-    'Apply Coupon': 'Gutschein einlÃ¶sen',
+    'Apply Coupon': 'Gutschein einlösen',
     'Empty Cart': 'Warenkorb leeren',
     'Update Cart': 'Warenkorb aktualisieren',
     'Summary': 'Zusammenfassung',
@@ -1154,7 +1156,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Continue shopping': 'Weiter einkaufen',
     // Checkout page
     'Billing Details': 'Rechnungsdaten',
-    'Full Name': 'VollstÃ¤ndiger Name',
+    'Full Name': 'Vollständiger Name',
     'Email': 'E-Mail',
     'Address': 'Adresse',
     'City': 'Stadt',
@@ -1163,14 +1165,159 @@ document.addEventListener('DOMContentLoaded', function () {
     'Phone Number': 'Telefonnummer',
     'Ship to a different address?': 'An eine andere Adresse liefern?',
     'Yes': 'Ja',
-    'Order Summary': 'BestellÃ¼bersicht',
+    'Order Summary': 'Bestellübersicht',
     'Proceed to Payment': 'Zur Zahlung'
   };
 
+  const fr = {
+    // Announcement bar
+    "Free Shipping on Orders Over $50": "Livraison gratuite dès 50 $ d'achat",
+    '30-Day Hassle-Free Returns': 'Retours faciles sous 30 jours',
+    'Cruelty-Free & Sustainably Made': 'Sans cruauté et fabriqué durablement',
+    // Nav / header
+    'Shop': 'Boutique',
+    'Period Underwear': 'Culottes menstruelles',
+    'HailaFlo Active': 'HailaFlo Active',
+    'Postpartum': 'Post-partum',
+    'Other': 'Autre',
+    'Register': "S'inscrire",
+    'Login': 'Connexion',
+    'Registration': 'Inscription',
+    'Search for products...': 'Rechercher des produits...',
+    'items': 'articles',
+    // Hero
+    'Reusable period care': 'Protection périodique réutilisable',
+    'SHOP ALL': 'TOUT VOIR',
+    'Comfort, confidence, and leak protection for every cycle.': 'Confort, confiance et protection contre les fuites à chaque cycle.',
+    'Shop now': 'Achetez maintenant',
+    'Shop Now': 'Achetez maintenant',
+    'New Arrivals': 'Nouveautés',
+    'Sale': 'Soldes',
+    // Category banners
+    'Activewear': 'Vêtements de sport',
+    // Benefits section
+    'Why HailaFlo': 'Pourquoi HailaFlo',
+    'Discover HailaFlo Benefits': 'Découvrez les avantages HailaFlo',
+    'Comfort, reusability, and leak protection for every cycle.': 'Confort, réutilisabilité et protection contre les fuites à chaque cycle.',
+    // Popular products
+    'Bestsellers': 'Meilleures ventes',
+    'Shop HailaFlo Products': 'Achetez les produits HailaFlo',
+    'High-waist period brief': 'Culotte menstruelle taille haute',
+    'Seamless period brief': 'Culotte menstruelle sans couture',
+    'Overnight period boxer': 'Boxer menstruel de nuit',
+    'Period Underwear, Accessories': 'Culottes menstruelles, accessoires',
+    'Add to Cart': 'Ajouter au panier',
+    // Welcome banner
+    'Welcome to HailaFlo': 'Bienvenue chez HailaFlo',
+    // Blog / care guide
+    'Care Guide': "Guide d'entretien",
+    'Discover HailaFlo Care Guide': "Découvrez le guide d'entretien HailaFlo",
+    'Learn how to choose the right absorbency, fit, and care routine for period underwear.': "Apprenez à choisir la bonne absorption, la coupe et l'entretien adaptés à vos culottes menstruelles.",
+    'Fit Guide': 'Guide des tailles',
+    'Choosing the Right Absorbency': 'Choisir la bonne absorption',
+    'Learn how to match absorbency, rise, and fabric to your cycle so you stay dry and comfortable.': "Apprenez à adapter l'absorption, la hauteur de taille et le tissu à votre cycle pour rester au sec et à l'aise.",
+    'Care Tips': "Conseils d'entretien",
+    'How to Wash Period Underwear': 'Comment laver les culottes menstruelles',
+    'Rinse cold, wash gently, and air dry to keep your HailaFlo pieces performing well longer.': "Rincez à l'eau froide, lavez délicatement et laissez sécher à l'air libre pour préserver vos articles HailaFlo plus longtemps.",
+    'Cycle Confidence': 'Confiance à chaque cycle',
+    'Real Stories from HailaFlo Wearers': 'Témoignages de nos clientes HailaFlo',
+    'Read how HailaFlo helps customers feel secure, comfortable, and confident throughout the day.': "Découvrez comment HailaFlo aide nos clientes à se sentir en sécurité, à l'aise et confiantes tout au long de la journée.",
+    'Read more': 'Lire la suite',
+    // Newsletter
+    'Enter your email address': 'Entrez votre adresse e-mail',
+    'Subscribe': "S'abonner",
+    // Footer
+    'Pages': 'Pages',
+    'Account': 'Compte',
+    'Follow Us': 'Suivez-nous',
+    'Contact Us': 'Contactez-nous',
+    'Home': 'Accueil',
+    'Checkout': 'Paiement',
+    'Cart': 'Panier',
+    'Privacy Policy': 'Politique de confidentialité',
+    'Terms of Service': "Conditions d'utilisation",
+    'FAQ': 'FAQ',
+    // Shop page
+    'Show Filters': 'Afficher les filtres',
+    'Sort by Latest': 'Trier par nouveauté',
+    'Sort by Popularity': 'Trier par popularité',
+    'Sort by A-Z': 'Trier de A à Z',
+    'Collection': 'Collection',
+    'Absorbency': 'Absorption',
+    'Coverage': 'Couverture',
+    'Fit': 'Coupe',
+    'Protection level': 'Niveau de protection',
+    'Regular': 'Normal',
+    'Heavy': 'Abondant',
+    'Super Heavy': 'Très abondant',
+    'Day': 'Jour',
+    'Active': 'Actif',
+    'Overnight': 'Nuit',
+    'Brief': 'Culotte',
+    'High-waist': 'Taille haute',
+    'Full coverage': 'Couverture intégrale',
+    'Light': 'Léger',
+    'Moderate': 'Modéré',
+    'Max': 'Maximum',
+    'Stretchy Briefs': 'Culotte extensible',
+    'Soft, stretchy comfort for everyday wear.': 'Confort doux et extensible pour un usage quotidien.',
+    'Boxer Shorts': 'Boxer',
+    'Relaxed fit with reliable leak protection.': 'Coupe décontractée avec une protection fiable contre les fuites.',
+    'Lace Briefs': 'Culotte en dentelle',
+    'Delicate lace design with hidden absorbency.': 'Dentelle délicate avec absorption invisible.',
+    'Gym Leggings': 'Leggings de sport',
+    'High-performance leggings built for movement.': 'Leggings haute performance conçus pour le mouvement.',
+    'Gym Shorts': 'Short de sport',
+    'Breathable shorts made for high-intensity workouts.': 'Short respirant conçu pour les entraînements intenses.',
+    'Swimwear': 'Maillot de bain',
+    'Leak-proof swimwear for worry-free days at the pool.': 'Maillot de bain anti-fuites pour des journées sereines à la piscine.',
+    'Period Activewear': 'Vêtements de sport menstruels',
+    'Versatile activewear designed for period days.': 'Vêtements de sport polyvalents conçus pour les jours de règles.',
+    'Postpartum Recovery Set': 'Ensemble de récupération post-partum',
+    'Gentle, high-coverage support for the postpartum weeks.': 'Soutien doux et couvrant pour les semaines post-partum.',
+    'The HailaFlo Collection': 'La collection HailaFlo',
+    'Period underwear, activewear & more': 'Culottes menstruelles, vêtements de sport et plus',
+    "HailaFlo's collection spans four families — Period Underwear (stretchy briefs, boxer shorts, and lace briefs), HailaFlo Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": "La collection HailaFlo comprend quatre familles — Culottes menstruelles (culottes extensibles, boxers et culottes en dentelle), HailaFlo Active (leggings, shorts de sport et maillots de bain), Autre (vêtements de sport menstruels) et les essentiels de récupération post-partum.",
+    'Browse the collection and pick the style that matches your day — everyday comfort, a workout, or a swim.': "Parcourez la collection et choisissez le style qui correspond à votre journée — confort au quotidien, entraînement ou baignade.",
+    // Cart page
+    'Shopping Cart': 'Panier',
+    'Product': 'Produit',
+    'Price': 'Prix',
+    'Quantity': 'Quantité',
+    'Total': 'Total',
+    'Coupon code': 'Code promo',
+    'Apply Coupon': 'Appliquer le code',
+    'Empty Cart': 'Vider le panier',
+    'Update Cart': 'Mettre à jour le panier',
+    'Summary': 'Résumé',
+    'Subtotal': 'Sous-total',
+    'Taxes': 'Taxes',
+    'Shipping': 'Livraison',
+    'Proceed to checkout': 'Passer à la caisse',
+    'Remove': 'Supprimer',
+    'Your cart is empty.': 'Votre panier est vide.',
+    'Continue shopping': 'Continuer vos achats',
+    // Checkout page
+    'Billing Details': 'Coordonnées de facturation',
+    'Full Name': 'Nom complet',
+    'Email': 'E-mail',
+    'Address': 'Adresse',
+    'City': 'Ville',
+    'State': 'Région',
+    'ZIP Code': 'Code postal',
+    'Phone Number': 'Numéro de téléphone',
+    'Ship to a different address?': 'Livrer à une adresse différente ?',
+    'Yes': 'Oui',
+    'Order Summary': 'Récapitulatif de la commande',
+    'Proceed to Payment': 'Procéder au paiement'
+  };
+
+  const dictionaries = { de: de, fr: fr };
   const norm = s => s.trim().replace(/\s+/g, ' ');
   const currentLang = () => localStorage.getItem(LANG_KEY) || 'en';
 
   function translateNodes(lang) {
+    const dict = dictionaries[lang];
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
         if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
@@ -1185,12 +1332,12 @@ document.addEventListener('DOMContentLoaded', function () {
     while ((node = walker.nextNode())) {
       if (node.__orig === undefined) node.__orig = node.nodeValue;
       const key = norm(node.__orig);
-      node.nodeValue = (lang === 'de' && de[key]) ? de[key] : node.__orig;
+      node.nodeValue = (dict && dict[key]) ? dict[key] : node.__orig;
     }
     document.querySelectorAll('[placeholder]').forEach(function (el) {
       if (el.__origPh === undefined) el.__origPh = el.getAttribute('placeholder');
       const key = norm(el.__origPh || '');
-      el.setAttribute('placeholder', (lang === 'de' && de[key]) ? de[key] : el.__origPh);
+      el.setAttribute('placeholder', (dict && dict[key]) ? dict[key] : el.__origPh);
     });
   }
 
@@ -1211,7 +1358,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sel = document.createElement('select');
     sel.className = 'lang-select';
     sel.setAttribute('aria-label', 'Change language');
-    sel.innerHTML = '<option value="en">EN</option><option value="de">DE</option>';
+    sel.innerHTML = '<option value="en">EN</option><option value="de">DE</option><option value="fr">FR</option>';
     sel.value = currentLang();
     sel.addEventListener('change', function () {
       applyLang(sel.value);
@@ -1226,8 +1373,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Re-apply the current language whenever the cart re-renders dynamic content.
   document.addEventListener('haila:rerender', function () {
-    if (currentLang() === 'de') translateNodes('de');
+    if (currentLang() !== 'en') translateNodes(currentLang());
   });
 
   applyLang(currentLang());
+});
+
+/* back-to-top button */
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'back-to-top';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.innerHTML = '&uarr;';
+  document.body.appendChild(btn);
+
+  function toggleVisibility() {
+    btn.classList.toggle('is-visible', window.scrollY > 400);
+  }
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', toggleVisibility, { passive: true });
+  toggleVisibility();
 });
