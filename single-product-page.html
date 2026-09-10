@@ -211,16 +211,16 @@
     </section>
 
     <!-- Product tabs description -->
-    <section>
+    <section class="product-details-section">
         <div class="container mx-auto px-4">
-            <div class="pt-4 pb-12">
+            <div class="product-details-shell">
                 <div class="mt-2">
                     <!-- Product Description -->
-                    <div class="mb-8">
-                        <h3 class="product-description-heading text-lg font-semibold mb-2">Product Description</h3>
+                    <div class="product-details-intro">
+                        <span class="product-details-eyebrow">Product details</span><h2 class="product-description-heading">Designed around your day</h2>
                         <p id="sp-short-description">This period underwear brief is designed for comfort, leak protection, and all-day confidence. Made with a breathable absorbent core to ensure comfort and durability.</p>
                     </div>
-                    <div class="flex space-x-4" role="tablist">
+                    <div class="product-tabs" role="tablist" aria-label="Product information">
                         <button id="description-tab" role="tab" aria-controls="description-content" aria-selected="true"
                             class="tab active">Description</button>
                         <button id="additional-info-tab" role="tab" aria-controls="additional-info-content"
@@ -228,22 +228,22 @@
                         <button id="size-shape-tab" role="tab" aria-controls="size-shape-content" aria-selected="false"
                             class="tab">Size & Shape</button>
                     </div>
-                    <div class="mt-8">
+                    <div class="product-tab-panels">
                         <div id="description-content" role="tabpanel" aria-labelledby="description-tab"
                             class="tab-content">
-                            <div class="flex flex-col lg:flex-row lg:space-x-8">
-                                <div class="w-full lg:w-1/2">
+                            <div class="product-overview-grid">
+                                <div class="product-overview-copy">
                                     <h3 class="text-lg font-semibold mb-4">Overview</h3>
                                     <p id="sp-long-title" class="text-lg font-medium leading-snug mb-3">HailaFlo period underwear is built for soft, secure comfort from morning to night.</p>
                                     <p id="sp-long-description">Choose the absorbency and fit that match your flow, then follow simple care steps to keep your HailaFlo underwear performing well.</p>
                                 </div>
-                                <div class="w-full lg:w-1/4">
+                                <div class="product-spec-group">
                                     <h3 class="text-lg font-semibold mb-4">Material & Washing</h3>
                                     <p class="mb-2 pb-2 border-b border-gray-line"><span class="font-medium">Material:</span> 100% cotton</p>
                                     <p class="mb-2 pb-2 border-b border-gray-line"><span class="font-medium">Fabric:</span> Soft jersey</p>
-                                    <p class="mb-2"><span class="font-medium">Care instructions:</span> Machine wash at 30Â°C, do not tumble dry, iron on low heat, do not bleach</p>
+                                    <p class="mb-2"><span class="font-medium">Care instructions:</span> Machine wash at 30°C, do not tumble dry, iron on low heat, do not bleach</p>
                                 </div>
-                                <div class="w-full lg:w-1/4">
+                                <div class="product-spec-group">
                                     <h3 class="text-lg font-semibold mb-4">Size & Shape</h3>
                                     <p class="mb-2 pb-2 border-b border-gray-line"><span class="font-medium">Model height:</span> Our model is 180 cm tall and is wearing size M</p>
                                     <p class="mb-2 pb-2 border-b border-gray-line"><span class="font-medium">Fit:</span> Regular</p>
@@ -254,7 +254,7 @@
                         </div>
                         <div id="additional-info-content" role="tabpanel" aria-labelledby="additional-info-tab"
                             class="tab-content hidden">
-                            <div class="flex flex-col space-y-8">
+                            <div class="additional-info-grid">
                                 <div>
                                     <h3 class="text-lg font-semibold mb-4">Colors</h3>
                                     <p class="text-base">
@@ -278,7 +278,7 @@
                                     <p class="text-base">
                                         <span class="font-medium">Material:</span> Organic cotton blend
                                         <br>
-                                        <span class="font-medium">Care instructions:</span> Machine wash at 40 Â°C, do not tumble dry, iron at medium
+                                        <span class="font-medium">Care instructions:</span> Machine wash at 40°C, do not tumble dry, iron at medium
                                         temperature, do not bleach.
                                     </p>
                                 </div>

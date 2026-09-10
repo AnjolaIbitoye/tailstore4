@@ -678,6 +678,208 @@ img.cursor-pointer:hover {
     display: block;
 }
 
+/* Single-product information area */
+.product-details-section {
+    padding: 1.5rem 0 4.5rem;
+}
+
+.product-details-shell {
+    border-top: 1px solid var(--color-gray-line);
+    padding-top: 2.5rem;
+}
+
+.product-details-intro {
+    max-width: 46rem;
+    margin-bottom: 2rem;
+}
+
+.product-details-eyebrow {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--color-clay);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.product-description-heading {
+    color: #4b1d2b;
+    font-size: clamp(1.65rem, 3vw, 2.25rem);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.product-details-intro > p {
+    margin-top: 0.65rem;
+    color: #625b59;
+    line-height: 1.7;
+}
+
+.product-tabs {
+    display: flex;
+    gap: 1.75rem;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--color-gray-line);
+    scrollbar-width: none;
+}
+
+.product-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.product-tabs .tab {
+    flex: 0 0 auto;
+    padding: 0.75rem 0;
+    color: #756c69;
+    border-bottom: 2px solid transparent;
+    font-size: 0.88rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.product-tabs .tab:hover,
+.product-tabs .tab.active {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.product-tab-panels {
+    padding-top: 2.25rem;
+}
+
+.product-overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) repeat(2, minmax(190px, 0.8fr));
+    gap: 0;
+}
+
+.product-overview-copy,
+.product-spec-group {
+    min-width: 0;
+    padding: 0 2rem;
+}
+
+.product-overview-copy {
+    padding-left: 0;
+}
+
+.product-spec-group {
+    border-left: 1px solid var(--color-gray-line);
+}
+
+.product-overview-grid h3,
+.additional-info-grid h3 {
+    margin-bottom: 1rem;
+    color: #4b1d2b;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.product-overview-copy #sp-long-title {
+    max-width: 35rem;
+    color: var(--color-gray-dark);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.55;
+}
+
+.product-overview-copy #sp-long-description {
+    max-width: 36rem;
+    color: #625b59;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.product-spec-group p {
+    display: grid;
+    gap: 0.2rem;
+    margin: 0;
+    padding: 0.65rem 0;
+    color: #625b59;
+    font-size: 0.84rem;
+    line-height: 1.5;
+}
+
+.product-spec-group p:first-of-type {
+    padding-top: 0;
+}
+
+.product-spec-group p span {
+    color: var(--color-gray-dark);
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.additional-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+}
+
+.additional-info-grid > div {
+    min-width: 0;
+    padding: 0 2rem;
+    border-left: 1px solid var(--color-gray-line);
+}
+
+.additional-info-grid > div:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+
+.additional-info-grid p {
+    color: #625b59;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.additional-info-grid a {
+    color: var(--color-primary);
+}
+
+@media (max-width: 767px) {
+    .product-details-section {
+        padding: 1rem 0 3.5rem;
+    }
+
+    .product-details-shell {
+        padding-top: 2rem;
+    }
+
+    .product-details-intro {
+        margin-bottom: 1.5rem;
+    }
+
+    .product-tabs {
+        gap: 1.25rem;
+        margin-right: -1rem;
+        padding-right: 1rem;
+    }
+
+    .product-overview-grid,
+    .additional-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-overview-copy,
+    .product-spec-group,
+    .additional-info-grid > div {
+        padding: 0 0 1.5rem;
+        border-left: 0;
+        border-bottom: 1px solid var(--color-gray-line);
+        margin-bottom: 1.5rem;
+    }
+
+    .product-spec-group:last-child,
+    .additional-info-grid > div:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+        margin-bottom: 0;
+    }
+}
 /* Description & spec area: use the single body font instead of serif headings */
 .tab-content :is(h1, h2, h3, h4, h5, h6),
 .product-description-heading {
