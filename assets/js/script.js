@@ -44,6 +44,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const productCards = document.querySelectorAll('#products-grid > [data-category]');
   const activeFiltersContainer = document.getElementById('active-filters');
   const searchInputs = document.querySelectorAll('input[placeholder="Search for products..."]');
+  const productGrid = document.getElementById('products-grid');
+  const sortSelect = document.getElementById('product-sort');
+  const featuredOrder = new Map(Array.from(productCards).map(function (card, index) { return [card, index]; }));
+  const absorbencyRank = { Regular: 1, Heavy: 2, 'Super Heavy': 3 };
   let searchQuery = '';
 
   if ((!categoryPills.length && !absorbencyPills.length) || !productCards.length) return;
@@ -52,6 +56,34 @@ document.addEventListener('DOMContentLoaded', function () {
     return Array.from(pills).filter(pill => pill.classList.contains('is-active'));
   }
 
+  function sortProducts(sortValue) {
+    if (!productGrid) return;
+
+    const cards = Array.from(productCards);
+    cards.sort(function (leftCard, rightCard) {
+      const featuredDifference = featuredOrder.get(leftCard) - featuredOrder.get(rightCard);
+
+      if (sortValue === 'name-asc' || sortValue === 'name-desc') {
+        const leftName = leftCard.querySelector('img')?.alt || '';
+        const rightName = rightCard.querySelector('img')?.alt || '';
+        const nameDifference = leftName.localeCompare(rightName, undefined, { sensitivity: 'base' });
+        return sortValue === 'name-desc' ? -nameDifference : nameDifference;
+      }
+
+      if (sortValue === 'absorbency-asc' || sortValue === 'absorbency-desc') {
+        const rankDifference = absorbencyRank[leftCard.dataset.absorbency] - absorbencyRank[rightCard.dataset.absorbency];
+        if (rankDifference !== 0) {
+          return sortValue === 'absorbency-desc' ? -rankDifference : rankDifference;
+        }
+      }
+
+      return featuredDifference;
+    });
+
+    const fragment = document.createDocumentFragment();
+    cards.forEach(function (card) { fragment.appendChild(card); });
+    productGrid.appendChild(fragment);
+  }
   function applyFilter() {
     const activeCategories = getActive(categoryPills).map(pill => pill.dataset.value);
     const activeAbsorbencies = getActive(absorbencyPills).map(pill => pill.dataset.value);
@@ -136,6 +168,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  if (sortSelect) {
+    sortSelect.addEventListener('change', function () {
+      sortProducts(sortSelect.value);
+    });
+  }
   // Pre-select a category filter when arriving via a nav link like shop.html?category=Postpartum
   const params = new URLSearchParams(window.location.search);
   const requestedCategory = params.get('category');
@@ -809,9 +846,11 @@ document.addEventListener('DOMContentLoaded', function () {
     'FAQ': 'FAQ',
     // Shop page
     'Show Filters': 'Filter anzeigen',
-    'Sort by Latest': 'Nach Neuheit sortieren',
-    'Sort by Popularity': 'Nach Beliebtheit sortieren',
-    'Sort by A-Z': 'Nach A-Z sortieren',
+    'Featured': 'Empfohlen',
+    'Name: A to Z': 'Name: A bis Z',
+    'Name: Z to A': 'Name: Z bis A',
+    'Absorbency: Low to High': 'Saugstärke: niedrig bis hoch',
+    'Absorbency: High to Low': 'Saugstärke: hoch bis niedrig',
     'Collection': 'Kollektion',
     'Absorbency': 'Saugstärke',
     'Coverage': 'Abdeckung',
@@ -928,9 +967,11 @@ document.addEventListener('DOMContentLoaded', function () {
     'FAQ': 'FAQ',
     // Shop page
     'Show Filters': 'Afficher les filtres',
-    'Sort by Latest': 'Trier par nouveauté',
-    'Sort by Popularity': 'Trier par popularité',
-    'Sort by A-Z': 'Trier de A à Z',
+    'Featured': 'Sélection',
+    'Name: A to Z': 'Nom : A à Z',
+    'Name: Z to A': 'Nom : Z à A',
+    'Absorbency: Low to High': 'Absorption : faible à élevée',
+    'Absorbency: High to Low': 'Absorption : élevée à faible',
     'Collection': 'Collection',
     'Absorbency': 'Absorption',
     'Coverage': 'Couverture',
@@ -1012,6 +1053,10 @@ document.addEventListener('DOMContentLoaded', function () {
       if (el.__origPh === undefined) el.__origPh = el.getAttribute('placeholder');
       const key = norm(el.__origPh || '');
       el.setAttribute('placeholder', (dict && dict[key]) ? dict[key] : el.__origPh);
+    });    document.querySelectorAll('select:not(.lang-select) option').forEach(function (option) {
+      if (option.__origText === undefined) option.__origText = option.textContent;
+      const key = norm(option.__origText || '');
+      option.textContent = (dict && dict[key]) ? dict[key] : option.__origText;
     });
   }
 
