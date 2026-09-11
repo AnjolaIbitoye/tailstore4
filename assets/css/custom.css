@@ -1085,14 +1085,127 @@ img.cursor-pointer:hover {
     }
 }
 
+/* Image-free care guide cards */
+.care-topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 72rem;
+    margin: 0 auto;
+    border-top: 1px solid var(--color-gray-line);
+    border-bottom: 1px solid var(--color-gray-line);
+}
+
+.care-topic-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: #fff;
+    border-right: 1px solid var(--color-gray-line);
+}
+
+.care-topic-card:last-child {
+    border-right: 0;
+}
+
+.care-topic-card__mark {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    color: var(--color-clay);
+}
+
+.care-topic-card__mark span {
+    font-family: "Cormorant Garamond", serif;
+    color: rgba(166, 61, 92, 0.36);
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.care-topic-card__mark i {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+.care-topic-card__eyebrow {
+    margin-bottom: 0.65rem;
+    color: var(--color-clay);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.care-topic-card h3 {
+    color: #4b1d2b;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.65rem, 2.5vw, 2.15rem);
+    font-weight: 600;
+    line-height: 1.08;
+}
+
+.care-topic-card p {
+    flex: 1;
+    margin-top: 1rem;
+    color: #625b59;
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+.care-topic-card__link {
+    align-self: flex-start;
+    margin-top: 1.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.care-topic-card__link i {
+    margin-left: 0.4rem;
+    transition: transform 0.2s ease;
+}
+
+.care-topic-card__link:hover i,
+.care-topic-card__link:focus-visible i {
+    transform: translateX(3px);
+}
+
+@media (max-width: 767px) {
+    .care-topic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .care-topic-card {
+        padding: 1.5rem 1rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-gray-line);
+    }
+
+    .care-topic-card:last-child {
+        border-bottom: 0;
+    }
+
+    .care-topic-card__mark {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .care-topic-card__link i {
+        transition: none;
+    }
+}
 /* dedicated care guide */
 .care-guide-hero {
     position: relative;
-    min-height: 430px;
+    min-height: 360px;
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: linear-gradient(90deg, rgba(251, 244, 242, 0.98) 0%, rgba(251, 244, 242, 0.91) 48%, rgba(251, 244, 242, 0.28) 100%), url('../images/care-washing.jpg') center 42% / cover no-repeat;
+    background: #fbf4f2;
 }
 
 .care-guide-hero__content {
@@ -1154,37 +1267,8 @@ img.cursor-pointer:hover {
 }
 
 .care-guide-layout {
-    display: grid;
-    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
-    align-items: center;
-    gap: clamp(2.5rem, 7vw, 6rem);
-}
-
-.care-guide-layout--reverse .care-guide-media {
-    order: 2;
-}
-
-.care-guide-media {
-    position: relative;
-}
-
-.care-guide-media::after {
-    content: "";
-    position: absolute;
-    right: -0.8rem;
-    bottom: -0.8rem;
-    width: 42%;
-    height: 42%;
-    border-right: 2px solid var(--color-clay);
-    border-bottom: 2px solid var(--color-clay);
-    pointer-events: none;
-}
-
-.care-guide-media img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
+    max-width: 62rem;
+    margin: 0 auto;
 }
 
 .care-guide-copy {
@@ -1413,13 +1497,11 @@ img.cursor-pointer:hover {
 
 @media (max-width: 767px) {
     .care-guide-hero {
-        min-height: 500px;
-        align-items: flex-end;
-        background: linear-gradient(0deg, rgba(251, 244, 242, 1) 0%, rgba(251, 244, 242, 0.92) 48%, rgba(251, 244, 242, 0.2) 100%), url('../images/care-washing.jpg') center 25% / cover no-repeat;
+        min-height: auto;
     }
 
     .care-guide-hero__content {
-        padding: 11rem 0 2.5rem;
+        padding: 4rem 0;
     }
 
     .care-guide-hero h1 {
@@ -1428,19 +1510,6 @@ img.cursor-pointer:hover {
 
     .care-guide-section {
         padding: 4rem 0;
-    }
-
-    .care-guide-layout {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-
-    .care-guide-layout--reverse .care-guide-media {
-        order: 0;
-    }
-
-    .care-guide-media img {
-        aspect-ratio: 4 / 3;
     }
 
     .care-guide-levels,
