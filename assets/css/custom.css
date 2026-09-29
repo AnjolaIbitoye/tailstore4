@@ -2168,6 +2168,11 @@ img.cursor-pointer:hover {
     font-weight: 600;
 }
 
+.product-option-value--color.is-selected {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
 .product-option-swatch {
     width: 0.75rem;
     height: 0.75rem;

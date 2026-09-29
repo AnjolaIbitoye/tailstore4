@@ -439,7 +439,7 @@ function changeImage(element) {
 const PRODUCT_CATALOG = [
   {
     slug: 'stretchy-briefs',
-    name: 'Stretchy Briefs',
+    name: 'High Waist Period Briefs',
     code: 'HAILAFLO-001',
     amazonUrl: 'https://www.amazon.com/s?k=HailaFlo%20Stretchy%20Briefs', // TODO: replace with the real Amazon listing URL
     tiktokUrl: 'https://www.tiktok.com/shop', // TODO: replace with the real TikTok Shop listing URL
@@ -481,29 +481,6 @@ const PRODUCT_CATALOG = [
     longDescription: 'Boxer Shorts provide fuller cut support and dependable absorbency for heavier-flow moments and longer wear windows.',
     highlight1: 'Longer leg design helps prevent shifting and supports secure movement.',
     highlight2: 'High-capacity gusset offers extended absorbency for all-day and overnight use.'
-  },
-  {
-    slug: 'lace-briefs',
-    name: 'Lace Briefs',
-    code: 'HAILAFLO-003',
-    amazonUrl: 'https://www.amazon.com/s?k=HailaFlo%20Lace%20Briefs', // TODO: replace with the real Amazon listing URL
-    tiktokUrl: 'https://www.tiktok.com/shop', // TODO: replace with the real TikTok Shop listing URL
-    category: 'Period Underwear',
-    price: 22.99,
-    comparePrice: 27.99,
-    absorbency: ['Light', 'Regular'],
-    defaultAbsorbency: 'Regular',
-    sizes: ['XS', 'S', 'M', 'L'],
-    defaultSize: 'S',
-    colors: ['Black', 'Grey'],
-    defaultColor: 'Black',
-    image: 'assets/images/products/3.jpg',
-    gallery: ['assets/images/products/3.jpg', 'assets/images/single-product/1.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
-    shortDescription: 'Delicate lace design with hidden absorbency for lighter to regular days.',
-    longTitle: 'Elegant styling meets dependable daily protection.',
-    longDescription: 'Lace Briefs pair a flattering silhouette with discreet absorbent technology so you can feel polished and protected.',
-    highlight1: 'Breathable lace panels balance style with comfort throughout the day.',
-    highlight2: 'Low-profile absorbent core stays invisible under fitted outfits.'
   },
   {
     slug: 'gym-leggings',
@@ -632,6 +609,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get('product') || 'stretchy-briefs';
   const product = PRODUCT_BY_SLUG[slug] || PRODUCT_CATALOG[0];
+  const requestedColor = params.get('color');
+  const selectedColor = product.colors.find(function (color) {
+    return color.toLowerCase() === (requestedColor || product.defaultColor).toLowerCase();
+  }) || product.defaultColor;
 
   const titleEl = document.getElementById('sp-title');
   const codeEl = document.getElementById('sp-code');
@@ -694,7 +675,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const COLOR_HEX = { 'Black': '#1a1a1a', 'Grey': '#9ca3af', 'Gray': '#9ca3af' };
     colorsEl.innerHTML = product.colors.map(function (value) {
       const hex = COLOR_HEX[value] || '#cccccc';
-      return '<span class="product-option-value product-option-value--color"><span class="product-option-swatch" style="background-color:' + hex + '"></span>' + value + '</span>';
+      const selected = value === selectedColor;
+      return '<span class="product-option-value product-option-value--color' + (selected ? ' is-selected' : '') + '" role="img" aria-label="' + value + (selected ? ', selected' : '') + '"><span class="product-option-swatch" style="background-color:' + hex + '"></span></span>';
     }).join('');
   }
   const sizeChartBtn = document.getElementById('open-size-chart');
@@ -868,7 +850,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Light': 'Leicht',
     'Moderate': 'Mittel',
     'Max': 'Maximal',
-    'Stretchy Briefs': 'Dehnbarer Slip',
+    'High Waist Period Briefs': 'Periodenslip mit hoher Taille',
     'Soft, stretchy comfort for everyday wear.': 'Weicher, dehnbarer Komfort für jeden Tag.',
     'Boxer Shorts': 'Boxershorts',
     'Relaxed fit with reliable leak protection.': 'Lockere Passform mit zuverlässigem Auslaufschutz.',
@@ -886,7 +868,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Gentle, high-coverage support for the postpartum weeks.': 'Sanfter Halt mit hoher Abdeckung für die Wochen nach der Geburt.',
     'The HailaFlo Collection': 'Die HailaFlo-Kollektion',
     'Period underwear, activewear & more': 'Periodenunterwäsche, Sportkleidung & mehr',
-    "HailaFlo's collection spans four families — Period Underwear (stretchy briefs, boxer shorts, and lace briefs), HailaFlo Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": 'Die HailaFlo-Kollektion umfasst vier Familien – Periodenunterwäsche (dehnbare Slips, Boxershorts und Spitzenslips), HailaFlo Active (Sport-Leggings, Sport-Shorts und Bademode), Sonstiges (Perioden-Sportkleidung) und Wochenbett-Essentials.',
+    "HailaFlo's collection spans four families - Period Underwear (High Waist Period Briefs and Boxer Shorts), HailaFlo Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": "La collection HailaFlo comprend quatre familles - Culottes menstruelles (culottes taille haute et boxers), HailaFlo Active (leggings, shorts de sport et maillots de bain), Autre (vêtements de sport menstruels) et les essentiels de récupération post-partum.",
     'Browse the collection and pick the style that matches your day — everyday comfort, a workout, or a swim.': 'Stöbere durch die Kollektion und wähle den Stil, der zu deinem Tag passt – Alltagskomfort, Workout oder Schwimmen.',
     'Browse here, purchase on your preferred marketplace.': 'Hier entdecken und auf deinem bevorzugten Marktplatz kaufen.',
     'Current prices, checkout, delivery, and order support are provided by Amazon or TikTok Shop.': 'Aktuelle Preise, Bezahlung, Lieferung und Bestellservice werden von Amazon oder TikTok Shop bereitgestellt.',
@@ -989,7 +971,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Light': 'Léger',
     'Moderate': 'Modéré',
     'Max': 'Maximum',
-    'Stretchy Briefs': 'Culotte extensible',
+    'High Waist Period Briefs': 'Culotte menstruelle taille haute',
     'Soft, stretchy comfort for everyday wear.': 'Confort doux et extensible pour un usage quotidien.',
     'Boxer Shorts': 'Boxer',
     'Relaxed fit with reliable leak protection.': 'Coupe décontractée avec une protection fiable contre les fuites.',
@@ -1007,7 +989,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Gentle, high-coverage support for the postpartum weeks.': 'Soutien doux et couvrant pour les semaines post-partum.',
     'The HailaFlo Collection': 'La collection HailaFlo',
     'Period underwear, activewear & more': 'Culottes menstruelles, vêtements de sport et plus',
-    "HailaFlo's collection spans four families — Period Underwear (stretchy briefs, boxer shorts, and lace briefs), HailaFlo Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": "La collection HailaFlo comprend quatre familles — Culottes menstruelles (culottes extensibles, boxers et culottes en dentelle), HailaFlo Active (leggings, shorts de sport et maillots de bain), Autre (vêtements de sport menstruels) et les essentiels de récupération post-partum.",
+    "HailaFlo's collection spans four families - Period Underwear (High Waist Period Briefs and Boxer Shorts), HailaFlo Active (gym leggings, gym shorts, and swimwear), Other (period activewear), and Postpartum recovery essentials.": "La collection HailaFlo comprend quatre familles - Culottes menstruelles (culottes taille haute et boxers), HailaFlo Active (leggings, shorts de sport et maillots de bain), Autre (vêtements de sport menstruels) et les essentiels de récupération post-partum.",
     'Browse the collection and pick the style that matches your day — everyday comfort, a workout, or a swim.': "Parcourez la collection et choisissez le style qui correspond à votre journée — confort au quotidien, entraînement ou baignade.",
     'Browse here, purchase on your preferred marketplace.': 'Découvrez ici, puis achetez sur la marketplace de votre choix.',
     'Current prices, checkout, delivery, and order support are provided by Amazon or TikTok Shop.': 'Les prix actuels, le paiement, la livraison et le suivi de commande sont fournis par Amazon ou TikTok Shop.',
