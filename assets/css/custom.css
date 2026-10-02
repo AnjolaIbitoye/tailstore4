@@ -16,24 +16,23 @@ a {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
 
-/* Popular products: spread the cards evenly across the row so they stay centered
-   on wide screens instead of clustering to the left in leftover auto-fill tracks. */
+/* Keep the two available period-underwear styles centered on larger screens. */
 #popular-products .product-grid-auto {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 54rem;
+    margin-inline: auto;
 }
 
-/* On mobile, turn the popular-products grid into a horizontal, snap-scrolling row. */
+/* Stack both product cards on mobile so neither is hidden offscreen. */
 @media (width < 640px) {
     #popular-products .product-grid-auto {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 0.5rem;
-    }
-    #popular-products .product-grid-auto > div {
-        flex: 0 0 78%;
-        scroll-snap-align: start;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 24rem;
+        margin-inline: auto;
+        overflow: visible;
+        scroll-snap-type: none;
+        padding-bottom: 0;
     }
 }
 
@@ -65,13 +64,32 @@ a {
     }
 }
 
-/* Shop grid: show two cards per row on mobile instead of one to reduce scrolling. */
+/* Shop grid: keep mobile cards compact and arrange the full collection across desktop. */
 @media (width < 640px) {
     #products-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+@media (width >= 768px) {
+    #filters {
+        flex: 0 0 20%;
+        width: 20%;
+    }
+    #shop-products {
+        flex: 0 0 80%;
+        width: 80%;
+    }
+    #shop #products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (width >= 1024px) {
+    #shop #products-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
 @media (width >= 640px) {
     .sm\:h-48 {
         height: calc(var(--spacing) * 48);
@@ -1363,6 +1381,17 @@ img.cursor-pointer:hover {
     font: var(--fa-font-solid);
 }
 
+.care-guide-first-period-list {
+    display: grid;
+    gap: 0.7rem;
+    margin-top: 1rem;
+}
+
+.care-guide-first-period-list li {
+    padding-left: 0;
+    color: #625b59;
+    line-height: 1.6;
+}
 .care-guide-steps {
     display: grid;
     gap: 1.2rem;
@@ -1655,6 +1684,49 @@ img.cursor-pointer:hover {
     font-size: 0.95rem;
 }
 
+.faq-page-item > .faq-answer {
+    padding: 0 1rem 1rem;
+    overflow-wrap: anywhere;
+}
+
+.faq-page-item > .faq-answer p {
+    margin: 0 0 0.85rem;
+    padding: 0;
+    color: var(--color-gray-txt);
+    line-height: 1.65;
+    font-size: 0.95rem;
+}
+
+.faq-page-item > .faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-page-item > .faq-answer h3 {
+    margin: 1rem 0 0.65rem;
+    padding: 0;
+}
+
+.faq-page-item > ul,
+.faq-page-item > .faq-answer ul {
+    margin: 0 0 0.9rem;
+    padding: 0 1rem 0 2.5rem;
+    list-style: disc;
+    color: var(--color-gray-txt);
+    line-height: 1.6;
+}
+
+.faq-page-item > .faq-answer ul {
+    padding: 0 0.25rem 0 1.25rem;
+}
+
+.faq-page-item li {
+    margin: 0.45rem 0;
+    padding-right: 0.25rem;
+}
+
+.faq-page-item .faq-starter-set {
+    margin-top: 0.25rem;
+}
 .faq-empty-state {
     border: 1px dashed var(--color-gray-line);
     color: var(--color-gray-txt);
@@ -2243,4 +2315,67 @@ img.cursor-pointer:hover {
     .shop-marketplace-notice {
         padding: 0.875rem 1rem;
     }
+}
+.terms-page-content {
+    display: grid;
+    gap: 1.75rem;
+    max-width: 58rem;
+    margin: 0 auto;
+    color: var(--color-gray-dark);
+    line-height: 1.75;
+}
+
+.terms-page-content section {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-gray-line);
+}
+
+.terms-page-content h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    color: var(--color-gray-dark);
+}
+
+.terms-page-content h3 {
+    margin: 1.25rem 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.terms-page-content p {
+    margin-bottom: 0.85rem;
+}
+
+.terms-page-content ul {
+    margin: 0.75rem 0 1rem;
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.terms-page-content li {
+    margin: 0.65rem 0;
+}
+.faq-absorbency-table-wrap {
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.faq-absorbency-table {
+    width: 100%;
+    min-width: 40rem;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.faq-absorbency-table th,
+.faq-absorbency-table td {
+    padding: 0.7rem 0.8rem;
+    border-bottom: 1px solid var(--color-gray-line);
+    vertical-align: top;
+}
+
+.faq-absorbency-table thead th {
+    background-color: #fbf4f2;
+    color: var(--color-gray-dark);
+    font-weight: 700;
 }

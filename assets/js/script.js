@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function () {
       'Phone: ' + phone + '\n\n' +
       message;
 
-    const mailto = 'mailto:info@hailaflo.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    const mailto = 'mailto:support@hailaflo.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     window.location.href = mailto;
 
     if (success) success.classList.remove('hidden');
@@ -452,8 +452,12 @@ const PRODUCT_CATALOG = [
     defaultSize: 'M',
     colors: ['Black', 'Grey'],
     defaultColor: 'Black',
-    image: 'assets/images/products/1.jpg',
-    gallery: ['assets/images/products/1.jpg', 'assets/images/single-product/1.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg'],
+    image: 'assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20black-/1.PNG',
+    gallery: ['assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20black-/1.PNG', 'assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20black-/2.PNG', 'assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20black-/3.PNG', 'assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20black-/4.PNG'],
+    imagesByColor: {
+      Black: ['assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20black-/1.PNG', 'assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20black-/2.PNG', 'assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20black-/3.PNG', 'assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20black-/4.PNG'],
+      Grey: ['assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20grey/1.PNG', 'assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20grey/2.png', 'assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20grey/3.PNG', 'assets/images/HailaFlo%20High%20Waist%20Period%20Briefs%20grey/4.PNG']
+    },
     shortDescription: 'Soft, stretchy comfort for everyday wear with reliable leak protection.',
     longTitle: 'Everyday comfort designed to move with your routine.',
     longDescription: 'Stretchy Briefs combine breathable fabric and absorbent layers for a smooth, secure fit from morning to night.',
@@ -474,8 +478,12 @@ const PRODUCT_CATALOG = [
     defaultSize: 'M',
     colors: ['Black', 'Grey'],
     defaultColor: 'Black',
-    image: 'assets/images/products/2.jpg',
-    gallery: ['assets/images/products/2.jpg', 'assets/images/single-product/2.jpg', 'assets/images/single-product/3.jpg', 'assets/images/single-product/4.jpg', 'assets/images/single-product/5.jpg'],
+    image: 'assets/images/HailaFlo%20Boxer%20Shorts%20black/1.PNG',
+    gallery: ['assets/images/HailaFlo%20Boxer%20Shorts%20black/1.PNG', 'assets/images/HailaFlo%20Boxer%20Shorts%20black/2.PNG', 'assets/images/HailaFlo%20Boxer%20Shorts%20black/3.PNG', 'assets/images/HailaFlo%20Boxer%20Shorts%20black/4.PNG'],
+    imagesByColor: {
+      Black: ['assets/images/HailaFlo%20Boxer%20Shorts%20black/1.PNG', 'assets/images/HailaFlo%20Boxer%20Shorts%20black/2.PNG', 'assets/images/HailaFlo%20Boxer%20Shorts%20black/3.PNG', 'assets/images/HailaFlo%20Boxer%20Shorts%20black/4.PNG'],
+      Grey: ['assets/images/HailaFlo%20Boxer%20Shorts%20grey/1.PNG', 'assets/images/HailaFlo%20Boxer%20Shorts%20grey/2.PNG', 'assets/images/HailaFlo%20Boxer%20Shorts%20grey/3.PNG', 'assets/images/HailaFlo%20Boxer%20Shorts%20grey/4.PNG']
+    },
     shortDescription: 'Relaxed fit with reliable leak protection and wider coverage.',
     longTitle: 'Extended coverage for rest days and overnight confidence.',
     longDescription: 'Boxer Shorts provide fuller cut support and dependable absorbency for heavier-flow moments and longer wear windows.',
@@ -609,11 +617,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get('product') || 'stretchy-briefs';
   const product = PRODUCT_BY_SLUG[slug] || PRODUCT_CATALOG[0];
+  if (product.category !== 'Period Underwear') {
+    window.location.replace('coming-soon.html');
+    return;
+  }
   const requestedColor = params.get('color');
   const selectedColor = product.colors.find(function (color) {
     return color.toLowerCase() === (requestedColor || product.defaultColor).toLowerCase();
   }) || product.defaultColor;
 
+  const selectedGallery = product.imagesByColor?.[selectedColor] || product.gallery;
+  const selectedImage = selectedGallery?.[0] || product.image;
   const titleEl = document.getElementById('sp-title');
   const codeEl = document.getElementById('sp-code');
   const shortDescriptionEl = document.getElementById('sp-short-description');
@@ -643,7 +657,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (highlightText2) highlightText2.textContent = product.highlight2;
 
   if (mainImageEl) {
-    mainImageEl.src = product.image;
+    mainImageEl.src = selectedImage;
     mainImageEl.alt = product.name;
   }
 
@@ -651,13 +665,13 @@ document.addEventListener('DOMContentLoaded', function () {
   if (buyTiktokEl) buyTiktokEl.href = product.tiktokUrl || '#';
 
   if (thumbsEl) {
-    thumbsEl.innerHTML = product.gallery.map(function (img, idx) {
+    thumbsEl.innerHTML = selectedGallery.map(function (img, idx) {
       return '<div><img onclick="changeImage(this)" data-full="' + img + '" src="' + img + '" class="object-cover object-center max-h-30 max-w-full rounded-lg cursor-pointer" alt="' + product.name + ' image ' + (idx + 1) + '"></div>';
     }).join('');
   }
 
-  if (highlightImage1) highlightImage1.src = product.gallery[1] || product.image;
-  if (highlightImage2) highlightImage2.src = product.gallery[2] || product.image;
+  if (highlightImage1) highlightImage1.src = selectedGallery[1] || selectedImage;
+  if (highlightImage2) highlightImage2.src = selectedGallery[2] || selectedImage;
 
   if (absorbencyEl) {
     absorbencyEl.innerHTML = product.absorbency.map(function (value) {
@@ -689,7 +703,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (relatedEl) {
-    const related = PRODUCT_CATALOG.filter(function (item) { return item.slug !== product.slug; }).slice(0, 4);
+    const related = PRODUCT_CATALOG.filter(function (item) { return item.category === 'Period Underwear' && item.slug !== product.slug; }).slice(0, 4);
     relatedEl.innerHTML = related.map(function (item) {
       return '<div class="w-[72%] shrink-0 snap-start px-2 mb-8 sm:w-1/2 sm:shrink sm:px-4 lg:w-1/4">' +
                '<a href="single-product-page.html?product=' + item.slug + '" class="bg-white p-3 block rounded-none overflow-hidden hover-lift hover-zoom">' +
