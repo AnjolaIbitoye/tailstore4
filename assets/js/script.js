@@ -395,30 +395,18 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-/* Help / contact form - opens the user's email app via a mailto: link, no backend needed */
 document.addEventListener('DOMContentLoaded', function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('sent') !== '1') return;
+
   const form = document.getElementById('help-form');
   const success = document.getElementById('help-form-success');
-  if (!form) return;
+  if (!form || !success) return;
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const name = form.querySelector('#help-name').value;
-    const email = form.querySelector('#help-email').value;
-    const phone = form.querySelector('#help-phone').value;
-    const message = form.querySelector('#help-message').value;
-
-    const subject = 'Website contact from ' + name;
-    const body = 'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      'Phone: ' + phone + '\n\n' +
-      message;
-
-    const mailto = 'mailto:support@hailaflo.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    window.location.href = mailto;
-
-    if (success) success.classList.remove('hidden');
-  });
+  form.classList.add('hidden');
+  success.classList.remove('hidden');
+  success.focus();
+  window.history.replaceState({}, document.title, window.location.pathname);
 });
 
 function toggleDropdown(id, show) {
