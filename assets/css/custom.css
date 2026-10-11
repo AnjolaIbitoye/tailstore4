@@ -295,6 +295,15 @@ button:hover {
   cursor: pointer;
 }
 
+header nav a {
+    color: var(--color-burgundy) !important;
+}
+
+#hamburger,
+.mobile-menu-close {
+    color: var(--color-burgundy);
+}
+
 .mobile-menu {
     padding: 2rem;
     display: flex;
@@ -2425,12 +2434,6 @@ img.cursor-pointer:hover {
     color: var(--color-gray-dark);
     font-weight: 700;
 }
-
-
-
-
-
-
 
 
 
