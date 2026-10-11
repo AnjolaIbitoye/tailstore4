@@ -1071,8 +1071,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const desktopActions = document.querySelector('.hidden.lg\\:flex.items-center');
   if (desktopActions) desktopActions.appendChild(makeToggle());
-  const mobileActions = document.querySelector('.mobile-menu .flex.flex-col.mt-6');
-  if (mobileActions) mobileActions.appendChild(makeToggle());
+  const mobileMenuLinks = document.querySelector('.mobile-menu ul');
+  if (mobileMenuLinks) mobileMenuLinks.after(makeToggle());
 
   // Re-apply the current language whenever the cart re-renders dynamic content.
   document.addEventListener('haila:rerender', function () {
