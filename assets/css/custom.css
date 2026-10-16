@@ -32,11 +32,17 @@ a {
         height: 12rem;
     }
 }
-/* Keep the two available period-underwear styles centered on larger screens. */
+/* Keep available period products centered and evenly spaced on larger screens. */
 #popular-products .product-grid-auto {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 54rem;
+    max-width: 70rem;
     margin-inline: auto;
+}
+
+@media (width >= 1024px) {
+    #popular-products .product-grid-auto {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 /* Stack both product cards on mobile so neither is hidden offscreen. */
@@ -1143,6 +1149,7 @@ img.cursor-pointer:hover {
     cursor: pointer;
     position: relative;
     padding: 1rem 3.3rem 1rem 1.1rem;
+    font-family: "Cormorant Garamond", serif;
     font-weight: 700;
     color: var(--color-gray-dark);
     line-height: 1.5;
