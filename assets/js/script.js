@@ -481,7 +481,7 @@ const PRODUCT_CATALOG = [
   },
   {
     slug: 'period-starter-pack',
-    name: 'HailaFlo Period Starter Pack',
+    name: 'Period Starter Pack',
     tiktokUrl: 'https://www.tiktok.com/@hailaflo.ng',
     category: 'Period Underwear',
     absorbency: [],
@@ -491,7 +491,7 @@ const PRODUCT_CATALOG = [
     gallery: ['assets/images/Haila%20_period_kit.png'],
     shortDescription: 'A thoughtfully put-together kit with period underwear and useful care essentials.',
     longTitle: 'A convenient introduction to HailaFlo period care.',
-    longDescription: 'The HailaFlo Period Starter Pack brings together period-care essentials in one convenient kit. Visit TikTok Shop for current pack contents and availability.'
+    longDescription: 'A convenient set of period-care essentials.'
   },
   {
     slug: 'gym-leggings',
@@ -695,11 +695,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const additionalInfoContent = document.getElementById('additional-info-content');
     if (detailsIntroHeading) detailsIntroHeading.textContent = 'A convenient place to start';
     if (specificationGroups?.[0]) {
-      specificationGroups[0].querySelector('h3').textContent = 'Pack details';
-      const detailParagraphs = specificationGroups[0].querySelectorAll('p');
-      detailParagraphs[0].textContent = 'See TikTok Shop for current pack contents and availability.';
-      detailParagraphs[1].hidden = true;
-      detailParagraphs[2].hidden = true;
+      const heading = specificationGroups[0].querySelector('h3');
+      const contentsList = document.createElement('ul');
+      contentsList.className = 'list-disc pl-5 space-y-2';
+      [
+        '1 short',
+        '1 brief',
+        '1 reusable pad',
+        'Plant based washing liquid',
+        'HAILA scrunchie',
+        'Small recycle bag',
+        'HAILA first period guidebook'
+      ].forEach(function (item) {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+        contentsList.appendChild(listItem);
+      });
+      if (heading) heading.textContent = "What's included";
+      specificationGroups[0].replaceChildren(...(heading ? [heading, contentsList] : [contentsList]));
     }
     if (specificationGroups?.[1]) specificationGroups[1].hidden = true;
     if (additionalInfoTab) additionalInfoTab.hidden = true;
@@ -1421,9 +1434,23 @@ document.addEventListener('DOMContentLoaded', function () {
       "Performance support engineered for active cycle days.": "Leistungsunterstützung speziell für Tage mit aktivem Zyklus.",
       "Period": "Zeitraum",
       "HailaFlo Period Starter Pack": "HailaFlo Perioden-Starterpaket",
+      "Period Starter Pack": "Perioden-Starterpaket",
+      "HailaFlo | Period Starter Pack": "HailaFlo | Perioden-Starterpaket",
       "A thoughtfully put-together kit with period underwear and useful care essentials.": "Ein sorgfältig zusammengestelltes Set mit Periodenunterwäsche und praktischen Pflege-Essentials.",
       "Explore on TikTok": "Auf TikTok ansehen",
       "Explore HailaFlo Period Starter Pack on TikTok": "HailaFlo Perioden-Starterpaket auf TikTok ansehen",
+      "A convenient introduction to HailaFlo period care.": "Ein bequemer Einstieg in die Periodenpflege von HailaFlo.",
+      "A convenient place to start": "Ein bequemer Einstieg",
+      "Pack details": "Details zum Set",
+      "A convenient set of period-care essentials.": "Ein praktisches Set mit Periodenpflege-Essentials.",
+      "What's included": "Das ist enthalten",
+      "1 short": "1 Short",
+      "1 brief": "1 Slip",
+      "1 reusable pad": "1 wiederverwendbare Binde",
+      "Plant based washing liquid": "Pflanzenbasiertes Waschmittel",
+      "HAILA scrunchie": "HAILA-Haargummi",
+      "Small recycle bag": "Kleiner Recyclingbeutel",
+      "HAILA first period guidebook": "HAILA-Ratgeber zur ersten Periode",
       "Period Activewear bridges lifestyle and performance with reliable absorbency and stretch-first comfort.": "Period Activewear verbindet Lifestyle und Leistung mit zuverlässiger Saugfähigkeit und Stretch-First-Komfort.",
       "Phone number": "Telefonnummer",
       "Pick based on your heaviest flow day. Light is ideal for spotting, Regular for everyday use, and Heavy or Super Heavy for overnight or high-flow days.": "Wählen Sie basierend auf Ihrem Tag mit dem stärksten Blutfluss. „Light“ ist ideal zum Spotting, „Regular“ für den täglichen Gebrauch und „Heavy“ oder „Super Heavy“ für die Nacht oder an Tagen mit hohem Blutfluss.",
@@ -2047,9 +2074,23 @@ document.addEventListener('DOMContentLoaded', function () {
       "Performance support engineered for active cycle days.": "Support de performance conçu pour les jours de cycle actif.",
       "Period": "Période",
       "HailaFlo Period Starter Pack": "Kit pour les premières règles HailaFlo",
+      "Period Starter Pack": "Kit de démarrage menstruel",
+      "HailaFlo | Period Starter Pack": "HailaFlo | Kit de démarrage menstruel",
       "A thoughtfully put-together kit with period underwear and useful care essentials.": "Un kit soigneusement composé de sous-vêtements menstruels et d’accessoires de soin pratiques.",
       "Explore on TikTok": "Découvrir sur TikTok",
       "Explore HailaFlo Period Starter Pack on TikTok": "Découvrir le kit pour les premières règles HailaFlo sur TikTok",
+      "A convenient introduction to HailaFlo period care.": "Une façon pratique de découvrir les protections menstruelles HailaFlo.",
+      "A convenient place to start": "Un bon point de départ",
+      "Pack details": "Détails du kit",
+      "A convenient set of period-care essentials.": "Un ensemble pratique d’essentiels pour les règles.",
+      "What's included": "Contenu du kit",
+      "1 short": "1 short",
+      "1 brief": "1 culotte",
+      "1 reusable pad": "1 serviette réutilisable",
+      "Plant based washing liquid": "Liquide de lavage à base de plantes",
+      "HAILA scrunchie": "Chouchou HAILA",
+      "Small recycle bag": "Petit sac de recyclage",
+      "HAILA first period guidebook": "Guide HAILA des premières règles",
       "Period Activewear bridges lifestyle and performance with reliable absorbency and stretch-first comfort.": "Period Activewear allie style de vie et performance avec une absorption fiable et un confort extensible.",
       "Phone number": "Numéro de téléphone",
       "Pick based on your heaviest flow day. Light is ideal for spotting, Regular for everyday use, and Heavy or Super Heavy for overnight or high-flow days.": "Choisissez en fonction de votre jour de flux le plus abondant. Light est idéal pour le repérage, Regular pour un usage quotidien et Heavy ou Super Heavy pour la nuit ou les jours à fort débit.",
