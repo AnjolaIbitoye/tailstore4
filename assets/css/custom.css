@@ -27,6 +27,10 @@ a {
     object-position: center 80%;
 }
 
+#popular-products .category-caption__title {
+    font-weight: 400;
+}
+
 @media (width >= 640px) {
     #popular-products .homepage-product-image {
         height: 12rem;
@@ -1825,7 +1829,7 @@ img.cursor-pointer:hover {
     list-style: none;
     position: relative;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 400;
     color: var(--color-gray-dark);
     line-height: 1.5;
     padding: 1rem 3.2rem 1rem 1rem;
@@ -1902,6 +1906,15 @@ img.cursor-pointer:hover {
 .faq-page-item li {
     margin: 0.45rem 0;
     padding-right: 0.25rem;
+}
+
+.faq-page-item p strong,
+.faq-page-item p b,
+.faq-page-item li strong,
+.faq-page-item li b,
+.faq-page-item .faq-answer h3,
+.faq-page-item .faq-answer th {
+    font-weight: 400;
 }
 
 .faq-page-item .faq-starter-set {
